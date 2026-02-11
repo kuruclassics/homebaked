@@ -1,12 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { UtensilsCrossed, Building2, Stethoscope, HardHat, Scale } from "lucide-react";
-import RestaurantMockup from "./mockups/RestaurantMockup";
-import RealEstateMockup from "./mockups/RealEstateMockup";
-import HealthcareMockup from "./mockups/HealthcareMockup";
-import ConstructionMockup from "./mockups/ConstructionMockup";
-import LegalMockup from "./mockups/LegalMockup";
 
 const projects = [
   {
@@ -22,7 +18,7 @@ const projects = [
       { label: "Locations", value: "3" },
     ],
     color: "#f59e0b",
-    Mockup: RestaurantMockup,
+    image: "/mockup-orderflow.png",
   },
   {
     industry: "Real Estate",
@@ -37,7 +33,7 @@ const projects = [
       { label: "Collection Rate", value: "98%" },
     ],
     color: "#3b82f6",
-    Mockup: RealEstateMockup,
+    image: "/mockup-proppulse.png",
   },
   {
     industry: "Healthcare",
@@ -52,7 +48,7 @@ const projects = [
       { label: "Patient NPS", value: "92" },
     ],
     color: "#10b981",
-    Mockup: HealthcareMockup,
+    image: "/mockup-intakeiq.png",
   },
   {
     industry: "Construction & Trades",
@@ -67,7 +63,7 @@ const projects = [
       { label: "Active Jobs", value: "18" },
     ],
     color: "#f97316",
-    Mockup: ConstructionMockup,
+    image: "/mockup-sitebook.png",
   },
   {
     industry: "Legal Services",
@@ -82,7 +78,7 @@ const projects = [
       { label: "Active Matters", value: "24" },
     ],
     color: "#8b5cf6",
-    Mockup: LegalMockup,
+    image: "/mockup-casevault.png",
   },
 ];
 
@@ -161,7 +157,7 @@ export default function Showcase() {
                   <div className="w-full lg:w-1/2" />
                 </div>
 
-                {/* Full-width mockup */}
+                {/* Full-width mockup image */}
                 <motion.div
                   whileHover={{ scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -183,9 +179,16 @@ export default function Showcase() {
                       </div>
                     </div>
                   </div>
-                  {/* App content */}
-                  <div className="aspect-[16/9] relative overflow-hidden">
-                    <project.Mockup />
+                  {/* Screenshot */}
+                  <div className="relative w-full">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} - ${project.industry} dashboard`}
+                      width={1920}
+                      height={1080}
+                      className="w-full h-auto"
+                      quality={90}
+                    />
                   </div>
                   {/* Shine overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent pointer-events-none" />
