@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Services from "@/components/Services";
+import Showcase from "@/components/Showcase";
 import WhyHomeBaked from "@/components/WhyHomeBaked";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <Services />
+      <Showcase />
       <WhyHomeBaked />
       <Testimonials />
       <Pricing />
