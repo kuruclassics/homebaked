@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 const projects = [
   {
@@ -77,111 +77,225 @@ const projects = [
   },
 ];
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"],
-  });
-  const imgY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-      className="relative"
-    >
-      {/* Full-width card */}
-      <div className="rounded-3xl overflow-hidden bg-white border border-charcoal/5 shadow-xl shadow-charcoal/5 hover:shadow-2xl hover:shadow-charcoal/8 transition-shadow duration-500">
-        {/* Image section with parallax */}
-        <div className="relative overflow-hidden" style={{ height: "clamp(300px, 40vw, 500px)" }}>
-          <motion.div style={{ y: imgY }} className="absolute inset-[-30px]">
-            <Image
-              src={project.image}
-              alt={`${project.title} - ${project.industry} dashboard`}
-              fill
-              className="object-cover"
-              quality={90}
-            />
-          </motion.div>
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-          {/* Industry badge */}
-          <div className="absolute top-6 left-6">
-            <span
-              className="px-4 py-1.5 rounded-full text-xs font-medium text-white backdrop-blur-md"
-              style={{ backgroundColor: `${project.color}CC` }}
-            >
-              {project.industry}
-            </span>
-          </div>
-          {/* Index number */}
-          <div className="absolute top-6 right-6 text-6xl font-bold opacity-20 text-white" style={{ fontFamily: "var(--font-serif)" }}>
-            0{index + 1}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-8 md:p-10">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-charcoal mb-1" style={{ fontFamily: "var(--font-serif)" }}>{project.title}</h3>
-              <p className="text-warm-gray-light text-sm mb-4">Built for {project.client}</p>
-              <p className="text-warm-gray leading-relaxed max-w-xl">{project.description}</p>
-            </div>
-
-            {/* Stats */}
-            <div className="flex md:flex-col gap-6 md:gap-4 md:text-right shrink-0">
-              {project.stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-bold text-charcoal">{stat.value}</div>
-                  <div className="text-warm-gray-light text-xs uppercase tracking-wider">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 export default function Showcase() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+    
+    // Determine active card based on scroll position
+    const cardWidth = el.clientWidth * 0.75;
+    const gap = 24;
+    const idx = Math.round(el.scrollLeft / (cardWidth + gap));
+    setActiveIndex(Math.min(idx, projects.length - 1));
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
+    return () => el.removeEventListener("scroll", updateScrollState);
+  }, [updateScrollState]);
+
+  const scrollTo = (direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.clientWidth * 0.75 + 24;
+    el.scrollBy({ left: direction === "right" ? cardWidth : -cardWidth, behavior: "smooth" });
+  };
+
+  const scrollToIndex = (idx: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.clientWidth * 0.75 + 24;
+    el.scrollTo({ left: idx * cardWidth, behavior: "smooth" });
+  };
+
   return (
-    <section className="relative py-32 px-6">
+    <section className="relative py-32 overflow-hidden">
       {/* Section number watermark */}
       <div className="absolute top-16 left-8 section-number">03</div>
 
-      <div className="max-w-6xl mx-auto">
+      {/* Header */}
+      <div className="px-6 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
         >
-          <span className="text-honey text-sm font-medium tracking-widest uppercase mb-4 block">
-            Our Work
-          </span>
-          <h2 className="text-4xl md:text-5xl text-charcoal mb-6" style={{ fontFamily: "var(--font-serif)" }}>
-            Built for businesses{" "}
-            <span className="gradient-text italic">like yours</span>
-          </h2>
-          <p className="text-warm-gray text-lg max-w-2xl mx-auto">
-            Every tool we build solves a real problem. Here&apos;s a look at what we&apos;ve
-            delivered for businesses across industries.
-          </p>
-        </motion.div>
+          <div>
+            <span className="text-honey text-sm font-medium tracking-widest uppercase mb-4 block">
+              Our Work
+            </span>
+            <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+              Built for businesses{" "}
+              <span className="gradient-text italic">like yours</span>
+            </h2>
+            <p className="text-warm-gray text-lg max-w-xl mt-4">
+              Every tool we build solves a real problem. Swipe through our portfolio.
+            </p>
+          </div>
 
-        <div className="space-y-16">
+          {/* Navigation arrows */}
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={() => scrollTo("left")}
+              disabled={!canScrollLeft}
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                canScrollLeft
+                  ? "border-charcoal/20 text-charcoal hover:bg-charcoal hover:text-white hover:border-charcoal cursor-pointer"
+                  : "border-charcoal/8 text-charcoal/20 cursor-not-allowed"
+              }`}
+              aria-label="Previous project"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M12 4L6 10L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={() => scrollTo("right")}
+              disabled={!canScrollRight}
+              className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+                canScrollRight
+                  ? "border-charcoal/20 text-charcoal hover:bg-charcoal hover:text-white hover:border-charcoal cursor-pointer"
+                  : "border-charcoal/8 text-charcoal/20 cursor-not-allowed"
+              }`}
+              aria-label="Next project"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M8 4L14 10L8 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <span className="text-sm text-warm-gray-light ml-2 font-medium tabular-nums">
+              {String(activeIndex + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+            </span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Horizontal scroll carousel */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto px-6 pb-4 snap-x snap-mandatory scrollbar-hide"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            paddingLeft: "max(1.5rem, calc((100vw - 72rem) / 2 + 1.5rem))",
+            paddingRight: "2rem",
+          }}
+        >
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <div
+              key={project.title}
+              className="shrink-0 snap-start"
+              style={{ width: "min(75vw, 640px)" }}
+            >
+              <div
+                className="rounded-2xl overflow-hidden bg-white border border-charcoal/5 shadow-lg hover:shadow-xl transition-all duration-500 group h-full flex flex-col"
+                style={{ boxShadow: `0 4px 30px ${project.color}10` }}
+              >
+                {/* Browser chrome + image */}
+                <div className="relative overflow-hidden" style={{ height: "280px" }}>
+                  {/* Browser bar */}
+                  <div className="absolute top-0 left-0 right-0 z-10 h-8 bg-gradient-to-b from-black/40 to-transparent flex items-center px-3 gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
+                    <div className="flex-1 mx-4">
+                      <div className="h-4 bg-white/10 rounded-md max-w-[200px] mx-auto flex items-center justify-center text-[9px] text-white/50">
+                        app.{project.title.toLowerCase()}.io
+                      </div>
+                    </div>
+                  </div>
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} dashboard`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    quality={85}
+                  />
+                  {/* Industry badge */}
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <span
+                      className="px-3 py-1 rounded-full text-[11px] font-semibold text-white backdrop-blur-md"
+                      style={{ backgroundColor: `${project.color}DD` }}
+                    >
+                      {project.industry}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                      <h3
+                        className="text-2xl font-bold text-charcoal"
+                        style={{ fontFamily: "var(--font-serif)" }}
+                      >
+                        {project.title}
+                      </h3>
+                      <p className="text-warm-gray-light text-xs mt-0.5">
+                        Built for {project.client}
+                      </p>
+                    </div>
+                    <span className="text-4xl font-bold text-charcoal/5 shrink-0" style={{ fontFamily: "var(--font-serif)" }}>
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <p className="text-warm-gray text-sm leading-relaxed flex-1">
+                    {project.description}
+                  </p>
+
+                  {/* Stats row */}
+                  <div className="flex gap-6 mt-5 pt-5 border-t border-charcoal/5">
+                    {project.stats.map((stat) => (
+                      <div key={stat.label}>
+                        <div className="text-lg font-bold text-charcoal">{stat.value}</div>
+                        <div className="text-warm-gray-light text-[10px] uppercase tracking-wider">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
-      </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-8">
+          {projects.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToIndex(idx)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                idx === activeIndex
+                  ? "w-8 bg-honey"
+                  : "w-2 bg-charcoal/10 hover:bg-charcoal/20"
+              }`}
+              aria-label={`Go to project ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
