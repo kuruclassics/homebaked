@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { UtensilsCrossed, Building2, Stethoscope, HardHat, Scale } from "lucide-react";
+import { useRef } from "react";
 
 const projects = [
   {
     industry: "Restaurant & Hospitality",
-    icon: UtensilsCrossed,
     title: "OrderFlow",
     client: "Casa Bella Restaurant Group",
     description:
@@ -17,12 +16,11 @@ const projects = [
       { label: "Order Accuracy", value: "99.2%" },
       { label: "Locations", value: "3" },
     ],
-    color: "#f59e0b",
+    color: "#D4850F",
     image: "/mockup-orderflow.png",
   },
   {
     industry: "Real Estate",
-    icon: Building2,
     title: "PropPulse",
     client: "Greenfield Property Management",
     description:
@@ -37,7 +35,6 @@ const projects = [
   },
   {
     industry: "Healthcare",
-    icon: Stethoscope,
     title: "IntakeIQ",
     client: "Lakeside Dental Clinic",
     description:
@@ -52,7 +49,6 @@ const projects = [
   },
   {
     industry: "Construction & Trades",
-    icon: HardHat,
     title: "SiteBook",
     client: "Morrison Contracting Ltd.",
     description:
@@ -67,7 +63,6 @@ const projects = [
   },
   {
     industry: "Legal Services",
-    icon: Scale,
     title: "CaseVault",
     client: "Patel & Associates LLP",
     description:
@@ -82,10 +77,85 @@ const projects = [
   },
 ];
 
+function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"],
+  });
+  const imgY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+      className="relative"
+    >
+      {/* Full-width card */}
+      <div className="rounded-3xl overflow-hidden bg-white border border-charcoal/5 shadow-xl shadow-charcoal/5 hover:shadow-2xl hover:shadow-charcoal/8 transition-shadow duration-500">
+        {/* Image section with parallax */}
+        <div className="relative overflow-hidden" style={{ height: "clamp(300px, 40vw, 500px)" }}>
+          <motion.div style={{ y: imgY }} className="absolute inset-[-30px]">
+            <Image
+              src={project.image}
+              alt={`${project.title} - ${project.industry} dashboard`}
+              fill
+              className="object-cover"
+              quality={90}
+            />
+          </motion.div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+          {/* Industry badge */}
+          <div className="absolute top-6 left-6">
+            <span
+              className="px-4 py-1.5 rounded-full text-xs font-medium text-white backdrop-blur-md"
+              style={{ backgroundColor: `${project.color}CC` }}
+            >
+              {project.industry}
+            </span>
+          </div>
+          {/* Index number */}
+          <div className="absolute top-6 right-6 text-6xl font-bold opacity-20 text-white" style={{ fontFamily: "var(--font-serif)" }}>
+            0{index + 1}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8 md:p-10">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold text-charcoal mb-1" style={{ fontFamily: "var(--font-serif)" }}>{project.title}</h3>
+              <p className="text-warm-gray-light text-sm mb-4">Built for {project.client}</p>
+              <p className="text-warm-gray leading-relaxed max-w-xl">{project.description}</p>
+            </div>
+
+            {/* Stats */}
+            <div className="flex md:flex-col gap-6 md:gap-4 md:text-right shrink-0">
+              {project.stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-2xl font-bold text-charcoal">{stat.value}</div>
+                  <div className="text-warm-gray-light text-xs uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Showcase() {
   return (
     <section className="relative py-32 px-6">
-      <div className="max-w-7xl mx-auto">
+      {/* Section number watermark */}
+      <div className="absolute top-16 left-8 section-number">03</div>
+
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,109 +163,23 @@ export default function Showcase() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <span className="text-amber-400 text-sm font-medium tracking-widest uppercase mb-4 block">
+          <span className="text-honey text-sm font-medium tracking-widest uppercase mb-4 block">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl text-charcoal mb-6" style={{ fontFamily: "var(--font-serif)" }}>
             Built for businesses{" "}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-              like yours
-            </span>
+            <span className="gradient-text italic">like yours</span>
           </h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+          <p className="text-warm-gray text-lg max-w-2xl mx-auto">
             Every tool we build solves a real problem. Here&apos;s a look at what we&apos;ve
             delivered for businesses across industries.
           </p>
         </motion.div>
 
-        <div className="space-y-32">
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
-              >
-                {/* Info row */}
-                <div className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 items-center mb-8`}>
-                  <div className="w-full lg:w-1/2 space-y-5">
-                    <motion.div
-                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                      <div className="flex items-center gap-3 mb-4">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{ backgroundColor: `${project.color}15`, border: `1px solid ${project.color}30` }}
-                        >
-                          <project.icon size={20} style={{ color: project.color }} />
-                        </div>
-                        <span className="text-zinc-500 text-sm font-medium">{project.industry}</span>
-                      </div>
-                      <h3 className="text-3xl font-bold text-white mb-1">{project.title}</h3>
-                      <p className="text-zinc-500 text-sm mb-4">Built for {project.client}</p>
-                      <p className="text-zinc-300 text-base leading-relaxed mb-6">
-                        {project.description}
-                      </p>
-                      {/* Stats */}
-                      <div className="flex gap-6">
-                        {project.stats.map((stat) => (
-                          <div key={stat.label}>
-                            <div className="text-xl font-bold text-white">{stat.value}</div>
-                            <div className="text-zinc-500 text-xs">{stat.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="w-full lg:w-1/2" />
-                </div>
-
-                {/* Full-width mockup image */}
-                <motion.div
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-                  style={{
-                    boxShadow: `0 0 120px -30px ${project.color}15, 0 25px 50px -12px rgba(0,0,0,0.5)`,
-                  }}
-                >
-                  {/* Browser chrome */}
-                  <div className="h-8 bg-[#1e1e1e] border-b border-white/5 flex items-center px-3 gap-2">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-                    </div>
-                    <div className="flex-1 mx-8">
-                      <div className="h-5 bg-white/5 rounded-md flex items-center px-3 text-[10px] text-zinc-500 max-w-md mx-auto">
-                        <span className="text-green-400 mr-1">🔒</span> app.{project.title.toLowerCase()}.io
-                      </div>
-                    </div>
-                  </div>
-                  {/* Screenshot */}
-                  <div className="relative w-full">
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} - ${project.industry} dashboard`}
-                      width={1920}
-                      height={1080}
-                      className="w-full h-auto"
-                      quality={90}
-                    />
-                  </div>
-                  {/* Shine overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent pointer-events-none" />
-                </motion.div>
-              </motion.div>
-            );
-          })}
+        <div className="space-y-16">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>

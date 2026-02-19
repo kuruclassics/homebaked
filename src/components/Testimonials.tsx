@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -28,13 +27,14 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 export default function Testimonials() {
   return (
     <section className="py-32 px-6 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+      {/* Section number watermark */}
+      <div className="absolute top-16 left-8 section-number">05</div>
 
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -44,14 +44,14 @@ export default function Testimonials() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <p className="text-amber-500 text-sm font-medium tracking-widest uppercase mb-4">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Loved by <span className="gradient-text">business owners</span>
+          <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">Testimonials</p>
+          <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+            Loved by <span className="gradient-text italic">business owners</span>
           </h2>
         </motion.div>
 
         <motion.div
-          variants={containerVariants as any}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -60,28 +60,40 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              variants={cardVariants as any}
+              variants={cardVariants}
               whileHover={{ y: -5 }}
-              className="glass-card p-7 flex flex-col"
+              className="p-8 rounded-2xl bg-white border border-charcoal/5 flex flex-col shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="flex gap-1 mb-4">
+              {/* Stars — custom SVG */}
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-amber-500 fill-amber-500" />
+                  <svg key={j} width="16" height="16" viewBox="0 0 16 16" fill="#D4850F">
+                    <path d="M8 1l2.2 4.4L15 6.3l-3.5 3.4.8 4.9L8 12.4 3.7 14.6l.8-4.9L1 6.3l4.8-.9L8 1z"/>
+                  </svg>
                 ))}
               </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-6 flex-1">&ldquo;{t.quote}&rdquo;</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500/30 to-orange-600/20 flex items-center justify-center text-amber-400 font-semibold text-sm">
+              {/* Quote mark */}
+              <div className="text-5xl text-honey/15 leading-none mb-2" style={{ fontFamily: "var(--font-serif)" }}>&ldquo;</div>
+              <p className="text-warm-gray text-sm leading-relaxed mb-6 flex-1">{t.quote}</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-charcoal/5">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-honey/20 to-honey-dark/10 flex items-center justify-center text-honey-dark font-semibold text-sm" style={{ fontFamily: "var(--font-serif)" }}>
                   {t.name.split(" ").map(n => n[0]).join("")}
                 </div>
                 <div>
-                  <p className="text-white text-sm font-medium">{t.name}</p>
-                  <p className="text-white/35 text-xs">{t.role}</p>
+                  <p className="text-charcoal text-sm font-medium">{t.name}</p>
+                  <p className="text-warm-gray-light text-xs">{t.role}</p>
                 </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Wave divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none" className="w-full h-[50px]">
+          <path d="M0 20C360 60 720 0 1080 40C1260 55 1380 30 1440 20V80H0V20Z" fill="#EDE9E3"/>
+        </svg>
       </div>
     </section>
   );
