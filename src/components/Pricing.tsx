@@ -87,15 +87,40 @@ export default function Pricing() {
                 </div>
 
                 <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, j) => (
-                    <li key={j} className={`flex items-center gap-3 text-sm ${isActive ? "text-white/70" : "text-warm-gray"}`}>
-                      {/* Custom check SVG */}
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
-                        <path d="M3 8L6.5 11.5L13 4.5" stroke={isActive ? "#E8A435" : "#D4850F"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
+                  {plan.features.map((feature, j) => {
+                    const isWebsite = feature.toLowerCase().includes("company website");
+                    return (
+                      <li key={j} className={`flex items-center gap-3 text-sm ${
+                        isWebsite
+                          ? isActive
+                            ? "text-white font-semibold"
+                            : "text-charcoal font-semibold"
+                          : isActive ? "text-white/70" : "text-warm-gray"
+                      }`}>
+                        {isWebsite ? (
+                          <span className={`shrink-0 flex items-center justify-center w-5 h-5 rounded-md ${
+                            isActive ? "bg-honey/30" : "bg-honey/15"
+                          }`}>
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                              <circle cx="7" cy="7" r="5.5" stroke="#D4850F" strokeWidth="1.5"/>
+                              <path d="M1.5 7H12.5M7 1.5C8.5 3.5 9 5.2 9 7C9 8.8 8.5 10.5 7 12.5M7 1.5C5.5 3.5 5 5.2 5 7C5 8.8 5.5 10.5 7 12.5" stroke="#D4850F" strokeWidth="1.2" strokeLinecap="round"/>
+                            </svg>
+                          </span>
+                        ) : (
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0">
+                            <path d="M3 8L6.5 11.5L13 4.5" stroke={isActive ? "#E8A435" : "#D4850F"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                        {isWebsite && feature.includes("$499") ? (
+                          <span>{feature.replace("$499", "")} <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                            isActive ? "bg-honey/25 text-honey" : "bg-honey/10 text-honey-dark"
+                          }`}>+$499</span></span>
+                        ) : isWebsite ? (
+                          <span>{feature} <span className={`ml-1 text-[10px] ${isActive ? "text-honey" : "text-honey-dark"}`}>✦ FREE</span></span>
+                        ) : feature}
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <motion.button
