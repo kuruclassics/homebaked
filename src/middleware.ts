@@ -18,8 +18,10 @@ export async function middleware(request: NextRequest) {
   }
 
   const token = request.cookies.get(SESSION_COOKIE)?.value;
+  const isApi = pathname.startsWith('/api/');
 
   if (!token) {
+    if (isApi) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     return NextResponse.redirect(new URL('/dashboard/login', request.url));
   }
 
@@ -27,6 +29,7 @@ export async function middleware(request: NextRequest) {
     await jwtVerify(token, getSecret());
     return NextResponse.next();
   } catch {
+    if (isApi) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     return NextResponse.redirect(new URL('/dashboard/login', request.url));
   }
 }

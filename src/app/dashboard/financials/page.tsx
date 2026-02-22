@@ -38,8 +38,8 @@ export default function FinancialsPage() {
   const [recentEntries, setRecentEntries] = useState<FinancialEntry[]>([]);
 
   useEffect(() => {
-    fetch('/api/dashboard/stats').then((r) => r.json()).then(setStats);
-    fetch('/api/dashboard/financial-entries').then((r) => r.json()).then(setRecentEntries);
+    fetch('/api/dashboard/stats').then((r) => r.ok ? r.json() : null).then((d) => { if (d) setStats(d); });
+    fetch('/api/dashboard/financial-entries').then((r) => r.ok ? r.json() : []).then(setRecentEntries);
   }, []);
 
   if (!stats) return <div className="text-warm-gray">Loading...</div>;

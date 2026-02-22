@@ -35,7 +35,10 @@ export default function DashboardOverview() {
   const [stats, setStats] = useState<Stats | null>(null);
 
   useEffect(() => {
-    fetch('/api/dashboard/stats').then((r) => r.json()).then(setStats);
+    fetch('/api/dashboard/stats').then((r) => {
+      if (!r.ok) return null;
+      return r.json();
+    }).then((data) => { if (data) setStats(data); });
   }, []);
 
   if (!stats) {

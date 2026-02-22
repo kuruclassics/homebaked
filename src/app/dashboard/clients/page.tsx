@@ -27,6 +27,7 @@ export default function ClientsPage() {
 
   const fetchClients = useCallback(async () => {
     const res = await fetch('/api/dashboard/clients');
+    if (!res.ok) return;
     setClients(await res.json());
   }, []);
 

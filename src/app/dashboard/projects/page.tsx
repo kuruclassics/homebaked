@@ -41,11 +41,13 @@ export default function ProjectsPage() {
 
   const fetchProjects = useCallback(async () => {
     const res = await fetch('/api/dashboard/projects');
+    if (!res.ok) return;
     setProjects(await res.json());
   }, []);
 
   const fetchClients = useCallback(async () => {
     const res = await fetch('/api/dashboard/clients');
+    if (!res.ok) return;
     const data = await res.json();
     setClientOptions(data.map((c: ClientOption) => ({ id: c.id, name: c.name })));
   }, []);

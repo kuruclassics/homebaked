@@ -68,11 +68,13 @@ export default function ProjectDetailPage() {
 
   const fetchTime = useCallback(async () => {
     const res = await fetch(`/api/dashboard/time-entries?projectId=${id}`);
+    if (!res.ok) return;
     setTimeEntries(await res.json());
   }, [id]);
 
   const fetchFinancials = useCallback(async () => {
     const res = await fetch(`/api/dashboard/financial-entries?projectId=${id}`);
+    if (!res.ok) return;
     setFinancialEntries(await res.json());
   }, [id]);
 
