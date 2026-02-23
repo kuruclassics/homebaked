@@ -31,11 +31,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Match project by name or GitHub repo URL folder
+    // Normalize by stripping non-alphanumeric chars so "SWilson" matches "S. Wilson Invoice Maker"
     const allProjects = await db.select().from(projects);
     const normalizedName = projectName.toLowerCase();
+    const alphaName = normalizedName.replace(/[^a-z0-9]/g, '');
     const matched = allProjects.find((p) => {
-      if (p.name.toLowerCase().includes(normalizedName)) return true;
-      if (normalizedName.includes(p.name.toLowerCase())) return true;
+      const pName = p.name.toLowerCase();
+      const pAlpha = pName.replace(/[^a-z0-9]/g, '');
+      if (pName.includes(normalizedName)) return true;
+      if (normalizedName.includes(pName)) return true;
+      if (pAlpha.includes(alphaName)) return true;
+      if (alphaName.includes(pAlpha)) return true;
       if (p.githubRepoUrl) {
         const repoFolder = p.githubRepoUrl.split('/').pop()?.toLowerCase() ?? '';
         if (repoFolder === normalizedName || normalizedName.includes(repoFolder)) return true;
