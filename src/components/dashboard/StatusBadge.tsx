@@ -11,6 +11,9 @@ const statusColors: Record<string, string> = {
   overdue: 'bg-red-50 text-red-600 border-red-200',
   invoice: 'bg-blue-50 text-blue-700 border-blue-200',
   payment: 'bg-green-50 text-green-700 border-green-200',
+  claude_session: 'bg-orange-50 text-orange-700 border-orange-200',
+  git_auto: 'bg-green-50 text-green-700 border-green-200',
+  manual: 'bg-honey/10 text-honey-dark border-honey/20',
 };
 
 export default function StatusBadge({ status }: { status: string }) {

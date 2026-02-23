@@ -46,7 +46,7 @@ export default function TimeEntryTable({ entries, onDelete }: TimeEntryTableProp
                 <tr key={entry.id} className="border-b border-cream-dark last:border-0">
                   <td className="px-4 py-3 text-charcoal">{entry.date}</td>
                   <td className="px-4 py-3 font-medium text-charcoal">{entry.hours}h</td>
-                  <td className="px-4 py-3"><StatusBadge status={entry.source === 'git_auto' ? 'active' : 'lead'} /></td>
+                  <td className="px-4 py-3"><StatusBadge status={entry.source} /></td>
                   <td className="px-4 py-3 text-warm-gray max-w-xs truncate">{entry.notes ?? '—'}</td>
                   <td className="px-4 py-3">
                     <button

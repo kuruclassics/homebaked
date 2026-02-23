@@ -12,8 +12,8 @@ function getSecret() {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip login page
-  if (pathname === '/dashboard/login') {
+  // Skip login page and API-key-authenticated endpoints
+  if (pathname === '/dashboard/login' || pathname === '/api/dashboard/sessions/sync') {
     return NextResponse.next();
   }
 

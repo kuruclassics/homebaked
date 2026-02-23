@@ -32,7 +32,7 @@ export const timeEntries = sqliteTable('time_entries', {
   projectId: integer('project_id').references(() => projects.id, { onDelete: 'cascade' }).notNull(),
   date: text('date').notNull(),
   hours: real('hours').notNull(),
-  source: text('source', { enum: ['git_auto', 'manual'] }).default('manual').notNull(),
+  source: text('source', { enum: ['git_auto', 'manual', 'claude_session'] }).default('manual').notNull(),
   commitHash: text('commit_hash'),
   sessionId: text('session_id'),
   notes: text('notes'),
