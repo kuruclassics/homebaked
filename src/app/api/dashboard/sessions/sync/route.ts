@@ -48,14 +48,22 @@ export async function POST(request: NextRequest) {
       continue;
     }
 
-    // Check for existing entry with this sessionId (dedup)
+    // Check for existing entry with this sessionId (upsert)
     const existing = await db
       .select()
       .from(timeEntries)
       .where(and(eq(timeEntries.sessionId, sessionId), eq(timeEntries.source, 'claude_session')));
 
     if (existing.length > 0) {
-      results.push({ sessionId, status: 'duplicate', projectId: matched.id });
+      // Update hours/notes to latest values
+      await db
+        .update(timeEntries)
+        .set({
+          hours: Math.round(hours * 100) / 100,
+          notes: `Claude Code session: ${messageCount} messages, ${new Date(startTime).toLocaleTimeString()} – ${new Date(endTime).toLocaleTimeString()}`,
+        })
+        .where(eq(timeEntries.id, existing[0].id));
+      results.push({ sessionId, status: 'updated', projectId: matched.id });
       continue;
     }
 
