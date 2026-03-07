@@ -52,11 +52,7 @@
       "size_kb": 15,
       "score": 45
     },
-    "preview_slug": "royal-plumbing-services-ltd",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_sent",
-    "last_contact_date": null
+    "preview_slug": "royal-plumbing-services-ltd"
   },
   {
     "place_id": "ChIJyb-b9z00K4gRe7gfm2znXTA",
@@ -98,7 +94,10 @@
         "time": "a month ago"
       }
     ],
-    "emails": [],
+    "emails": [
+      "shutterstock_1091175569@1x-1.webp",
+      "shutterstock_1091175569@1x-1-300x200.webp"
+    ],
     "city": "Toronto",
     "trade": "plumber",
     "grade": "C",
@@ -111,11 +110,7 @@
       "size_kb": 0,
       "score": 45
     },
-    "preview_slug": "priority-plumbing-drains",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_sent",
-    "last_contact_date": null
+    "preview_slug": "priority-plumbing-drains"
   },
   {
     "place_id": "ChIJO5GlaNzM1IkRc_r7cU-155w",
@@ -171,12 +166,7 @@
       "old_copyright": true,
       "size_kb": 225,
       "score": 90
-    },
-    "preview_slug": "leaside-plumbing-and-heating-ltd",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    }
   },
   {
     "place_id": "ChIJo0x6EN7M1IkRFQeTHDZVeY4",
@@ -230,12 +220,7 @@
       "old_copyright": false,
       "size_kb": 406,
       "score": 100
-    },
-    "preview_slug": "everest-drain-plumbing-toronto",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    }
   },
   {
     "place_id": "ChIJ32m3AnPM1IkRV96QbhQpnk8",
@@ -292,12 +277,7 @@
       "old_copyright": false,
       "size_kb": 475,
       "score": 100
-    },
-    "preview_slug": "premier-plumbing",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    }
   },
   {
     "place_id": "ChIJ4UwtqtotK4gRIRZsRJY1Er4",
@@ -353,12 +333,7 @@
       "old_copyright": false,
       "size_kb": 259,
       "score": 100
-    },
-    "preview_slug": "drain-king-plumbers-toronto",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    }
   },
   {
     "place_id": "ChIJBfqG6FA_K4gRp-NnD1UQfDo",
@@ -415,12 +390,7 @@
       "old_copyright": false,
       "size_kb": 356,
       "score": 100
-    },
-    "preview_slug": "plumber-to-your-door-of-toronto",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    }
   },
   {
     "place_id": "ChIJNTuzmhc0K4gRyYiJ8JmIUyc",
@@ -462,25 +432,14 @@
         "time": "4 months ago"
       }
     ],
-    "emails": [
-      "info@brothersplumbing.ca"
-    ],
+    "emails": [],
     "city": "Toronto",
     "trade": "plumber",
     "grade": "D",
     "audit": {
       "reason": "Unreachable: HTTPSConnectionPool(host='www.brothersplumbing.ca'"
     },
-    "preview_slug": "brothers-plumbing",
-    "activity_log": [
-      {
-        "date": "2026-03-07T20:00:00Z",
-        "action": "Outreach email sent to info@brothersplumbing.ca"
-      }
-    ],
-    "notes": "",
-    "outreach_status": "sent",
-    "last_contact_date": null
+    "preview_slug": "brothers-plumbing"
   },
   {
     "place_id": "ChIJk4MFskg0K4gRlHEqf_MJq-8",
@@ -537,16 +496,7 @@
       "size_kb": 1,
       "score": 45
     },
-    "preview_slug": "new-canadian-drain-and-plumbing-ltd",
-    "activity_log": [
-      {
-        "date": "2026-03-07T20:00:00Z",
-        "action": "Outreach email sent to info@newcanadiandrain.com"
-      }
-    ],
-    "notes": "",
-    "outreach_status": "sent",
-    "last_contact_date": null
+    "preview_slug": "new-canadian-drain-and-plumbing-ltd"
   },
   {
     "place_id": "ChIJ13g7vzU1K4gRBdxyBpQscsM",
@@ -602,11 +552,519 @@
       "old_copyright": true,
       "size_kb": 236,
       "score": 90
+    }
+  },
+  {
+    "place_id": "ChIJVYNWHfQtO4gRSKR8RHmlPPQ",
+    "name": "Bubby's Plumbing",
+    "address": "1074 Crawford Ave, Windsor, ON N9A 5C9, Canada",
+    "phone": "(519) 980-6054",
+    "website": "https://bubbysplumbing.com/",
+    "rating": 5,
+    "review_count": 1240,
+    "reviews": [
+      {
+        "author": "Dory Mills",
+        "rating": 5,
+        "text": "Alex and Dan were timely, efficient, friendly and professional. Issues in my bathroom were resolved in no time. I have relied on Bubby\u2019s Plumbing for 12 years and I have never been disappointed with their excellent and professional service. I have referred them to many friends over the years who are also very pleased and appreciated the recommendation. Thank you Alex and Dan!",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "Ankit Kapoor",
+        "rating": 5,
+        "text": "Called Bubby's for an emergency sump pump situation that caused my cold room and basement to flood. I had a tech come out within the hour. Don was amazing, great customer service, new what he was talking about and explained everything at each step. He was able to replace my sump pump and have the water drained within 45 minutes of arriving. I would highly recommend bubby's especially if Don is your tech.",
+        "time": "a week ago"
+      },
+      {
+        "author": "Abedh Sharma",
+        "rating": 5,
+        "text": "Alex did an excellent job replacing our main shut-off valve. He was professional, knowledgeable, and took the time to explain everything clearly. The work was done efficiently and with great attention to detail. It\u2019s a huge relief knowing the valve was replaced properly. Highly recommend Alex if you\u2019re looking for a reliable and skilled plumber!\nThank You\nAbby and David",
+        "time": "a month ago"
+      },
+      {
+        "author": "andrew lapas",
+        "rating": 5,
+        "text": "\u2b50\u2b50\u2b50\u2b50\u2b50\nAlex and KD were outstanding. They diagnosed the problem within minutes, had it fixed within the hour and left everything spotless. Professional, efficient, and clearly know their stuff. I would recommend Buddy Plumbing Service 100% without hesitation. Thank you, guys!",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Karen",
+        "rating": 5,
+        "text": "I had an outstanding experience with Bubby's Plumbing! They went above and beyond to get the job done efficiently and professionally. From start to finish, they were courteous, knowledgeable, and attentive to every detail. I couldn\u2019t be happier with the results and highly recommend them to anyone in need of a reliable plumber. Truly a 5-star service!\u201d",
+        "time": "a month ago"
+      }
+    ],
+    "emails": [],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "B",
+    "audit": {
+      "ssl": true,
+      "reason": "Has HTTPS website"
+    }
+  },
+  {
+    "place_id": "ChIJx1Zta7UqJYgR0F7iztGbC9c",
+    "name": "Fowler Plumbing",
+    "address": "3215 Jefferson Blvd Unit 301, Windsor, ON N8T 2W7, Canada",
+    "phone": "(519) 979-3747",
+    "website": "https://fowlerplumbing.ca/",
+    "rating": 4.8,
+    "review_count": 424,
+    "reviews": [
+      {
+        "author": "Computer Dude",
+        "rating": 5,
+        "text": "Seems to me,  after a few quotes, this company is  the most competent bang for the buck you can find... You save money with this outfit.\nGot an 'A' series toilet installed,(double or more money than big box stores 'B' series, but better everything),  American Standard Pro Cadet for my daughter to give her piece of mind , that it's good quality,  and done right.\n\nThey sent Marco down,  very nice professional young man, easy to  converse with, installed the unit, sealed it all up,(made it look pretty ), fixed the  bit of wobble , new supply line... hauled off the old one....easy peasy for me, lol......all  was good mostly, ....the box had the wrong seat, not a soft close.... pays to pay attention to what you are buying...one call to the office and they  delivered the correct seat next day. We just used the old seat  for now.\nMarco is a plumber, not a janitor and I didn't expect him to wash the floor after, lol..it's all good\nMy daughter had issues with the old one, (probably 40 years old or more), and wanted it gone.\nThe extra expense getting the A series installed professionally, is worth it for her piece of mind,  knowing it's  top  quality  & all done professionally.\nSpend a little more now, for less headaches later.\nThis new Pro Cadet fit nearly perfect on the floor  over how the old one sat, which had a more square ish front.  Even better, because the base is a touch wider with a much smaller tank and sat evenly on  the new floor.. just a bit more gap behind at he wall..might have to brace it.\nFar better performance. Always do your floor first,  THEN  get a new toilet! ( or measure carefully)\nI would not hesitate to use Fowler for anything else  plumbing I need in the future.  My new go-to plumbing place!",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Pam Campeau",
+        "rating": 5,
+        "text": "Mason and his apprentice , Mo, came to fix our issue. They were both kind, respectful and very professional. They got the work done in a timely manner and the price was fair. I\u2019ve been using Fowler Plumbing for years and I am always pleased with the quality of their work.",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "You_Can_Call_Me_Mr.",
+        "rating": 5,
+        "text": "I was looking for a reliable company that does plumbing services. I used Chat GBT and I found Fowler Plumbing. I messaged Fowler Wednesday morning through their site and got a reply back on my email less than 10 minutes. Dealt with someone by the name of Alyssa. She asked me some questions on the issue I had and I was set up with an appointment for the next day with a time window 8:30-9:00AM. The day of the appointment, Marco came with someone else never got his name. Anyway I re explained the issue and within less than 45 minutes the issue was repaired and to top it off Marco went above and beyond taking care of some surface rust on the tub where the drain was. Very much appreciated on the great service. Kudos to everyone I dealt with.\n\nTony DeCiantis",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "ida iveltri@hotmail.com",
+        "rating": 5,
+        "text": "We had a plumbing issue in our bathroom and decided to go with Fowler based on the Google reviews. Glad with our choice. Marco and Jack were very professional and explained what was going on and how it would be fixed. Knowing my home is older, Marco put my mind at ease and told me the plumbing in the house doed look good.  I'll definitely use them again when needed.",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "Laura Rivest",
+        "rating": 5,
+        "text": "We have trusted Fowler twice now for our plumbing needs.\n\nThey roughed in a new bathroom for us last year and their service was well done.\n\nJust recently our kitchen sinks completely stopped draining and they were able to fit us in with same day availability and solved the issue as quickly as possible. Mason even went as far as to give us best practices/suggestions for how to maintain our specific setup to help prevent future issues and made sure the kitchen was clean and tidy before leaving - nice touch!\n\nWould recommend! Thanks guys!",
+        "time": "2 months ago"
+      }
+    ],
+    "emails": [
+      "fowlerplumbing@gmail.com"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "B",
+    "audit": {
+      "ssl": true,
+      "reason": "Has HTTPS website"
+    }
+  },
+  {
+    "place_id": "ChIJ0WJUvHU_ga0Rdsi5T78F_pY",
+    "name": "Ole\u2019 Walkerville Plumbing",
+    "address": "2666 Turner Rd, Windsor, ON N8W 3L3, Canada",
+    "phone": "(519) 981-5657",
+    "website": "http://www.olewalkervilleplumbing.com/",
+    "rating": 4.9,
+    "review_count": 209,
+    "reviews": [
+      {
+        "author": "Emily Lockhart",
+        "rating": 5,
+        "text": "The two plumbers came to fix my pipes that I accidently damaged.  They were fast and went above and beyond to help me.  They even changed the orientation of the pipes to accommodate drywall.  They looked at a few other plumbing things and fixed them with no problem. Good rates, and good results.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Jennifer Zambito",
+        "rating": 5,
+        "text": "I recently contacted this plumber about an issue I was experiencing, and they were incredibly helpful and professional from the very start. They took the time to talk me through the problem over the phone, honestly troubleshooting with me instead of rushing to make a service call. That kind of honesty is rare and so appreciated.\nThey\u2019ve been to my home in the past as well, and every time they\u2019ve been professional, friendly, and reliable. Their pricing is very fair \u2014 they don\u2019t overcharge and are completely transparent about costs. It\u2019s clear they take pride in both their work and their customer relationships.\nI trust them completely and would recommend their services to anyone looking for a skilled, honest, and reasonably priced plumber.",
+        "time": "5 months ago"
+      },
+      {
+        "author": "Rafa Silva",
+        "rating": 5,
+        "text": "Alex and his team did a great job installing the sewer system, hot and cold water in my new bathroom. He is very attentive to customer needs. When his crew left the area, it was clean than when they arrived. \u263a\ufe0f\nHe did a great job, really recommend him and his team. \ud83d\udc4a",
+        "time": "a year ago"
+      },
+      {
+        "author": "Lacey Marcoux",
+        "rating": 5,
+        "text": "this team here at Ole\u2019 walkerville plumbing is the best ! Recently my boyfriend and I renovated our kitchen. We completely moved the sink and dishwasher to a new location. This process involved some big men working in a tiny crawl space and they handled it like champs. They were very clean and professional as they had come and gone a few times during the renovation, leaving the job site tidy after each visit. From the sink to dishwasher and fridge- each were handled with care and completed to how I imagined. Their work is organized, paying attention to all the finer details. I would highly recommend ole\u2019 walkerville plumbing to anyone who is looking for exceptional services and a superior customer/client experience.\nDON\u2019T HESITATE\u2014 CHOOSE OLE\u2019 WALKERVILLE PLUMBING !!!",
+        "time": "11 months ago"
+      },
+      {
+        "author": "drakebayley1996",
+        "rating": 5,
+        "text": "Tyler and his crew were fun and happy to help renovate my bathroom that needed a full gut. They worked hard and got the job done in timing with the contractors. Wonderful work.",
+        "time": "a month ago"
+      }
+    ],
+    "emails": [],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "ssl": false,
+      "reason": "HTTP only, no SSL"
     },
-    "preview_slug": "true-service-plumbing",
-    "activity_log": [],
-    "notes": "",
-    "outreach_status": "not_interested",
-    "last_contact_date": null
+    "preview_slug": "ole-walkerville-plumbing"
+  },
+  {
+    "place_id": "ChIJe7oNaBYdiEERX5VorHY4OQY",
+    "name": "Windsor Urgent Drainage & Electric EEL and plumbing",
+    "address": "1475 Martindale St, Windsor, ON N9B 1G4, Canada",
+    "phone": "(226) 788-9787",
+    "website": "https://plumber-windsor.com/",
+    "rating": 5,
+    "review_count": 13,
+    "reviews": [
+      {
+        "author": "Sheikh Chillies",
+        "rating": 5,
+        "text": "It's great company to work with very reasonable charges friendly dealing Excellent service! The plumber arrived on time, explained the problem clearly, and fixed it professionally. Fair pricing and very honest work. Highly recommended for any plumbing issues.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Abdullah Inam",
+        "rating": 5,
+        "text": "Exceptional plumbing service! Highly knowledgeable and delivers top-notch work, handled my home with respect and finished the job flawlessly. I highly recommend",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Ada Gough",
+        "rating": 5,
+        "text": "Amazing work they come on time done great plumbing change my plumbing pipes in winter time definitely recommend to everyone",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Nasrullah Sharif",
+        "rating": 5,
+        "text": "I called them for washroom plumbing. I am happy with their work and price. Thank you",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Troy Beaudry",
+        "rating": 5,
+        "text": "Very fast amazing price and professional, I would recommend these guys for all sewer work",
+        "time": "2 months ago"
+      }
+    ],
+    "emails": [
+      "windsorurgentplumbing@gmail.co",
+      "contact@plumbing-windsor.com"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "B",
+    "audit": {
+      "ssl": true,
+      "reason": "Has HTTPS website"
+    }
+  },
+  {
+    "place_id": "ChIJG0CvfjchO4gRezc5tBrfuB0",
+    "name": "Plumbing Now",
+    "address": "441 Lowes Side Rd, Amherstburg, ON N9V 2Y8, Canada",
+    "phone": "(519) 972-9876",
+    "website": "http://www.plumbingnow.com/",
+    "rating": 4.7,
+    "review_count": 226,
+    "reviews": [
+      {
+        "author": "Amanda Young",
+        "rating": 5,
+        "text": "Called for last minute plumbing issue, guys showed up and spent 3 hrs cleaning out tree roots from my main line. They were so friendly and helpful! Absolutely recommend this company!",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Leya F",
+        "rating": 5,
+        "text": "Plumbing Now has done multiple jobs in our home for various projects from replacing our sewer line to putting in a new turnoff for the main waterline in our home and today\u2019s visit was to cut and cap a couple waterlines so they\u2019re ready for our new cabinets. They are punctual, reliable and do a great job every time. I highly recommend them.",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Adam Gilchrist",
+        "rating": 5,
+        "text": "We had a truly amazing experience having Plumbing Now complete our plumbing issue. The were very quick to follow up with me from my initial email and they had their team on site at our house within the hour. Their team is very professional and efficient, we would highly recommend their services!",
+        "time": "3 months ago"
+      },
+      {
+        "author": "John Bustard",
+        "rating": 5,
+        "text": "We had some work done recently. They came on short notice and completed the job at hand. When I had an concern about one thing Dave called me promptly and we were able to sort it out to my satisfaction.",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "Constance Legentil",
+        "rating": 5,
+        "text": "Tanner and Luca, two very conscientious and efficient workers from Plumbing Now, worked on a pipe blocked by tree roots. They used a camera and eel with different heads. They were persistent despite the cold and were able to clean almost all of the line enabling the toilet to flush again. We appreciated their consistent good work and positive attitude. Thank you for their great service!",
+        "time": "3 months ago"
+      }
+    ],
+    "emails": [
+      "sandy@plumbingnow.com",
+      "2062d0a4929b45348643784b5cb39c36@sentry.wixpress.com",
+      "mark@plumbingnow.com",
+      "service@plumbingnow.com",
+      "605a7baede844d278b89dc95ae0a9123@sentry-next.wixpress.com"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "ssl": false,
+      "reason": "HTTP only, no SSL"
+    },
+    "preview_slug": "plumbing-now"
+  },
+  {
+    "place_id": "ChIJ5QHT9ScrO4gR73B6Erud5Kk",
+    "name": "Superior Plumbing & Home comfort",
+    "address": "1965 Ellis Side Rd, Maidstone, ON N0R 1K0, Canada",
+    "phone": "(519) 819-7357",
+    "website": "http://superiorphc.ca/",
+    "rating": 4.8,
+    "review_count": 99,
+    "reviews": [
+      {
+        "author": "Eric Morin",
+        "rating": 5,
+        "text": "Wonderful service from the start! I had texted because I had a mini-split unit that stopped working. They booked the appointment quickly and for a reasonable price. During the appointment I found out my unit was toast, explained what caused it fail and given options for replacement. Joel was extremely thorough and tried his best to get my old unit functional. I found the replacement options to be of reasonable cost, and booked an install with them. Joel and his assistant showed up on time, removed the old unit and installed the new unit and did an excellent job! I would definitely recommend these guys. Top notch service, thanks again guys!",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "emmett",
+        "rating": 5,
+        "text": "I had a great experience with Yousef. He was professional, reliable, and clearly knew what he was doing. He arrived on time, explained the issue in a way that was easy to understand, and fixed the problem efficiently. His work was clean and high-quality, and the pricing was fair with no surprises. I really appreciated his honesty and attention to detail. I would definitely recommend Yousef to anyone looking for a skilled and trustworthy plumber.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Julia Cameron",
+        "rating": 5,
+        "text": "Superior Plumbing and Home Comfort is hands down the BEST company we have ever worked with. They recently removed our extremely old furnace and central air system and installed a stunning, energy-efficient new system, and the improvement to our home has been absolutely unbelievable. Our house feels completely transformed more comfortable, more efficient, and just better in every way.\n\nTheir professionalism, knowledge, and work ethic are truly unmatched. When we also had a main line clog at our rental property, they responded immediately and resolved the issue without delay. Their response time is incredible, communication is clear and consistent, and the text alerts letting you know exactly when the technician is on the way are such a great touch and show how much they respect and prioritize your time.\n\nVeronica and Chelsea were extremely helpful throughout the process friendly, knowledgeable, and always quick to answer questions and keep everything moving smoothly. You can truly tell the whole team genuinely cares about their customers.\n\nWhat really sets them apart is their honesty, transparency, and hard work. A job in my opinion should have taken two full days was completed in just one day efficiently, cleanly, and with extreme attention to detail. We felt confident and taken care of every step of the way.\n\nWe own two homes and would not trust anyone else with our plumbing, furnace, or air conditioning needs. Superior Plumbing and Home Comfort, Josh and all the workers have earned our complete trust and loyalty. If you are looking for a company that truly goes above and beyond, this is the one. Highly, highly recommend.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Geralyn Mady",
+        "rating": 5,
+        "text": "Josh, Brandon and the crew replaced a cast iron pipe under the house. They had to contend with in-floor heating pipes which complicated the whole process. The crew was amazing! They are thorough, hard workers with attention to detail. They fixed the problem quickly and efficiently. I would certainly call them in again if the need arises.\nThank you Superior Plumbing for your expertise and great work!",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Cindy Karch",
+        "rating": 5,
+        "text": "We had Marc and Youssef do some work for us. They were on time, stayed in communication to say they were on their way, got the job done thoroughly and promptly. And our German Shepherd even approved of them. Highly recommend, and we'll be requesting them for our next job.",
+        "time": "a month ago"
+      }
+    ],
+    "emails": [
+      "superiorplumbingoffice@gmail.com",
+      "office@superiorphc.ca"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "ssl": false,
+      "reason": "HTTP only, no SSL"
+    },
+    "preview_slug": "superior-plumbing-home-comfort"
+  },
+  {
+    "place_id": "ChIJ82yIu6UtO4gROsM5mEeDokA",
+    "name": "Plumb Tech Plumbing",
+    "address": "12072 Tecumseh Rd E, Windsor, ON N8N 1M1, Canada",
+    "phone": "(519) 972-5253",
+    "website": "http://windsorplumbingservice.com/",
+    "rating": 4.3,
+    "review_count": 188,
+    "reviews": [
+      {
+        "author": "Neal Smaller",
+        "rating": 5,
+        "text": "Big shout out to Jesse and crew. I have used them for all my plumbing needs big and small.Each project was completed to professional standards which included courteous customer service. Its good to find an honest, reliable company to rely on.",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Jeff Galbraith",
+        "rating": 5,
+        "text": "Friday night came home after a long day noticed my sinks were no longer draining the way they should tried everything to fix the problem myself in a panic I finally called plumb Tech the team took care of me came out the next morning The technician was very polite and knowledgeable. He explained everything he was going to do. To fix our problem, very thorough cleaned up his work area and when that problem was fixed, the technician was kind enough to ask. Is There\u2019s anything else he could do for us. Pump tech was very professional, and I would highly recommend using the Plumb Tech team.",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "Jagoda Drljevic",
+        "rating": 5,
+        "text": "We had a backwater blockage in our kitchen and laundry last night. We called Plum Tech Plumbing this morning, explained the issue, and  they were able to fit us into their schedule. The team arrived promptly, fixed the problem efficiently, and were professional and courteous. Now we can enjoy our weekend- thank you again!\nHighly recommend Plum Tech Plumbing to anyone looking for fast, reliable, and quality plumbing support .",
+        "time": "2 months ago"
+      },
+      {
+        "author": "mechellemurphy",
+        "rating": 5,
+        "text": "Loved Connor. Great guy. Worked confidently and was a pleasure. Explained everything and shared the video of the blockage. We will recommend Plumb Tech to anyone looking for plumbing services. .",
+        "time": "a month ago"
+      },
+      {
+        "author": "Darren Varga",
+        "rating": 5,
+        "text": "Just want to say how helpful and professional your workers are.  This morning my daughter was stuck in the snow with her car and a couple of your guys stopped and pushed her out and kept her safe.  Thanks so much for caring for those in need.",
+        "time": "a month ago"
+      }
+    ],
+    "emails": [
+      "service@plumbtech.ca"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "ssl": false,
+      "reason": "HTTP only, no SSL"
+    },
+    "preview_slug": "plumb-tech-plumbing"
+  },
+  {
+    "place_id": "ChIJudipJLanQCwRApesxw9jZUY",
+    "name": "Apex Plumbing Inc.",
+    "address": "3225 Walker Rd, Windsor, ON N8W 3R7, Canada",
+    "phone": "(519) 300-4901",
+    "website": "https://www.apex-plumb.com/",
+    "rating": 5,
+    "review_count": 55,
+    "reviews": [
+      {
+        "author": "Gordana Vuletic",
+        "rating": 5,
+        "text": "Mike responded to our requests very fast, did new plumbing for kitchen and bathroom sink and reinstalled the toilet that had a broken flange. Mike and his apprentice are effective, efficient,  polite and professional.  Outstanding service and personality.  Highly recommended.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Francois Francis",
+        "rating": 5,
+        "text": "Mike from Apex Plumbing was always on time, professional and did a great job start to finish. He is very reliable and efficient. I would recommend Apex Plumbing for anyone looking for a trustworthy plumber.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Angela",
+        "rating": 5,
+        "text": "My laundry tub faucet and pipe were leaking and needed to be replaced. Mike did a great job - he was quick to respond, professional, and efficient at his work. I would definitely recommend Apex Plumbing!",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Sherman Markland",
+        "rating": 5,
+        "text": "Mike was extremely knowledgeable and reliable.  He treated our home as if it was his own. I would heartily recommend Apex and we will definitely use their services in the future!",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Colleen Kehl",
+        "rating": 5,
+        "text": "I had my sprinkler system closed today.\nAfterwards my home filled with a loud noise and all my taps in the baths and both kitchens were vibrating. I had been referred to Mike a few days prior and so I called him.\nHe was clear that he couldn't make it this evening but would come tomorrow morning.\nHe told me I could call him tonight if I  was concerned. I did call him and he came. He was like a detective. He followed the noise through the house and took care of the issue, even cutting and capping a line at this hour. It wasn't an emergency. He did it so I could sleep tonight.\nHis work ethics were very impressionable but his kindness was outstanding.\nHe has a customer as long as I live in this area.\nSincerely,\nColleen Kehl\nPs. I also told Mike that I had a \"whistling toilet\" that he attempted to repair last night.  He needed a part that he had used at his last house call so he told me he would be back today in the afternoon. He carries a lot of commonly used parts so he can accommodate his customers quickly.\nMike said he would come this afternoon and and after a confirmation call, he was here at noon and the toilet fixed!\nExtremely reasonable and much, much more important, honest and a good person.",
+        "time": "4 months ago"
+      }
+    ],
+    "emails": [],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "B",
+    "audit": {
+      "ssl": true,
+      "reason": "Has HTTPS website"
+    }
+  },
+  {
+    "place_id": "ChIJuX59D38pO4gRMY_dJbUdoOc",
+    "name": "Windsor Urgent Drainage & Electric EEL and Plumbing",
+    "address": "1472 Stoneybrook Crescent, Windsor, ON N9G 2Z4, Canada",
+    "phone": "(519) 991-4202",
+    "website": "https://plumber-windsor.com/",
+    "rating": 4.8,
+    "review_count": 65,
+    "reviews": [
+      {
+        "author": "Hashwanth chowdary",
+        "rating": 5,
+        "text": "I had a great experience with the team here. They provided excellent service and were incredibly quick to respond to my needs. The staff was professional, attentive, and made sure everything was handled perfectly from start to finish. I really appreciated the seamless process and the high quality of their work. Highly recommended for anyone looking for reliable and efficient service!",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Jigar Patel",
+        "rating": 5,
+        "text": "Nawaid provided excellent consultation and outstanding service. He was professional, knowledgeable, and ensured everything went smoothly. Highly recommend!",
+        "time": "4 months ago"
+      },
+      {
+        "author": "Emmaz Rastgar",
+        "rating": 5,
+        "text": "Excellent service. Unlike other plumbers he reached immediately when we had a water leak even though it was late. He made sure to stop from further damage and do temp fix until next morning. Rates were very reasonable and was very easy to communicate with. Highly recommended!",
+        "time": "5 months ago"
+      },
+      {
+        "author": "Maple Wn",
+        "rating": 5,
+        "text": "Amazing service! Nawaid and his team came so quickly and fixed the leakage in our basement. They were super thorough, professional, and explained everything clearly, which made the whole process stress-free. Extremely reliable and definitely recommended!",
+        "time": "5 months ago"
+      },
+      {
+        "author": "arsalan hafiz",
+        "rating": 5,
+        "text": "Really pleased with the shower replacement everything was done carefully, cleanly, and to a high standard. They arrived on time, explained the work clearly, and left the area tidy. Professional, honest service I\u2019d happily recommend.",
+        "time": "2 months ago"
+      }
+    ],
+    "emails": [
+      "windsorurgentplumbing@gmail.co",
+      "contact@plumbing-windsor.com"
+    ],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "B",
+    "audit": {
+      "ssl": true,
+      "reason": "Has HTTPS website"
+    }
+  },
+  {
+    "place_id": "ChIJLYiPmGvb5SwRIxWVX1-g3bM",
+    "name": "G C drainage electric eel &plumbing",
+    "address": "2340 Mark Ave, Windsor, ON N9E 3Y2, Canada",
+    "phone": "(519) 566-3573",
+    "website": "",
+    "rating": 4.8,
+    "review_count": 44,
+    "reviews": [
+      {
+        "author": "Rajesh",
+        "rating": 5,
+        "text": "I recently had back water issue in the basement and it was flooded called GC plumbing and had my sewage and water pipes replaced by GC Plumbing, and they did an excellent job! The team worked very hard and completed the entire project in just 4 days. They were professional, efficient, and made sure everything was done properly. I really appreciate their dedication and quality workmanship. Highly recommend GC Plumbing for anyone needing plumbing issues",
+        "time": "4 months ago"
+      },
+      {
+        "author": "Chamkaur Sandhu",
+        "rating": 5,
+        "text": "I needed pumping for my new basement unit, I met almost 5 different plumbers and they all were trying to rip me off, but then I met with GC pumping and he gave me the best price and on top of that he did a 2 day job in just 1 night. Amazing work as well, flawless pipes and everything.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Shahid Hamid",
+        "rating": 5,
+        "text": "I called GC Drainage for an urgent drain blockage in my kitchen: water was backing up everywhere.\nThey responded within 30 minutes, arrived on time, and used their electric eel to clear the main line quickly and efficiently without any mess.\n\nThe technician explained everything, fixed a sneaky pipe issue I didn\u2019t know about, and the cost was fair with no hidden fees.\n\nA week later, I had them back for a full electrical check and minor plumbing upgrade in the bathroom, professional, clean work, and super reliable. If you\u2019re in need of drainage, electrical, or plumbing experts, GC is the go-to.\nHighly recommend \ud83d\udc4d\nShahid H.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Marva Palmer",
+        "rating": 5,
+        "text": "I needed to have some plumbing work done at my rental condo in Windsor. Muhammad and his team were efficient and kept the work areas clean. Excellent service and great attention to detail. Thank you so much.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Mohamad El korek",
+        "rating": 5,
+        "text": "I recently bought a house and needed to upgrade the water lines, not only did someone come out the same day, they were also ready to resolve my issue within a day. The showed me what they were doing every step of the way, and there work was extremely clean and thorough. I will definitely call again for any of other water and drainage needs.",
+        "time": "3 months ago"
+      }
+    ],
+    "emails": [],
+    "city": "Windsor, Ontario",
+    "trade": "plumber",
+    "grade": "D",
+    "audit": {
+      "reason": "No website"
+    },
+    "preview_slug": "g-c-drainage-electric-eel-plumbing"
   }
 ]
