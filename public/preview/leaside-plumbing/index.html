@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leaside Plumbing & Heating | Toronto's Leading Emergency Plumber</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#1a1a1a;line-height:1.6;overflow-x:hidden}
+:root{--primary:#1b6b4a;--primary-light:#248f63;--accent:#e8a838;--dark:#0d1b16;--light:#f4f9f6;--gray:#5a6b63;--white:#fff}
+
+.hero{min-height:100vh;background:linear-gradient(170deg,rgba(27,107,74,0.93),rgba(13,27,22,0.9)),url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920') center/cover;display:flex;align-items:center;padding:2rem;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,var(--light),transparent)}
+.hero-content{max-width:1200px;margin:0 auto;width:100%}
+.hero-top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.hero-phones{display:flex;gap:2rem;flex-wrap:wrap}
+.hero-phone{display:flex;align-items:center;gap:0.5rem;color:var(--white);text-decoration:none;font-weight:600;font-size:1.1rem;transition:color 0.3s}
+.hero-phone:hover{color:var(--accent)}
+.hero-phone small{display:block;font-size:0.75rem;opacity:0.7;font-weight:400}
+.hero-main{max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(232,168,56,0.2);border:1px solid rgba(232,168,56,0.3);color:var(--accent);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;font-weight:600;margin-bottom:1.5rem}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5.5vw,4.2rem);color:var(--white);line-height:1.1;margin-bottom:1.5rem}
+.hero h1 span{color:var(--accent)}
+.hero p{color:rgba(255,255,255,0.8);font-size:1.15rem;margin-bottom:2rem;max-width:550px}
+.btn{padding:1rem 2rem;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-accent{background:var(--accent);color:var(--dark)}
+.btn-accent:hover{background:#f0b44a;transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,168,56,0.3)}
+.btn-ghost{color:var(--white);border:2px solid rgba(255,255,255,0.25)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.tag{color:var(--primary);font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.heading{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem;line-height:1.2}
+.desc{color:var(--gray);max-width:600px;margin-bottom:3rem}
+
+/* Services tabs */
+.svc-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.svc-tab{padding:0.75rem 1.5rem;border-radius:50px;font-weight:600;font-size:0.9rem;cursor:pointer;background:var(--light);border:2px solid transparent;transition:all 0.3s}
+.svc-tab.active,.svc-tab:hover{background:var(--primary);color:var(--white)}
+.svc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.svc-item{background:var(--white);border:1px solid #e8ede9;border-radius:14px;padding:1.5rem;display:flex;align-items:center;gap:1rem;transition:all 0.3s}
+.svc-item:hover{border-color:var(--primary);transform:translateX(4px);box-shadow:0 4px 20px rgba(27,107,74,0.08)}
+.svc-dot{width:40px;height:40px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.svc-item h4{font-size:0.95rem;font-weight:600}
+
+/* About */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-card{background:var(--light);border-radius:16px;padding:2rem;text-align:center}
+.about-card .num{font-family:'DM Serif Display',serif;font-size:2.5rem;color:var(--primary)}
+.about-card .lbl{color:var(--gray);font-size:0.85rem;margin-top:0.25rem}
+.why-list{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.why-item{display:flex;align-items:flex-start;gap:0.75rem}
+.why-icon{width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;margin-top:2px}
+
+/* Reviews */
+.reviews-banner{background:var(--dark);color:var(--white)}
+.reviews-scroll{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.rev{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition:all 0.3s}
+.rev:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px)}
+.rev .stars{color:var(--accent);margin-bottom:0.75rem}
+.rev p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-style:italic;margin-bottom:1rem;line-height:1.7}
+.rev .name{color:var(--accent);font-weight:600}
+
+.cta-bar{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:4rem 2rem;text-align:center;color:var(--white)}
+.cta-bar h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem}
+.cta-bar p{opacity:0.85;margin-bottom:2rem;font-size:1.1rem}
+.cta-bar .phones{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.cta-bar .phones a{color:var(--white);text-decoration:none;font-weight:600;font-size:1.1rem;display:flex;align-items:center;gap:0.5rem}
+
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.c-items{display:flex;flex-direction:column;gap:1.25rem}
+.c-item{display:flex;gap:1rem;align-items:center}
+.c-ico{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--white);flex-shrink:0}
+.c-item h4{font-size:0.95rem;font-weight:600}
+.c-item p{color:var(--gray);font-size:0.9rem}
+.c-item a{color:var(--primary);text-decoration:none;font-weight:600}
+.map-box{border-radius:16px;overflow:hidden;min-height:350px}
+.map-box iframe{width:100%;height:100%;min-height:350px;border:0}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:2rem}
+footer a{color:var(--accent);text-decoration:none}
+.hb{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:0.75rem;transition:all 0.3s}
+.hb:hover{background:rgba(255,255,255,0.1)}
+
+@media(max-width:768px){
+.about-wrap,.contact-wrap{grid-template-columns:1fr}
+.about-cards{grid-template-columns:1fr 1fr}
+.hero-top-bar{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<div class="hero-top-bar">
+<div class="hero-phones">
+<a href="tel:4164238682" class="hero-phone"><small>East Toronto</small> (416) 423-8682</a>
+<a href="tel:4162351510" class="hero-phone"><small>West Toronto</small> (416) 235-1510</a>
+</div>
+</div>
+<div class="hero-main">
+<div class="hero-badge">⭐ 4.9 Stars — 826 Google Reviews</div>
+<h1>Toronto's Leading <span>Plumbing & Heating</span> Experts</h1>
+<p>Locally owned with 35+ years of experience. Emergency service 7 days a week. Licensed, bonded, and fully insured plumbing, drains, gas & waterproofing.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<a href="tel:4164238682" class="btn btn-accent">📞 Call Now</a>
+<a href="#services" class="btn btn-ghost">Our Services</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services" style="background:var(--light)">
+<div class="container">
+<div class="tag">Our Services</div>
+<h2 class="heading">Full-Service Plumbing, Heating & More</h2>
+<p class="desc">From leaky faucets to complete waterproofing, Leaside Plumbing handles it all with expertise earned over three decades.</p>
+<div class="svc-tabs">
+<div class="svc-tab active">Plumbing</div>
+<div class="svc-tab">Drains</div>
+<div class="svc-tab">Heating</div>
+<div class="svc-tab">Gas</div>
+<div class="svc-tab">Waterproofing</div>
+</div>
+<div class="svc-list">
+<div class="svc-item"><div class="svc-dot">🔧</div><div><h4>Leaky & Frozen Pipes</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🚰</div><div><h4>Faucets & Fixtures</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🚿</div><div><h4>Showers & Bathtubs</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🚽</div><div><h4>Toilet Repair & Install</h4></div></div>
+<div class="svc-item"><div class="svc-dot">💧</div><div><h4>Sump Pumps</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🔥</div><div><h4>Water Heaters</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🏠</div><div><h4>Kitec Plumbing</h4></div></div>
+<div class="svc-item"><div class="svc-dot">📹</div><div><h4>Camera Inspections</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🌊</div><div><h4>Power Flushing</h4></div></div>
+<div class="svc-item"><div class="svc-dot">♨️</div><div><h4>Boiler Service</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🔥</div><div><h4>Gas Appliances & BBQ</h4></div></div>
+<div class="svc-item"><div class="svc-dot">🏗️</div><div><h4>Basement Waterproofing</h4></div></div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="about-wrap">
+<div>
+<div class="tag">About Leaside Plumbing</div>
+<h2 class="heading">A Locally Owned Company You Can Trust</h2>
+<p style="color:var(--gray);margin-bottom:1rem">Leaside Plumbing & Heating is located on Wicksteed Ave in Toronto. Our team of fully licensed and insured plumbers offers exceptional plumbing, heating, and natural gas piping services within Toronto and the GTA.</p>
+<p style="color:var(--gray)">You can count on us <strong>7 days a week</strong> for emergency services. No job is too small. Our vans are stocked with the right tools, equipment, and parts for the job.</p>
+<div class="why-list">
+<div class="why-item"><div class="why-icon">✓</div><div><strong>35+ Years</strong> in the industry</div></div>
+<div class="why-item"><div class="why-icon">✓</div><div><strong>1-Year Warranty</strong> on all materials</div></div>
+<div class="why-item"><div class="why-icon">✓</div><div><strong>Licensed, Bonded & Insured</strong></div></div>
+<div class="why-item"><div class="why-icon">✓</div><div><strong>100% Satisfaction</strong> — every time</div></div>
+</div>
+</div>
+<div class="about-cards">
+<div class="about-card"><div class="num">4.9</div><div class="lbl">Google Rating</div></div>
+<div class="about-card"><div class="num">826+</div><div class="lbl">Reviews</div></div>
+<div class="about-card"><div class="num">35+</div><div class="lbl">Years Experience</div></div>
+<div class="about-card"><div class="num">24/7</div><div class="lbl">Emergency Service</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reviews-banner" id="reviews">
+<div class="container">
+<div class="tag" style="color:var(--accent)">Reviews</div>
+<h2 class="heading" style="color:var(--white)">What Your Neighbours Are Saying</h2>
+<p class="desc" style="color:rgba(255,255,255,0.6)">826+ reviews and counting. See why Toronto trusts Leaside Plumbing.</p>
+<div class="reviews-scroll">
+<div class="rev"><div class="stars">★★★★★</div><p>"Keith arrived on time and within a few minutes had everything fixed and working great. The communication with the office is smooth and easy. Highly recommend."</p><div class="name">— Mark F</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>"I have trusted Leaside Plumbing and Heating for years for all our plumbing needs! Jonathan did an outstanding job. I highly recommend LP&H!"</p><div class="name">— Rita Richards</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>"They were professional, careful, solved the problem, only did the work necessary and explained every step. I want to recognize the professionalism of Drew."</p><div class="name">— N. Farrell</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta-bar">
+<h2>Plumbing Emergency? We're Here 7 Days a Week</h2>
+<p>If it's an emergency for you, it's our top priority. No job is too small.</p>
+<a href="tel:4164238682" class="btn btn-accent">📞 Call (416) 423-8682</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="tag">Contact</div>
+<h2 class="heading">Get in Touch</h2><br>
+<div class="contact-wrap">
+<div class="c-items">
+<div class="c-item"><div class="c-ico">📞</div><div><h4>East Toronto</h4><p><a href="tel:4164238682">(416) 423-8682</a></p></div></div>
+<div class="c-item"><div class="c-ico">📞</div><div><h4>West Toronto</h4><p><a href="tel:4162351510">(416) 235-1510</a></p></div></div>
+<div class="c-item"><div class="c-ico">📍</div><div><h4>Location</h4><p>205 Wicksteed Ave Unit 20, Toronto, ON M4G 0B1</p></div></div>
+<div class="c-item"><div class="c-ico">✉️</div><div><h4>Email</h4><p><a href="mailto:info@leasideplumbing.ca">info@leasideplumbing.ca</a></p></div></div>
+<div class="c-item"><div class="c-ico">🕐</div><div><h4>Hours</h4><p>Emergency Service — 7 Days a Week</p></div></div>
+</div>
+<div class="map-box">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885!2d-79.36!3d43.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z205+Wicksteed+Ave+Toronto!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Leaside Plumbing and Heating Ltd. All rights reserved.</p>
+<a href="https://homebaked.dev" class="hb" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

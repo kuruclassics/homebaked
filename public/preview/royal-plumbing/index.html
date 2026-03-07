@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Plumbing Services Ltd. | Toronto's Trusted Plumber for 20+ Years</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.6;overflow-x:hidden}
+/* Royal purple + gold palette */
+:root{--primary:#4a1942;--primary-light:#6b2d5b;--accent:#d4a843;--accent-light:#f0d68a;--dark:#1a1a2e;--light:#faf8f5;--gray:#6b7280;--white:#ffffff}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(74,25,66,0.92),rgba(26,26,46,0.88)),url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1920') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--light),transparent)}
+.hero-content{max-width:800px;z-index:1}
+.hero-badge{display:inline-block;background:var(--accent);color:var(--dark);padding:0.5rem 1.5rem;border-radius:50px;font-size:0.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,4.5rem);color:var(--white);line-height:1.1;margin-bottom:1rem;font-weight:900}
+.hero h1 span{color:var(--accent)}
+.hero p{color:rgba(255,255,255,0.85);font-size:1.15rem;max-width:600px;margin:0 auto 2rem;font-weight:300}
+.hero-stats{display:flex;gap:2rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .number{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--accent);font-weight:700}
+.hero-stat .label{color:rgba(255,255,255,0.7);font-size:0.85rem;text-transform:uppercase;letter-spacing:1px}
+.btn-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:1rem 2.5rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:var(--dark)}
+.btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,168,67,0.3)}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* SERVICES */
+.section{padding:5rem 2rem}
+.section-dark{background:var(--dark);color:var(--white)}
+.container{max-width:1200px;margin:0 auto}
+.section-label{color:var(--accent);font-size:0.85rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;font-weight:700}
+.section-subtitle{color:var(--gray);max-width:600px;margin-bottom:3rem;font-size:1.05rem}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.service-card{background:var(--white);border-radius:16px;padding:2.5rem;transition:all 0.3s;border:1px solid #eee;position:relative;overflow:hidden}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(74,25,66,0.12)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.5rem;color:var(--white)}
+.service-card h3{font-size:1.25rem;margin-bottom:0.75rem;font-weight:700}
+.service-card p{color:var(--gray);font-size:0.95rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text .highlight{color:var(--primary);font-weight:600}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.about-feature{display:flex;align-items:center;gap:0.75rem;font-weight:500}
+.about-feature .check{width:24px;height:24px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;color:var(--dark);flex-shrink:0}
+.about-image{position:relative}
+.about-image .img-placeholder{background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:20px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:3rem}
+.about-image .floating-card{position:absolute;bottom:-20px;right:-20px;background:var(--white);padding:1.5rem;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.1);text-align:center}
+.floating-card .big-num{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--primary);font-weight:700}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.review-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;transition:all 0.3s}
+.review-card:hover{background:rgba(255,255,255,0.08);transform:translateY(-4px)}
+.stars{color:var(--accent);font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px}
+.review-card p{color:rgba(255,255,255,0.8);font-size:0.95rem;font-style:italic;margin-bottom:1rem;line-height:1.7}
+.reviewer{font-weight:600;color:var(--accent)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-info{display:flex;flex-direction:column;gap:2rem}
+.contact-item{display:flex;gap:1rem;align-items:flex-start}
+.contact-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--white);flex-shrink:0}
+.contact-item h4{font-size:1rem;margin-bottom:0.25rem}
+.contact-item p{color:var(--gray);font-size:0.95rem}
+.map-container{border-radius:16px;overflow:hidden;height:100%;min-height:350px}
+.map-container iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,0.6);text-align:center;padding:2rem}
+footer a{color:var(--accent);text-decoration:none}
+.homebaked-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.5rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:1rem;transition:all 0.3s}
+.homebaked-badge:hover{background:rgba(255,255,255,0.1)}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:4rem 2rem;text-align:center;color:var(--white)}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem}
+.cta-banner p{opacity:0.85;margin-bottom:2rem;font-size:1.1rem}
+
+@media(max-width:768px){
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.about-features{grid-template-columns:1fr}
+.hero-stats{gap:1.5rem}
+.hero-stat .number{font-size:2rem}
+.about-image .floating-card{right:10px;bottom:-10px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">Trusted for 20+ Years</div>
+<h1>The <span>Royal</span> Standard in Toronto Plumbing</h1>
+<p>Experience red carpet service with every call. Free estimates, no trip fees, and master plumbers dispatched from across the GTA for lightning-fast response.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="number">4.9</div><div class="label">Google Rating</div></div>
+<div class="hero-stat"><div class="number">770+</div><div class="label">5-Star Reviews</div></div>
+<div class="hero-stat"><div class="number">20+</div><div class="label">Years Trusted</div></div>
+</div>
+<div class="btn-group">
+<a href="tel:+14165370038" class="btn btn-primary">📞 Call (416) 537-0038</a>
+<a href="#services" class="btn btn-outline">Our Services</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="section-label">What We Do</div>
+<h2 class="section-title">Expert Plumbing Solutions for Every Need</h2>
+<p class="section-subtitle">From emergency repairs to full installations, Royal Plumbing delivers expert solutions backed by our satisfaction guarantee.</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">🔧</div>
+<h3>Drain & Sewer Repairs</h3>
+<p>Complete drain cleaning, repair, and sewer line services. We diagnose accurately and fix it right the first time.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🚿</div>
+<h3>Water Heater Services</h3>
+<p>Installation, repair, and maintenance of gas and electric water heaters. Never run out of hot water again.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🏠</div>
+<h3>Wet Basement Solutions</h3>
+<p>Waterproofing, sump pump installation, and foundation leak repairs to keep your basement dry year-round.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🚰</div>
+<h3>Fixture Installation</h3>
+<p>Faucets, toilets, sinks, and showers installed with precision. Upgrade your home with professional installation.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">⚡</div>
+<h3>24/7 Emergency Service</h3>
+<p>Plumbing emergencies don't wait — neither do we. On-call plumbers available around the clock, every day.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🔍</div>
+<h3>Pipe Inspection & Repair</h3>
+<p>Advanced camera inspections and expert pipe repair services for residential and commercial properties.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:#f8f6f3">
+<div class="container">
+<div class="about-grid">
+<div class="about-text">
+<div class="section-label">About Royal Plumbing</div>
+<h2 class="section-title">The Red Carpet Service Guarantee</h2>
+<p>For over <span class="highlight">20 years</span>, Royal Plumbing Services has been the GTA's most trusted plumbing company. We dispatch plumbers from multiple locations across Toronto, ensuring the <span class="highlight">nearest plumber responds fast</span> to your call.</p>
+<br>
+<p>Every job begins with a <span class="highlight">free estimate</span> — no trip fees, no surprises. You'll know the full price before we start. Our plumbers are highly skilled professionals who receive regular training on the latest plumbing technology.</p>
+<div class="about-features">
+<div class="about-feature"><div class="check">✓</div> Free Estimates</div>
+<div class="about-feature"><div class="check">✓</div> Licensed & Insured</div>
+<div class="about-feature"><div class="check">✓</div> Written Guarantee</div>
+<div class="about-feature"><div class="check">✓</div> 24/7 Availability</div>
+<div class="about-feature"><div class="check">✓</div> No Trip Fees</div>
+<div class="about-feature"><div class="check">✓</div> Fast GTA Response</div>
+</div>
+</div>
+<div class="about-image">
+<div class="img-placeholder">👑</div>
+<div class="floating-card">
+<div class="big-num">770+</div>
+<div>Happy Reviews</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section section-dark" id="reviews">
+<div class="container">
+<div class="section-label">Customer Reviews</div>
+<h2 class="section-title" style="color:var(--white)">What Toronto Says About Us</h2>
+<p class="section-subtitle" style="color:rgba(255,255,255,0.6)">With a 4.9-star rating from 770+ reviews, our customers speak for themselves.</p>
+<div class="reviews-grid">
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Matt was an absolute dream to work with — fast, efficient, and completely fair in his pricing. We feel lucky to have found him and fully expect he'll be our plumber for life."</p>
+<div class="reviewer">— Lana Belle</div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Called in an issue with our sink and was immediately connected to Matthew who told us exactly what he could do to help. He was clean, prompt, efficient and friendly. Highly recommend!"</p>
+<div class="reviewer">— A Graham</div>
+</div>
+<div class="review-card">
+<div class="stars">★★★★★</div>
+<p>"Matthew was quick, professional, and did a great job. The pricing was very reasonable compared to other plumbers in the area. I'm super happy with the service!"</p>
+<div class="reviewer">— Christine Han</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta-banner">
+<h2>Need a Plumber? Get a Free Estimate Today</h2>
+<p>No trip fees. No surprises. Just the royal treatment you deserve.</p>
+<a href="tel:+14165370038" class="btn btn-primary">📞 Call (416) 537-0038</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="section-label">Get In Touch</div>
+<h2 class="section-title">Contact Royal Plumbing</h2>
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div><h4>Phone</h4><p><a href="tel:+14165370038" style="color:var(--primary);text-decoration:none;font-weight:600">(416) 537-0038</a></p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📍</div>
+<div><h4>Address</h4><p>614 Dufferin St, Toronto, ON M6K 2A9</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🕐</div>
+<div><h4>Hours</h4><p>24/7 Emergency Service Available</p></div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">🌍</div>
+<div><h4>Service Area</h4><p>Toronto & the Greater Toronto Area</p></div>
+</div>
+</div>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2!2d-79.4325!3d43.6465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z614 Dufferin St, Toronto, ON!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Royal Plumbing Services Ltd. All rights reserved.</p>
+<a href="https://homebaked.dev" class="homebaked-badge" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

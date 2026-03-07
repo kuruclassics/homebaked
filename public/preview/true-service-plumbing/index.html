@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Service Plumbing | Quality Care, Quality Service — Toronto</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#1a1a2e;line-height:1.7;overflow-x:hidden}
+:root{--primary:#0d9488;--primary-dark:#0f766e;--accent:#f43f5e;--accent-light:#fb7185;--dark:#0f172a;--light:#f0fdfa;--rose:#fff1f2;--gray:#64748b;--white:#fff}
+
+.hero{min-height:100vh;background:linear-gradient(160deg,rgba(13,148,136,0.93),rgba(15,23,42,0.92)),url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920') center/cover;display:flex;align-items:center;padding:2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(244,63,94,0.12),transparent 70%);border-radius:50%}
+.hero-grid{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center}
+.hero-tagline{display:inline-flex;align-items:center;gap:0.5rem;color:var(--accent-light);font-size:0.9rem;font-weight:700;margin-bottom:1.5rem;letter-spacing:1px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4rem);color:var(--white);line-height:1.1;margin-bottom:1.5rem;font-weight:900}
+.hero h1 span{color:var(--accent-light)}
+.hero-p{color:rgba(255,255,255,0.75);font-size:1.1rem;margin-bottom:2rem;max-width:520px}
+.hero-right{display:flex;flex-direction:column;gap:1.5rem}
+.rating-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:24px;padding:2.5rem;text-align:center;color:var(--white)}
+.rc-big{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:900;line-height:1}
+.rc-stars{color:var(--accent-light);font-size:1.5rem;letter-spacing:4px;margin:0.5rem 0}
+.rc-sub{opacity:0.6;font-size:0.95rem}
+.quote-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.5rem;color:var(--white)}
+.quote-card p{font-style:italic;opacity:0.8;font-size:0.9rem;margin-bottom:0.75rem}
+.quote-card .sig{font-weight:700;color:var(--accent-light);font-size:0.85rem}
+
+.btn{padding:1rem 2.25rem;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-rose{background:var(--accent);color:var(--white)}
+.btn-rose:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 12px 30px rgba(244,63,94,0.35)}
+.btn-teal{background:var(--white);color:var(--primary)}
+.btn-teal:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.1)}
+
+.section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.tag{color:var(--primary);font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem;font-weight:700}
+.desc{color:var(--gray);max-width:600px;margin-bottom:3rem}
+
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.svc{background:var(--white);border-radius:20px;padding:2rem;border:1px solid #e2e8f0;transition:all 0.35s;position:relative;overflow:hidden}
+.svc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(13,148,136,0.1);border-color:var(--primary)}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--primary),var(--accent));transform:scaleX(0);transition:transform 0.35s;transform-origin:left}
+.svc:hover::after{transform:scaleX(1)}
+.svc-i{width:52px;height:52px;background:var(--light);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.25rem}
+.svc h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.svc p{color:var(--gray);font-size:0.9rem}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--gray);margin-bottom:1rem}
+.about-text strong{color:var(--dark)}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.val{background:var(--light);padding:1.25rem;border-radius:14px;text-align:center;transition:all 0.3s}
+.val:hover{background:var(--primary);color:var(--white)}
+.val .ic{font-size:1.5rem;margin-bottom:0.5rem}
+.val .tx{font-weight:700;font-size:0.85rem}
+.about-visual{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:24px;padding:3rem;color:var(--white);display:flex;flex-direction:column;gap:1.5rem;text-align:center}
+.av-item{padding:1.5rem;background:rgba(255,255,255,0.08);border-radius:14px}
+.av-item .n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900}
+.av-item .l{opacity:0.7;font-size:0.85rem}
+
+.rev-section{background:var(--rose)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.rev{background:var(--white);border-radius:16px;padding:2rem;border:1px solid #fecdd3;transition:all 0.3s}
+.rev:hover{border-color:var(--accent);box-shadow:0 12px 40px rgba(244,63,94,0.06);transform:translateY(-4px)}
+.rev .stars{color:var(--accent);margin-bottom:0.75rem}
+.rev p{color:var(--gray);font-size:0.93rem;font-style:italic;margin-bottom:1rem}
+.rev .name{font-weight:800;font-size:0.9rem}
+
+.cta{background:linear-gradient(135deg,var(--primary),var(--accent));color:var(--white);text-align:center;padding:5rem 2rem}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem;font-weight:700}
+.cta p{opacity:0.9;margin-bottom:2rem;font-size:1.1rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.c-list{display:flex;flex-direction:column;gap:1.25rem}
+.c-row{display:flex;gap:1rem;align-items:center;padding:1.25rem;background:var(--light);border-radius:14px;transition:all 0.3s}
+.c-row:hover{background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.c-ico{width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--white);flex-shrink:0}
+.c-row h4{font-size:0.9rem;font-weight:700}
+.c-row p,.c-row a{color:var(--gray);font-size:0.88rem;text-decoration:none}
+.map-w{border-radius:16px;overflow:hidden;min-height:350px}
+.map-w iframe{width:100%;height:100%;min-height:350px;border:0}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.4);text-align:center;padding:2rem}
+footer a{color:var(--primary);text-decoration:none}
+.hb{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:0.75rem}
+
+@media(max-width:768px){
+.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+.values{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-grid">
+<div>
+<div class="hero-tagline">✨ QUALITY CARE, QUALITY SERVICE</div>
+<h1>Toronto's Perfect <span>5-Star</span> Plumbing Company</h1>
+<p class="hero-p">Family-owned plumbing and drain experts with a perfect 5.0 Google rating. Emergency service 24/7. Honest diagnostics, upfront quotes, and repairs that last.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<a href="tel:+16472005238" class="btn btn-rose">📞 (647) 200-5238</a>
+<a href="#services" class="btn btn-teal">Our Services</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="rating-card">
+<div class="rc-big">5.0</div>
+<div class="rc-stars">★★★★★</div>
+<div class="rc-sub">Based on 1,094 Google Reviews</div>
+</div>
+<div class="quote-card">
+<p>"Nico is very transparent about options and helps educate you. Quality and care!"</p>
+<div class="sig">— Natalie Wallace</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="tag">Services</div>
+<h2 class="title">Leave the Wet Stuff to Us</h2>
+<p class="desc">From emergency pipe repairs to new installations, True Service Plumbing delivers honest, professional service every time.</p>
+<div class="svc-grid">
+<div class="svc"><div class="svc-i">🔧</div><h3>Plumbing Repairs</h3><p>Leaky faucets, broken pipes, running toilets — we diagnose accurately and fix efficiently with upfront quotes.</p></div>
+<div class="svc"><div class="svc-i">🚰</div><h3>Installation Services</h3><p>New sinks, water heaters, faucets, and more. Professional installation that's done right the first time.</p></div>
+<div class="svc"><div class="svc-i">⚡</div><h3>Emergency Plumbing</h3><p>No water? No problem. 24/7 emergency service — we respond fast when you need us most.</p></div>
+<div class="svc"><div class="svc-i">🌊</div><h3>Drain Services</h3><p>Drain cleaning, unclogging, and repair. Expert solutions for residential drain problems across the GTA.</p></div>
+<div class="svc"><div class="svc-i">🔍</div><h3>Code Compliance</h3><p>Strict adherence to plumbing code. We ensure your system meets all standards for safety and performance.</p></div>
+<div class="svc"><div class="svc-i">🏠</div><h3>Residential Plumbing</h3><p>Complete home plumbing services for homeowners, property managers, and local businesses in the GTA.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:#f8fafc">
+<div class="container">
+<div class="about-grid">
+<div class="about-text">
+<div class="tag">About True Service</div>
+<h2 class="title">A Family Business Built on Trust</h2>
+<p><strong>True Service Plumbing Inc.</strong> is a family-owned business providing emergency plumbing, drain services, and residential plumbing in Toronto. Our professional experts offer reliable and efficient service to homeowners, local businesses, and property managers throughout the GTA.</p>
+<p>What sets us apart is our <strong>commitment to code compliance</strong> and honest diagnostics. We believe in transparency — you'll get a clear explanation, upfront quote, and professional repairs that actually solve the root cause.</p>
+<div class="values">
+<div class="val"><div class="ic">⏰</div><div class="tx">24/7 Available</div></div>
+<div class="val"><div class="ic">💯</div><div class="tx">5.0 Rated</div></div>
+<div class="val"><div class="ic">📋</div><div class="tx">Code Compliant</div></div>
+<div class="val"><div class="ic">👨‍👩‍👧‍👦</div><div class="tx">Family Owned</div></div>
+</div>
+</div>
+<div class="about-visual">
+<div class="av-item"><div class="n">5.0</div><div class="l">Perfect Google Rating</div></div>
+<div class="av-item"><div class="n">1,094+</div><div class="l">5-Star Reviews</div></div>
+<div class="av-item"><div class="n">24/7</div><div class="l">Emergency Service</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section rev-section" id="reviews">
+<div class="container">
+<div class="tag">Reviews</div>
+<h2 class="title">1,094 Perfect Reviews — And Counting</h2>
+<p class="desc">A perfect 5.0 from over a thousand customers. Here's why Toronto loves True Service.</p>
+<div class="rev-grid">
+<div class="rev"><div class="stars">★★★★★</div><p>"Nico was very pleasant, showed up within the hour, explained everything crystal clear and provided the quote upfront. Very friendly and gave tips for future plumbing. Highly recommend!"</p><div class="name">— Aaron Langemann</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>"Niko was amazing! He showed up, assessed the situation, went out to get supplies, came back and had my leaking pipe fixed within minutes. Truly amazing."</p><div class="name">— Martin Price</div></div>
+<div class="rev"><div class="stars">★★★★★</div><p>"What we appreciate most is how strict and principled he is when it comes to code compliance. Niko always shows up, assesses carefully, and resolves issues quickly."</p><div class="name">— TK Lee</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<h2>Quality Care, Quality Service — Call Today</h2>
+<p>At your service 24/7. Leave the wet stuff to us.</p>
+<a href="tel:+16472005238" class="btn" style="background:var(--white);color:var(--primary)">📞 (647) 200-5238</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="tag">Contact</div>
+<h2 class="title">Get in Touch with True Service</h2><br>
+<div class="contact-grid">
+<div class="c-list">
+<div class="c-row"><div class="c-ico">📞</div><div><h4>Phone</h4><p><a href="tel:+16472005238" style="color:var(--primary);font-weight:700">(647) 200-5238</a></p></div></div>
+<div class="c-row"><div class="c-ico">📍</div><div><h4>Address</h4><p>180 Brock Ave, Toronto, ON M6K 2L6</p></div></div>
+<div class="c-row"><div class="c-ico">✉️</div><div><h4>Email</h4><p><a href="mailto:info@trueserviceplumbing.ca">info@trueserviceplumbing.ca</a></p></div></div>
+<div class="c-row"><div class="c-ico">🕐</div><div><h4>Hours</h4><p>24/7 — Always Available</p></div></div>
+</div>
+<div class="map-w">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887!2d-79.43!3d43.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z180+Brock+Ave+Toronto!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 True Service Plumbing. All rights reserved.</p>
+<a href="https://homebaked.dev" class="hb" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

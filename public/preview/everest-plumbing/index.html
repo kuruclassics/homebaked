@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everest Drain & Plumbing | 24/7 Plumbing Services Toronto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:#1a1a2e;line-height:1.7;overflow-x:hidden}
+:root{--primary:#1a5276;--primary-light:#2980b9;--accent:#e67e22;--accent-light:#f39c12;--dark:#0c2233;--light:#f0f5f9;--gray:#5d6d7e;--white:#fff}
+
+.hero{min-height:100vh;background:linear-gradient(135deg,rgba(26,82,118,0.92),rgba(12,34,51,0.88)),url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920') center/cover;display:flex;align-items:center;padding:2rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 80% 20%,rgba(230,126,34,0.15),transparent 60%)}
+.hero-wrap{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.3fr 0.7fr;gap:4rem;align-items:center}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);line-height:1.15;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:2rem;max-width:520px;font-weight:300}
+.hero-trust{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.8);font-size:0.9rem;font-weight:500}
+.trust-icon{background:rgba(230,126,34,0.2);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem}
+.btn{padding:1rem 2.25rem;border-radius:10px;font-size:1rem;font-weight:600;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-orange{background:var(--accent);color:var(--white)}
+.btn-orange:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 12px 30px rgba(230,126,34,0.35)}
+.btn-outline{border:2px solid rgba(255,255,255,0.25);color:var(--white)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.founder-card{background:rgba(255,255,255,0.07);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2rem;color:var(--white)}
+.founder-card .quote{font-style:italic;font-size:0.95rem;opacity:0.85;margin-bottom:1.25rem;line-height:1.8}
+.founder-card .sig{font-weight:700;color:var(--accent)}
+.founder-card .role{font-size:0.8rem;opacity:0.6}
+
+.section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.tag{color:var(--accent);font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.title{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem}
+.desc{color:var(--gray);max-width:600px;margin-bottom:3rem}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.svc{background:var(--white);border-radius:16px;padding:2rem;border:1px solid #e5eaf0;transition:all 0.3s;position:relative;overflow:hidden}
+.svc:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(26,82,118,0.1);border-color:var(--primary)}
+.svc-i{width:52px;height:52px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--white);margin-bottom:1.25rem}
+.svc h3{font-size:1.1rem;margin-bottom:0.5rem;font-weight:700}
+.svc p{color:var(--gray);font-size:0.9rem}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--gray);margin-bottom:1rem}
+.about-text strong{color:var(--dark)}
+.usp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem}
+.usp{background:var(--light);border-radius:12px;padding:1.5rem;text-align:center}
+.usp .ico{font-size:1.5rem;margin-bottom:0.5rem}
+.usp .txt{font-size:0.85rem;font-weight:600}
+
+.reviews-sec{background:var(--light)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.rev-card{background:var(--white);border-radius:16px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.3s}
+.rev-card:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-4px)}
+.rev-card .stars{color:var(--accent);margin-bottom:0.75rem}
+.rev-card p{color:var(--gray);font-size:0.93rem;font-style:italic;margin-bottom:1rem}
+.rev-card .author{font-weight:700;color:var(--dark);font-size:0.9rem}
+
+.cta-sec{background:linear-gradient(135deg,var(--primary),var(--dark));color:var(--white);text-align:center;padding:5rem 2rem}
+.cta-sec h2{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem}
+.cta-sec p{opacity:0.8;margin-bottom:2rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.c-list{display:flex;flex-direction:column;gap:1.25rem}
+.c-row{display:flex;gap:1rem;align-items:center}
+.c-ico{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--white);flex-shrink:0}
+.c-row h4{font-size:0.95rem;font-weight:600}
+.c-row p,.c-row a{color:var(--gray);font-size:0.9rem;text-decoration:none}
+.map-frame{border-radius:16px;overflow:hidden;min-height:350px}
+.map-frame iframe{width:100%;height:100%;min-height:350px;border:0}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:2rem}
+footer a{color:var(--accent);text-decoration:none}
+.hb-b{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:0.75rem}
+
+@media(max-width:768px){
+.hero-wrap,.about-grid,.contact-grid{grid-template-columns:1fr}
+.usp-grid{grid-template-columns:1fr 1fr}
+.founder-card{margin-top:2rem}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-wrap">
+<div>
+<h1>Your <em>Go-To Plumbing Experts</em> for Every Space</h1>
+<p class="hero-sub">Residential, commercial & industrial plumbing services across Toronto and the GTA. Serving the community for over a decade with 24/7 availability.</p>
+<div class="hero-trust">
+<div class="trust-item"><div class="trust-icon">✓</div>Upfront Quotes</div>
+<div class="trust-item"><div class="trust-icon">✓</div>Licensed & Insured</div>
+<div class="trust-item"><div class="trust-icon">✓</div>Canadian Owned</div>
+</div>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<a href="tel:+14163837378" class="btn btn-orange">📞 (416) 383-7378</a>
+<a href="#services" class="btn btn-outline">Explore Services</a>
+</div>
+</div>
+<div class="founder-card">
+<div style="font-size:0.8rem;opacity:0.6;margin-bottom:1rem">A WORD FROM OUR FOUNDER</div>
+<p class="quote">"I started Everest Drain & Plumbing in 2013 with a clear mission — deliver reliable, honest plumbing services that homeowners and businesses can trust. With over 20 years in the plumbing trade, I've learned that quality work, fair pricing, and strong customer service go a long way."</p>
+<div class="sig">Khem Bohora</div>
+<div class="role">Owner & Founder</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="tag">Services</div>
+<h2 class="title">Expert Plumbing for Home, Business & Industry</h2>
+<p class="desc">From emergency repairs to new installations, our licensed plumbers deliver professional solutions with upfront pricing and guaranteed satisfaction.</p>
+<div class="services-grid">
+<div class="svc"><div class="svc-i">🏠</div><h3>Residential Plumbing</h3><p>Complete home plumbing solutions — repairs, installations, maintenance, and emergency service for Toronto homeowners.</p></div>
+<div class="svc"><div class="svc-i">🏢</div><h3>Commercial Plumbing</h3><p>Professional plumbing for businesses, offices, and commercial properties across the Greater Toronto Area.</p></div>
+<div class="svc"><div class="svc-i">🏭</div><h3>Industrial Plumbing</h3><p>Specialized plumbing for industrial complexes with the latest technology and durable solutions.</p></div>
+<div class="svc"><div class="svc-i">🌊</div><h3>Drain Services</h3><p>Drain unclogging, snaking, and cleaning. Fast solutions for blocked drains in homes and businesses.</p></div>
+<div class="svc"><div class="svc-i">⚡</div><h3>24/7 Emergency Service</h3><p>Burst pipes, flooding, sewer backups — our emergency plumbers respond around the clock, 365 days a year.</p></div>
+<div class="svc"><div class="svc-i">🔍</div><h3>Plumbing Consultation</h3><p>Expert advice on new installations, renovations, and system upgrades with transparent, upfront pricing.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:var(--light)">
+<div class="container">
+<div class="about-grid">
+<div class="about-text">
+<div class="tag">About Everest</div>
+<h2 class="title">The Best Local Plumber Near You</h2>
+<p>Everest Drain & Plumbing has been serving <strong>Toronto residents and businesses for over a decade</strong>, establishing a reputation for quality across the GTA. Whether it's a new installation, emergency repair, or consultation, our dedicated team works 24/7/365.</p>
+<p>All our professional plumbers have <strong>verified license background checks</strong> and work with the latest plumbing technology to ensure durable yet affordable solutions. We value your time and money, finishing all projects on schedule.</p>
+<div class="usp-grid">
+<div class="usp"><div class="ico">⏰</div><div class="txt">On-Time Service</div></div>
+<div class="usp"><div class="ico">💰</div><div class="txt">Fair Pricing</div></div>
+<div class="usp"><div class="ico">🇨🇦</div><div class="txt">Canadian Owned</div></div>
+<div class="usp"><div class="ico">📋</div><div class="txt">Upfront Quotes</div></div>
+<div class="usp"><div class="ico">🛡️</div><div class="txt">Licensed</div></div>
+<div class="usp"><div class="ico">🏆</div><div class="txt">20+ Yrs Exp.</div></div>
+</div>
+</div>
+<div style="background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:24px;padding:3rem;color:var(--white);display:flex;flex-direction:column;justify-content:center;gap:2rem;text-align:center">
+<div><div style="font-family:'Libre Baskerville',serif;font-size:3.5rem;font-weight:700">4.8</div><div style="color:var(--accent-light);font-size:1.3rem;letter-spacing:3px">★★★★★</div><div style="opacity:0.8;margin-top:0.5rem">304+ Google Reviews</div></div>
+<div style="height:1px;background:rgba(255,255,255,0.15)"></div>
+<div><div style="font-size:2rem;font-weight:700">10+</div><div style="opacity:0.8">Years Serving Toronto</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reviews-sec" id="reviews">
+<div class="container">
+<div class="tag">Testimonials</div>
+<h2 class="title">Trusted by 304+ Toronto Customers</h2>
+<p class="desc">Real reviews from homeowners and businesses who chose Everest Plumbing.</p>
+<div class="rev-grid">
+<div class="rev-card"><div class="stars">★★★★★</div><p>"They answered the phone promptly and said they could get someone out the next day. Indra showed up at said time and was prompt, if not early. We were very appreciative with his service."</p><div class="author">— Janet Morrissey</div></div>
+<div class="rev-card"><div class="stars">★★★★★</div><p>"The main drain line was blocked, and Everest came the next morning as promised. They cleared it up quickly and made everything clear. Great service and a fair price."</p><div class="author">— Mausam Limbu</div></div>
+<div class="rev-card"><div class="stars">★★★★★</div><p>"Aly was punctual, professional and incredibly knowledgeable. The pricing was reasonable for the quality of work provided. They have earned a loyal customer in me!"</p><div class="author">— Iris</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta-sec">
+<h2>Need a Plumber? Call Everest Today.</h2>
+<p>Affordable, reliable plumbing with upfront pricing — available 24/7.</p>
+<a href="tel:+14163837378" class="btn btn-orange">📞 Call (416) 383-7378</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="tag">Contact</div>
+<h2 class="title">Get in Touch with Everest Plumbing</h2><br>
+<div class="contact-grid">
+<div class="c-list">
+<div class="c-row"><div class="c-ico">📞</div><div><h4>Phone</h4><p><a href="tel:+14163837378" style="color:var(--primary);font-weight:600">(416) 383-7378</a></p></div></div>
+<div class="c-row"><div class="c-ico">📍</div><div><h4>Address</h4><p>31 Commercial Rd, Toronto, ON M4G 1Z3</p></div></div>
+<div class="c-row"><div class="c-ico">🕐</div><div><h4>Availability</h4><p>24/7/365 — Always Available</p></div></div>
+<div class="c-row"><div class="c-ico">🌍</div><div><h4>Service Area</h4><p>Toronto & Greater Toronto Area</p></div></div>
+</div>
+<div class="map-frame">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886!2d-79.35!3d43.70!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z31+Commercial+Rd+Toronto!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Everest Drain & Plumbing Toronto. All rights reserved.</p>
+<a href="https://homebaked.dev" class="hb-b" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

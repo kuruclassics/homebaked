@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FolderKanban, Users, Clock, DollarSign, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 import KpiCard from '@/components/dashboard/KpiCard';
 import PipelineBoard from '@/components/dashboard/PipelineBoard';
 import CostAnalysisTable from '@/components/dashboard/CostAnalysisTable';
@@ -47,9 +48,14 @@ export default function DashboardOverview() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-charcoal mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-        Overview
-      </h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl font-bold text-charcoal" style={{ fontFamily: 'var(--font-serif)' }}>
+          Overview
+        </h1>
+        <Link href="/autopilot" className="px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700 transition-colors">
+          Autopilot →
+        </Link>
+      </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
         <KpiCard icon={FolderKanban} label="Active Projects" value={String(stats.activeProjects)} />
