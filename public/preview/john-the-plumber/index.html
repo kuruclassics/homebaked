@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John The Plumber — Professional Plumbing Services in Ottawa, Ontario</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1F2937; line-height: 1.6; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #0077B6 100%);
+            color: white; padding: 80px 20px 60px; text-align: center;
+        }
+        .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 12px; font-weight: 800; }
+        .hero .subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 8px; }
+        .hero .rating { font-size: 1.1rem; color: #F59E0B; margin-bottom: 24px; }
+        .hero .cta-btn {
+            display: inline-block; background: #0077B6; color: white;
+            padding: 16px 36px; border-radius: 50px; text-decoration: none;
+            font-size: 1.1rem; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .hero .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+        
+        /* Sections */
+        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 40px; color: #1E293B; }
+        
+        /* Services */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: #F8FAFC; border-radius: 12px; padding: 24px; text-align: center;
+            border: 1px solid #E2E8F0; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 2rem; margin-bottom: 12px; }
+        .service-card h3 { font-size: 0.95rem; color: #334155; }
+        
+        /* Reviews */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+        .review-card {
+            background: white; border-radius: 12px; padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #F1F5F9;
+        }
+        .review-stars { font-size: 1.2rem; margin-bottom: 12px; }
+        .review-text { font-style: italic; color: #4B5563; margin-bottom: 12px; }
+        .review-author { font-weight: 600; color: #1E293B; }
+        
+        /* Contact */
+        .contact-section { background: #F8FAFC; }
+        .contact-inner { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .contact-info h3 { font-size: 1.3rem; margin-bottom: 20px; color: #1E293B; }
+        .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.05rem; }
+        .contact-item a { color: #0077B6; text-decoration: none; font-weight: 600; }
+        .contact-item a:hover { text-decoration: underline; }
+        
+        /* Footer */
+        footer {
+            background: #1E293B; color: #94A3B8; text-align: center; padding: 24px;
+            font-size: 0.85rem;
+        }
+        footer a { color: #CBD5E1; text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero { padding: 60px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>John The Plumber</h1>
+        <p class="subtitle">Professional Plumbing Services in Ottawa, Ontario</p>
+        <p class='rating'>★★★★★ 4.8/5 (2228 reviews)</p>
+        <a href='tel:6137065315' class='cta-btn'>📞 Call Now: (613) 706-5315</a>
+    </div>
+
+    <section>
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Drain Cleaning & Unclogging</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Pipe Repair & Replacement</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Water Heater Installation & Repair</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Bathroom & Kitchen Plumbing</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Sump Pump Installation</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Water Line Repair</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Sewer Line Services</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Fixture Installation</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Emergency Plumbing Services</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Backflow Prevention</h3>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
+                <p class="review-text">"I had a great experience with Geoff from John the Plumber. I needed an outside water shutoff valve and a frost free hose bib to replace my old one. I was able to schedule an appointment in an evening ..."</p>
+                <p class="review-author">— Ashley Barkworth</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
+                <p class="review-text">"I had a very positive experience with John the Plumber. I called the telephone number and made an appointment. Due to outside circumstances, I required a specific window of time, to schedule the appoi..."</p>
+                <p class="review-author">— Zen Jen</p>
+            </div>
+            <div class="review-card">
+                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
+                <p class="review-text">"Another great experience with Aaron from John the Plumber in the books. Aaron is professional, knowledgeable, and kind - all the things we want when someone comes to our home to provide a service. He ..."</p>
+                <p class="review-author">— Madeline H</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-section" id="contact">
+        <div class="contact-inner">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>John The Plumber</h3>
+                    <div class='contact-item'>📞 <a href='tel:6137065315'>(613) 706-5315</a></div>
+                    <div class='contact-item'>📍 1541 Riverside Dr., Ottawa, ON K1G 4E2, Canada</div>
+                </div>
+                <div class="contact-map"><iframe src="https://maps.google.com/maps?q=1541+Riverside+Dr.,+Ottawa,+ON+K1G+4E2,+Canada&output=embed" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"></iframe></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 John The Plumber. All rights reserved.</p>
+        <p style="margin-top:8px;font-size:0.75rem;opacity:0.6;">Website preview by <a href="https://homebaked.ca">HomeBaked</a></p>
+    </footer>
+</body>
+</html>
