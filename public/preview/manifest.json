@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "royal-plumbing-services-ltd",
+    "name": "Royal Plumbing Services Ltd.",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/royal-plumbing-services-ltd/index.html"
+  },
+  {
+    "slug": "priority-plumbing-drains",
+    "name": "Priority Plumbing & Drains",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/priority-plumbing-drains/index.html"
+  },
+  {
+    "slug": "leaside-plumbing-and-heating-ltd",
+    "name": "Leaside Plumbing and Heating Ltd",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/leaside-plumbing-and-heating-ltd/index.html"
+  },
+  {
+    "slug": "everest-drain-plumbing-toronto",
+    "name": "Everest Drain & Plumbing Toronto",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/everest-drain-plumbing-toronto/index.html"
+  },
+  {
+    "slug": "premier-plumbing",
+    "name": "Premier Plumbing",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/premier-plumbing/index.html"
+  },
+  {
+    "slug": "drain-king-plumbers-toronto",
+    "name": "Drain King Plumbers Toronto",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/drain-king-plumbers-toronto/index.html"
+  },
+  {
+    "slug": "plumber-to-your-door-of-toronto",
+    "name": "Plumber To Your Door of Toronto",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/plumber-to-your-door-of-toronto/index.html"
+  },
+  {
+    "slug": "brothers-plumbing",
+    "name": "Brothers Plumbing",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/brothers-plumbing/index.html"
+  },
+  {
+    "slug": "new-canadian-drain-and-plumbing-ltd",
+    "name": "New Canadian Drain and Plumbing Ltd",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/new-canadian-drain-and-plumbing-ltd/index.html"
+  },
+  {
+    "slug": "true-service-plumbing",
+    "name": "True Service Plumbing",
+    "trade": "plumber",
+    "city": "Toronto",
+    "grade": "D",
+    "path": "sites/true-service-plumbing/index.html"
+  }
+]

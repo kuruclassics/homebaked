@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drain King Plumbers | #1 24/7 Toronto Plumbers</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;color:#1e1e2f;line-height:1.6;overflow-x:hidden}
+:root{--primary:#dc2626;--primary-dark:#991b1b;--accent:#fbbf24;--dark:#111827;--light:#fffbeb;--gray:#6b7280;--white:#fff}
+
+.hero{min-height:100vh;background:linear-gradient(155deg,rgba(17,24,39,0.94),rgba(153,27,27,0.85)),url('https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=1920') center/cover;display:flex;align-items:center;padding:2rem;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:var(--white);clip-path:polygon(0 100%,100% 100%,100% 20%,0 100%)}
+.hero-wrap{max-width:1200px;margin:0 auto;width:100%;text-align:center}
+.crown{font-size:3rem;margin-bottom:1rem}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(2.2rem,5.5vw,4rem);color:var(--white);line-height:1.12;margin-bottom:1rem;font-weight:900}
+.hero h1 span{color:var(--accent)}
+.hero p{color:rgba(255,255,255,0.75);font-size:1.15rem;max-width:650px;margin:0 auto 2rem}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.h-stat{text-align:center}
+.h-stat .v{font-family:'Merriweather',serif;font-size:2.5rem;color:var(--accent);font-weight:900}
+.h-stat .l{color:rgba(255,255,255,0.6);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px}
+.btn{padding:1rem 2.5rem;border-radius:50px;font-size:1rem;font-weight:700;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-red{background:var(--primary);color:var(--white)}
+.btn-red:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(220,38,38,0.4)}
+.btn-gold{background:var(--accent);color:var(--dark)}
+.btn-gold:hover{background:#fcd34d;transform:translateY(-2px)}
+
+.section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.tag{color:var(--primary);font-size:0.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.title{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem;font-weight:900}
+.desc{color:var(--gray);max-width:600px;margin-bottom:3rem}
+
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.svc{background:var(--white);border-radius:16px;padding:2rem;border:2px solid #f3f4f6;transition:all 0.3s}
+.svc:hover{border-color:var(--primary);transform:translateY(-6px);box-shadow:0 16px 48px rgba(220,38,38,0.08)}
+.svc-i{width:52px;height:52px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--white);margin-bottom:1.25rem}
+.svc h3{font-size:1.1rem;margin-bottom:0.5rem;font-weight:800}
+.svc p{color:var(--gray);font-size:0.9rem}
+
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{color:var(--gray);margin-bottom:1rem}
+.about-text strong{color:var(--dark)}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem}
+.checklist li{display:flex;align-items:center;gap:0.75rem;font-weight:600}
+.checklist li::before{content:'👑';font-size:1rem}
+.about-visual{background:var(--dark);border-radius:24px;padding:3rem;color:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.av-box{text-align:center;padding:1.5rem;background:rgba(255,255,255,0.05);border-radius:16px}
+.av-box .n{font-family:'Merriweather',serif;font-size:2.2rem;font-weight:900;color:var(--accent)}
+.av-box .t{color:rgba(255,255,255,0.6);font-size:0.8rem;margin-top:0.25rem}
+
+.reviews-sec{background:var(--light)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.rev-card{background:var(--white);border-radius:16px;padding:2rem;border:2px solid transparent;transition:all 0.3s}
+.rev-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.06)}
+.rev-card .stars{color:var(--accent);margin-bottom:0.75rem;font-size:1.1rem}
+.rev-card p{color:var(--gray);font-size:0.93rem;font-style:italic;margin-bottom:1rem}
+.rev-card .author{font-weight:800;color:var(--dark);font-size:0.9rem}
+
+.cta-bar{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);text-align:center;padding:5rem 2rem}
+.cta-bar h2{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem;font-weight:900}
+.cta-bar p{opacity:0.85;margin-bottom:2rem;font-size:1.1rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.c-list{display:flex;flex-direction:column;gap:1.25rem}
+.c-row{display:flex;gap:1rem;align-items:center;padding:1rem;background:#f9fafb;border-radius:12px;transition:all 0.3s}
+.c-row:hover{background:var(--light)}
+.c-ico{width:44px;height:44px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--white);flex-shrink:0}
+.c-row h4{font-size:0.9rem;font-weight:700}
+.c-row p,.c-row a{color:var(--gray);font-size:0.88rem;text-decoration:none}
+.map-b{border-radius:16px;overflow:hidden;min-height:350px}
+.map-b iframe{width:100%;height:100%;min-height:350px;border:0}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.4);text-align:center;padding:2rem}
+footer a{color:var(--accent);text-decoration:none}
+.hb{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:0.75rem}
+
+@media(max-width:768px){
+.about-split,.contact-grid{grid-template-columns:1fr}
+.about-visual{grid-template-columns:1fr 1fr}
+.hero-stats{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-wrap">
+<div class="crown">👑</div>
+<h1>Toronto's <span>#1 Plumbing</span> Company</h1>
+<p>Locally-owned, 24/7 full-service plumbing and drain company serving all of Toronto and the GTA. Licensed, insured, and always on standby for your plumbing emergency.</p>
+<div class="hero-stats">
+<div class="h-stat"><div class="v">4.7</div><div class="l">Google Rating</div></div>
+<div class="h-stat"><div class="v">2,593+</div><div class="l">Reviews</div></div>
+<div class="h-stat"><div class="v">24/7</div><div class="l">Available</div></div>
+</div>
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+<a href="tel:+14166615464" class="btn btn-red">📞 (416) 661-5464</a>
+<a href="#services" class="btn btn-gold">Our Services</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="tag">Our Services</div>
+<h2 class="title">Expert Plumbers for Home & Business</h2>
+<p class="desc">From residential fixes to large commercial projects, Drain King Plumbers handles virtually any plumbing issue across the GTA.</p>
+<div class="svc-grid">
+<div class="svc"><div class="svc-i">⚡</div><h3>Emergency Plumbing</h3><p>Burst pipe or flooded basement? Don't wait — our emergency trucks are on the road 24/7, even on weekends and holidays.</p></div>
+<div class="svc"><div class="svc-i">🌊</div><h3>Drain Services</h3><p>Expert drain repair, cleaning, and unclogging for residential and commercial properties across Toronto.</p></div>
+<div class="svc"><div class="svc-i">🔧</div><h3>Plumbing Repairs</h3><p>From leaky faucets to major pipe repairs. Quality craftsmanship guaranteed for every service we provide.</p></div>
+<div class="svc"><div class="svc-i">🏢</div><h3>Commercial Plumbing</h3><p>Custom plumbing solutions for offices, hospitals, malls, and restaurants. Sustainable, eco-friendly techniques included.</p></div>
+<div class="svc"><div class="svc-i">🚽</div><h3>Fixture Installation</h3><p>Bathrooms, kitchens, toilets, and faucets installed professionally with attention to every detail.</p></div>
+<div class="svc"><div class="svc-i">🔍</div><h3>Sewer Repair</h3><p>Sewage backup and sewer line repairs handled quickly to prevent damage to your property.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:#f9fafb">
+<div class="container">
+<div class="about-split">
+<div class="about-text">
+<div class="tag">About Drain King</div>
+<h2 class="title">Locally Owned. Trusted by Thousands.</h2>
+<p>Drain King Plumbers is a <strong>locally-owned, full-service plumbing and drain company</strong> serving all of Toronto and the Greater Toronto Area. We strive to be Torontonians' first call for any leak, burst pipe, clogged drain, or flooded basement.</p>
+<p>Our team has <strong>years of experience</strong> serving families and local businesses. We pride ourselves on fair prices, friendly technicians, and experienced plumbers who do great work. We guarantee you will be satisfied.</p>
+<ul class="checklist">
+<li>Best warranties in the industry</li>
+<li>Beat competitor quotes</li>
+<li>Licensed & insured professionals</li>
+<li>Eco-friendly plumbing solutions</li>
+</ul>
+</div>
+<div class="about-visual">
+<div class="av-box"><div class="n">2,593+</div><div class="t">Google Reviews</div></div>
+<div class="av-box"><div class="n">4.7★</div><div class="t">Average Rating</div></div>
+<div class="av-box"><div class="n">24/7</div><div class="t">Emergency Service</div></div>
+<div class="av-box"><div class="n">100%</div><div class="t">Satisfaction</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reviews-sec" id="reviews">
+<div class="container">
+<div class="tag">Testimonials</div>
+<h2 class="title">2,593+ Reviews — Toronto Trusts Drain King</h2>
+<p class="desc">The most reviewed plumbing company in Toronto. Here's what customers are saying.</p>
+<div class="rev-grid">
+<div class="rev-card"><div class="stars">★★★★★</div><p>"Excellent experience getting our faucet replaced. The plumber was friendly, respectful, and did a great job. No mess left behind. Would definitely use this company again."</p><div class="author">— Temesgen M</div></div>
+<div class="rev-card"><div class="stars">★★★★★</div><p>"Outstanding job. Fast response, straight answers, and zero nonsense. Reliable, efficient, and worth every dollar. I wouldn't hesitate to call them again."</p><div class="author">— Emil Kadric</div></div>
+<div class="rev-card"><div class="stars">★★★★★</div><p>"Great experience with a very knowledgeable pro. He handled the situation with ease, cleared the line, and was incredibly friendly throughout the process."</p><div class="author">— Erick Edmonds</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta-bar">
+<h2>Plumbing Emergency? Every Second Counts.</h2>
+<p>Don't wait — our trucks are on the road right now. Call for immediate service.</p>
+<a href="tel:+14166615464" class="btn btn-gold">📞 Call (416) 661-5464</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="tag">Contact</div>
+<h2 class="title">Reach Drain King Plumbers</h2><br>
+<div class="contact-grid">
+<div class="c-list">
+<div class="c-row"><div class="c-ico">📞</div><div><h4>Phone</h4><p><a href="tel:+14166615464" style="color:var(--primary);font-weight:700">(416) 661-5464</a></p></div></div>
+<div class="c-row"><div class="c-ico">📍</div><div><h4>Address</h4><p>100 St Regis Crescent S #8, North York, ON M3J 1Y8</p></div></div>
+<div class="c-row"><div class="c-ico">✉️</div><div><h4>Email</h4><p><a href="mailto:info@drainkingplumbers.ca">info@drainkingplumbers.ca</a></p></div></div>
+<div class="c-row"><div class="c-ico">🕐</div><div><h4>Hours</h4><p>24/7 — Including Weekends & Holidays</p></div></div>
+</div>
+<div class="map-b">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883!2d-79.49!3d43.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z100+St+Regis+Crescent+North+York!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Drain King Plumbers Toronto. All rights reserved.</p>
+<a href="https://homebaked.dev" class="hb" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

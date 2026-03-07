@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brothers Plumbing — Since 1977 | Nearly 50 Years of Trust</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--steel:#2C3E50;--rust:#E67E22;--offwhite:#ECEFF1;--dark:#1a2634;--text:#333;--muted:#78909c}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden}
+h1,h2,h3,.stencil{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--steel);padding:.7rem 4%;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:2px}
+.nav-logo span{color:var(--rust)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;font-weight:500}
+.nav-links a:hover{color:var(--rust)}
+.nav-cta{background:var(--rust);color:#fff;padding:.5rem 1.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.85rem}
+
+/* HERO - diagonal split */
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative}
+.hero-dark{background:var(--steel);padding:8rem 6% 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-dark::before{content:'';position:absolute;top:0;right:0;bottom:0;width:80px;background:var(--offwhite);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.hero-dark::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+.hero-motifs{position:absolute;top:2rem;left:2rem;display:flex;gap:1rem}
+.motif{font-size:.65rem;color:var(--rust);text-transform:uppercase;letter-spacing:2px;font-family:'Barlow Condensed',sans-serif;font-weight:600;border:1px solid rgba(230,126,34,.3);padding:.3rem .8rem}
+.hero h1{color:#fff;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:.95;letter-spacing:2px;margin-bottom:1.5rem}
+.hero h1 span{color:var(--rust)}
+.hero-sub{color:rgba(255,255,255,.6);font-size:1rem;line-height:1.7;max-width:400px;margin-bottom:2.5rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-rust{background:var(--rust);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:1rem;transition:all .2s}
+.btn-rust:hover{background:#d35400}
+.btn-outline-w{border:2px solid rgba(255,255,255,.3);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:1rem;transition:all .2s}
+.btn-outline-w:hover{border-color:#fff}
+
+.hero-light{background:var(--offwhite);display:flex;align-items:center;justify-content:center;position:relative}
+.stamp{width:280px;height:280px;border:4px solid var(--steel);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);position:relative}
+.stamp::before{content:'';position:absolute;inset:8px;border:2px dashed rgba(44,62,80,.3);border-radius:50%}
+.stamp-year{font-family:'Barlow Condensed',sans-serif;font-size:4.5rem;font-weight:800;color:var(--steel);line-height:1;letter-spacing:3px}
+.stamp-text{font-family:'Barlow Condensed',sans-serif;font-size:.85rem;text-transform:uppercase;letter-spacing:3px;color:var(--rust);font-weight:700}
+.stamp-sub{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:.3rem}
+
+/* REPEATING MOTIF BAR */
+.motif-bar{background:var(--rust);padding:.8rem 4%;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.motif-bar span{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:2px}
+
+/* HISTORY TIMELINE */
+.history{padding:5rem 4%;background:#fff}
+.stencil{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:3px;text-align:center;margin-bottom:3rem;color:var(--steel)}
+.h-timeline{display:flex;justify-content:center;align-items:flex-start;gap:0;max-width:900px;margin:0 auto;position:relative}
+.h-timeline::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:3px;background:var(--steel)}
+.h-step{text-align:center;flex:1;position:relative;padding:0 1rem}
+.h-dot{width:16px;height:16px;background:var(--rust);border:3px solid var(--steel);border-radius:50%;margin:20px auto 1rem;position:relative;z-index:2}
+.h-year{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:800;color:var(--steel)}
+.h-desc{font-size:.8rem;color:var(--muted);line-height:1.5;margin-top:.3rem}
+
+/* MASONRY SERVICES */
+.services-section{padding:5rem 4%}
+.masonry{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:1rem;max-width:1100px;margin:0 auto}
+.m-card{background:var(--steel);color:#fff;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:transform .2s}
+.m-card:hover{transform:translateY(-3px)}
+.m-card::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.02) 10px,rgba(255,255,255,.02) 11px)}
+.m-card h3{font-size:1.1rem;letter-spacing:1px;font-weight:700;margin-bottom:.3rem}
+.m-card p{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.5}
+.m-card.tall{grid-row:span 2}
+.m-card.wide{grid-column:span 2}
+.m-card.rust{background:var(--rust)}
+.m-card.light{background:var(--offwhite);color:var(--steel)}
+.m-card.light p{color:var(--muted)}
+
+/* FEATURED REVIEW */
+.review-section{padding:5rem 4%;background:var(--steel);text-align:center}
+.review-section .stencil{color:var(--offwhite)}
+.featured-review{max-width:650px;margin:0 auto}
+.featured-review .stars{color:var(--rust);font-size:1.2rem;margin-bottom:1rem;letter-spacing:3px}
+.featured-review blockquote{color:rgba(255,255,255,.85);font-size:1.2rem;line-height:1.7;font-style:italic;margin-bottom:1.2rem}
+.featured-review cite{color:var(--rust);font-family:'Barlow Condensed',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;font-style:normal}
+.review-badge{display:inline-block;margin-top:1.5rem;border:1px solid rgba(255,255,255,.2);padding:.5rem 1.5rem;font-family:'Barlow Condensed',sans-serif;color:rgba(255,255,255,.5);font-size:.8rem;text-transform:uppercase;letter-spacing:2px}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1fr;min-height:450px}
+.contact-info{background:var(--dark);padding:4rem 5%;display:flex;flex-direction:column;justify-content:center}
+.contact-info .stencil{text-align:left;margin-bottom:1.5rem;color:var(--offwhite);font-size:2rem}
+.contact-info p{color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:2rem;font-size:.95rem}
+.contact-phone{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:var(--rust);text-decoration:none;letter-spacing:1px;display:block;margin-bottom:1rem}
+.contact-phone:hover{text-decoration:underline}
+.contact-details{color:rgba(255,255,255,.4);font-size:.85rem;line-height:2}
+.contact-map iframe{width:100%;height:100%;border:0;filter:saturate(.5)}
+
+/* FOOTER */
+footer{background:var(--steel);padding:1.5rem 4%;text-align:center;border-top:1px solid rgba(255,255,255,.1)}
+footer p{color:rgba(255,255,255,.3);font-size:.7rem}
+footer a{color:var(--rust);text-decoration:none;opacity:.6}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .masonry{grid-template-columns:repeat(2,1fr)}
+  .m-card.wide{grid-column:span 1}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-dark::before{display:none}
+  .hero-light{padding:3rem 0;min-height:auto}
+  .stamp{width:200px;height:200px}
+  .stamp-year{font-size:3rem}
+  .nav-links{display:none}
+  .h-timeline{flex-direction:column;align-items:flex-start;padding-left:2rem}
+  .h-timeline::before{left:8px;top:0;bottom:0;width:3px;height:auto;right:auto}
+  .h-dot{margin:0 0 .5rem 0;position:absolute;left:-2rem}
+  .h-step{text-align:left;padding:0 0 2rem 0}
+  .masonry{grid-template-columns:1fr}
+  .m-card.tall{grid-row:span 1}
+  .contact{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Brothers <span>Plumbing</span></a>
+  <ul class="nav-links">
+    <li><a href="#history">History</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#review">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:4166566717" class="nav-cta">Call (416) 656-6717</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-dark">
+    <div class="hero-motifs">
+      <span class="motif">Family Owned</span>
+      <span class="motif">7 Days a Week</span>
+    </div>
+    <h1>Nearly 50 Years of <span>Trust</span></h1>
+    <p class="hero-sub">Since 1977, Brothers Plumbing has been the GTA's dependable, family-owned plumbing service. Three generations of expertise, available 7 days a week.</p>
+    <div class="hero-ctas">
+      <a href="tel:4166566717" class="btn-rust">Call Us Today</a>
+      <a href="#services" class="btn-outline-w">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-light">
+    <div class="stamp">
+      <span class="stamp-text">Est.</span>
+      <span class="stamp-year">1977</span>
+      <span class="stamp-sub">Family Owned & Operated</span>
+    </div>
+  </div>
+</section>
+
+<div class="motif-bar">
+  <span>🔧 Family Owned</span>
+  <span>📅 7 Days a Week</span>
+  <span>📍 GTA Coverage</span>
+  <span>⭐ 4.5★ (312 Reviews)</span>
+</div>
+
+<section id="history" class="history reveal">
+  <h2 class="stencil">Our History</h2>
+  <div class="h-timeline">
+    <div class="h-step"><div class="h-dot"></div><div class="h-year">1977</div><div class="h-desc">Brothers Plumbing founded as a family business in Toronto</div></div>
+    <div class="h-step"><div class="h-dot"></div><div class="h-year">1990s</div><div class="h-desc">Expanded to serve the entire Greater Toronto Area</div></div>
+    <div class="h-step"><div class="h-dot"></div><div class="h-year">2010s</div><div class="h-desc">Modernized fleet & added 7-day emergency service</div></div>
+    <div class="h-step"><div class="h-dot"></div><div class="h-year">2020s</div><div class="h-desc">Merged with Priority Plumbing, expanding capacity</div></div>
+    <div class="h-step"><div class="h-dot"></div><div class="h-year">Today</div><div class="h-desc">Nearly 50 years strong — still family, still trusted</div></div>
+  </div>
+</section>
+
+<section id="services" class="services-section">
+  <h2 class="stencil reveal">Full Service Plumbing</h2>
+  <div class="masonry reveal">
+    <div class="m-card tall"><h3>Drain Repair & Cleaning</h3><p>Complete drain services from camera inspection to hydro jetting. We clear blockages and repair damaged lines.</p></div>
+    <div class="m-card wide rust"><h3>Emergency Service</h3><p>Burst pipes, floods, gas leaks — we respond fast, 7 days a week. Call anytime for immediate dispatch.</p></div>
+    <div class="m-card"><h3>Water Heaters</h3><p>Tank, tankless, and hybrid installation and repair.</p></div>
+    <div class="m-card"><h3>Bathroom Plumbing</h3><p>Fixtures, faucets, toilets, showers, and tub installations.</p></div>
+    <div class="m-card wide light"><h3>Kitchen Plumbing</h3><p>Sink installation, dishwasher hookups, garbage disposals, and pipe repairs. Keeping your kitchen running smoothly.</p></div>
+    <div class="m-card rust"><h3>Gas Fitting</h3><p>Licensed gas line installation for stoves, dryers, BBQs, and furnaces.</p></div>
+    <div class="m-card tall"><h3>Basement Waterproofing</h3><p>Sump pumps, backwater valves, weeping tile, and foundation sealing. We keep your basement dry through every season.</p></div>
+    <div class="m-card light"><h3>Pipe Replacement</h3><p>Copper, PEX, and cast iron pipe replacement and repiping for aging homes.</p></div>
+  </div>
+</section>
+
+<section id="review" class="review-section reveal">
+  <h2 class="stencil">What People Say</h2>
+  <div class="featured-review">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <blockquote>"We've used Brothers Plumbing for over 15 years — they replaced all the plumbing in our 1950s home, handle our annual maintenance, and came out on Christmas Eve when our pipe burst. They're not just our plumber, they're family at this point."</blockquote>
+    <cite>— The Henderson Family, Toronto</cite>
+  </div>
+  <div class="review-badge">4.5★ Average from 312 Google Reviews</div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-info reveal">
+    <h2 class="stencil">Get in Touch</h2>
+    <p>Available 7 days a week across the Greater Toronto Area. Family-owned since 1977 — now part of the Priority Plumbing family for even faster service.</p>
+    <a href="tel:4166566717" class="contact-phone">(416) 656-6717</a>
+    <div class="contact-details">
+      7 Days a Week Service<br>
+      Greater Toronto Area Coverage<br>
+      Family Owned Since 1977<br>
+      Now Part of Priority Plumbing
+    </div>
+  </div>
+  <div class="contact-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.5!2d-79.45!3d43.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQxJzI0LjAiTiA3OcKwMjcnMDAuMCJX!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Brothers Plumbing. Nearly 50 years of service. &nbsp;|&nbsp; Built by <a href="https://homebaked.ca" target="_blank">HomeBaked</a></p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:.1})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
+</body>
+</html>

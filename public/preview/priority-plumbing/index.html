@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priority Plumbing & Drains | Toronto's #1 Plumbing Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Source Sans 3',sans-serif;color:#1e293b;line-height:1.6;overflow-x:hidden}
+:root{--primary:#0f4c81;--primary-dark:#0a3259;--accent:#ff6b35;--accent-light:#ff8f66;--dark:#0f172a;--light:#f0f7ff;--gray:#64748b;--white:#ffffff}
+
+.hero{min-height:100vh;background:linear-gradient(160deg,rgba(15,76,129,0.95),rgba(10,50,89,0.9)),url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920') center/cover;display:flex;align-items:center;padding:2rem;position:relative}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:var(--white);clip-path:polygon(0 100%,100% 100%,100% 0)}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;width:100%}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);line-height:1.15;margin-bottom:1.5rem;font-weight:900}
+.hero h1 span{color:var(--accent)}
+.hero p{color:rgba(255,255,255,0.8);font-size:1.15rem;margin-bottom:2rem;font-weight:300;max-width:540px}
+.hero-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:2.5rem;text-align:center}
+.hero-card .rating{font-family:'Montserrat',sans-serif;font-size:4rem;font-weight:900;color:var(--accent)}
+.hero-card .stars{color:var(--accent);font-size:1.5rem;letter-spacing:4px;margin:0.5rem 0}
+.hero-card .review-count{color:rgba(255,255,255,0.7);font-size:1.1rem}
+.hero-card .divider{height:1px;background:rgba(255,255,255,0.15);margin:1.5rem 0}
+.hero-card .cta-text{color:var(--white);font-weight:600;font-size:1.1rem;margin-bottom:1rem}
+
+.btn{padding:1rem 2.5rem;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;font-family:'Montserrat',sans-serif}
+.btn-accent{background:var(--accent);color:var(--white)}
+.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,53,0.4)}
+.btn-white{background:var(--white);color:var(--primary)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.15)}
+.btn-block{width:100%;justify-content:center}
+
+.section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.tag{display:inline-block;color:var(--accent);font-size:0.8rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.75rem;font-family:'Montserrat',sans-serif}
+.title{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:1rem;font-weight:800;line-height:1.2}
+.subtitle{color:var(--gray);max-width:600px;font-size:1.05rem;margin-bottom:3rem}
+
+/* Services - horizontal scroll on mobile */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:var(--light);border-radius:20px;padding:2.5rem 2rem;transition:all 0.35s;position:relative;overflow:hidden;cursor:default}
+.service-card:hover{background:var(--primary);color:var(--white);transform:translateY(-6px);box-shadow:0 20px 50px rgba(15,76,129,0.2)}
+.service-card:hover p{color:rgba(255,255,255,0.8)}
+.service-card:hover .svc-icon{background:rgba(255,255,255,0.15)}
+.svc-icon{width:56px;height:56px;background:var(--primary);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem;transition:all 0.35s}
+.service-card h3{font-family:'Montserrat',sans-serif;font-size:1.15rem;margin-bottom:0.75rem;font-weight:700}
+.service-card p{color:var(--gray);font-size:0.9rem;transition:color 0.35s}
+
+/* About split */
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text p{margin-bottom:1rem;color:var(--gray)}
+.about-text p strong{color:var(--dark)}
+.values-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.value-item{background:var(--light);padding:1.25rem;border-radius:12px;font-weight:600;font-size:0.95rem;display:flex;align-items:center;gap:0.75rem}
+.value-dot{width:10px;height:10px;background:var(--accent);border-radius:50%;flex-shrink:0}
+.about-visual{background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:24px;padding:3rem;color:var(--white);display:flex;flex-direction:column;gap:2rem}
+.av-stat{text-align:center}
+.av-stat .num{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:900}
+.av-stat .lbl{opacity:0.8;font-size:0.9rem}
+
+/* Reviews */
+.reviews-section{background:var(--light)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.review{background:var(--white);border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.04);transition:all 0.3s}
+.review:hover{box-shadow:0 12px 40px rgba(0,0,0,0.08);transform:translateY(-4px)}
+.review .stars{color:var(--accent);margin-bottom:0.75rem}
+.review p{font-size:0.95rem;color:var(--gray);font-style:italic;margin-bottom:1rem;line-height:1.7}
+.review .author{font-weight:700;color:var(--dark)}
+
+.cta-section{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);text-align:center;padding:5rem 2rem}
+.cta-section h2{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1rem;font-weight:800}
+.cta-section p{opacity:0.8;margin-bottom:2rem;font-size:1.1rem}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-cards{display:flex;flex-direction:column;gap:1.25rem}
+.c-card{display:flex;gap:1rem;background:var(--light);padding:1.5rem;border-radius:14px;align-items:center;transition:all 0.3s}
+.c-card:hover{background:var(--primary);color:var(--white)}
+.c-card:hover p{color:rgba(255,255,255,0.8)}
+.c-icon{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--white);flex-shrink:0}
+.c-card:hover .c-icon{background:rgba(255,255,255,0.15)}
+.c-card h4{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700}
+.c-card p{color:var(--gray);font-size:0.9rem;transition:color 0.3s}
+.map-wrap{border-radius:20px;overflow:hidden;min-height:350px}
+.map-wrap iframe{width:100%;height:100%;min-height:350px;border:0}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:2rem}
+footer a{color:var(--accent);text-decoration:none}
+.hb-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.05);padding:0.5rem 1rem;border-radius:50px;font-size:0.8rem;margin-top:0.75rem;transition:all 0.3s}
+.hb-badge:hover{background:rgba(255,255,255,0.1)}
+
+@media(max-width:768px){
+.hero-inner{grid-template-columns:1fr}
+.hero-card{margin-top:1rem}
+.services-grid{grid-template-columns:1fr}
+.about-split,.contact-grid{grid-template-columns:1fr}
+.values-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-inner">
+<div>
+<h1>Toronto's Most <span>Trusted</span> Plumbing Company</h1>
+<p>From emergency repairs to complete installations, Priority Plumbing & Drains delivers professional plumbing services 7 days a week across Toronto and the GTA.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap">
+<a href="tel:+16476994912" class="btn btn-accent">📞 (647) 699-4912</a>
+<a href="#services" class="btn btn-white">View Services</a>
+</div>
+</div>
+<div class="hero-card">
+<div class="rating">4.8</div>
+<div class="stars">★★★★★</div>
+<div class="review-count">Based on 1,786 Google Reviews</div>
+<div class="divider"></div>
+<div class="cta-text">Ready for Priority Service?</div>
+<a href="tel:+16476994912" class="btn btn-accent btn-block">Call Now — Free Quote</a>
+</div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="container">
+<div class="tag">Our Services</div>
+<h2 class="title">Complete Plumbing Solutions for Home & Business</h2>
+<p class="subtitle">Expert plumbing installation, repair, and emergency services from Toronto's most reviewed plumbing company.</p>
+<div class="services-grid">
+<div class="service-card"><div class="svc-icon">🔧</div><h3>Plumbing Repairs</h3><p>Fast diagnosis and solid repairs for leaks, clogs, burst pipes and more. No guesswork — just solutions that last.</p></div>
+<div class="service-card"><div class="svc-icon">🚿</div><h3>Water Heater Services</h3><p>Gas and electric water heater installation sized for your family. No more cold showers halfway through bath time.</p></div>
+<div class="service-card"><div class="svc-icon">🏗️</div><h3>Plumbing Installation</h3><p>New kitchens, bathrooms, basement additions — proper installation is the foundation of a problem-free system.</p></div>
+<div class="service-card"><div class="svc-icon">🌊</div><h3>Drain Services</h3><p>Drain cleaning, unclogging, and repair to keep your system flowing. Fast and effective solutions for any blockage.</p></div>
+<div class="service-card"><div class="svc-icon">🏠</div><h3>Sump Pump Installation</h3><p>Protect your basement from flooding with reliable sump pump installation, set up and ready for Toronto storms.</p></div>
+<div class="service-card"><div class="svc-icon">⚡</div><h3>Emergency Plumbing</h3><p>24/7 emergency service — frozen pipes, backed-up sewers, burst pipes. We respond when you need us most.</p></div>
+<div class="service-card"><div class="svc-icon">🔥</div><h3>Heating & Radiators</h3><p>Radiator heating maintenance and repairs to keep your home warm through Toronto's harsh winter months.</p></div>
+<div class="service-card"><div class="svc-icon">🚽</div><h3>Fixture Installation</h3><p>Top-quality faucets, showerheads, and toilets installed to look sharp and stand up to everyday use.</p></div>
+<div class="service-card"><div class="svc-icon">🔍</div><h3>Sewer Services</h3><p>Routine inspections, emergency repair, and installation. Ensuring the longevity and efficiency of your sewer system.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" style="background:var(--white)">
+<div class="container">
+<div class="about-split">
+<div class="about-text">
+<div class="tag">About Priority Plumbing</div>
+<h2 class="title">Plumbing Done Right,<br>Every Time</h2>
+<p>Priority Plumbing & Drains is a <strong>full-service plumbing company in Toronto</strong> serving homeowners and businesses across the Greater Toronto Area. We don't rely on guesswork — our team is trained to assess systems thoroughly, even when plumbing is hidden behind walls.</p>
+<p>Whether you're updating an old kitchen, dealing with a midnight emergency, or need routine maintenance, we bring the <strong>technical skills and real-world experience</strong> to do the job right.</p>
+<div class="values-row">
+<div class="value-item"><div class="value-dot"></div>7 Days a Week</div>
+<div class="value-item"><div class="value-dot"></div>Licensed & Insured</div>
+<div class="value-item"><div class="value-dot"></div>Upfront Pricing</div>
+<div class="value-item"><div class="value-dot"></div>Live Tracking</div>
+</div>
+</div>
+<div class="about-visual">
+<div class="av-stat"><div class="num">1,786+</div><div class="lbl">Google Reviews</div></div>
+<div class="av-stat"><div class="num">4.8★</div><div class="lbl">Average Rating</div></div>
+<div class="av-stat"><div class="num">24/7</div><div class="lbl">Emergency Service</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reviews-section" id="reviews">
+<div class="container">
+<div class="tag">Customer Love</div>
+<h2 class="title">1,786+ Happy Customers Can't Be Wrong</h2>
+<p class="subtitle">Real reviews from real Toronto homeowners who chose Priority Plumbing.</p>
+<div class="reviews-grid">
+<div class="review"><div class="stars">★★★★★</div><p>"Shoutout to Priority Plumbing, these guys are fantastic! They don't just fix the immediate problem, they take the time to inspect the rest of the plumbing system and let you know about any potential issues."</p><div class="author">— J</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Great service from start to finish. Cole Tubigan was knowledgeable, polite, and genuinely keen to help. It's clear he enjoys his work and wants to do it well! Highly recommend!"</p><div class="author">— Kylie Wasko</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>"Zachary exceeded my expectations and was very easy to work with. His service was very professional, timely and very tidy. I would confidently recommend him for plumbing issues."</p><div class="author">— Helen Seto</div></div>
+</div>
+</div>
+</section>
+
+<section class="cta-section">
+<h2>Plumbing Emergency? We're On Our Way.</h2>
+<p>Open 7 days a week with live tracking so you know exactly when we'll arrive.</p>
+<a href="tel:+16476994912" class="btn btn-accent">📞 Call (647) 699-4912</a>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="tag">Contact Us</div>
+<h2 class="title">Get in Touch with Priority Plumbing</h2>
+<br>
+<div class="contact-grid">
+<div class="contact-cards">
+<div class="c-card"><div class="c-icon">📞</div><div><h4>Call Us</h4><p><a href="tel:+16476994912" style="color:inherit;text-decoration:none">(647) 699-4912</a></p></div></div>
+<div class="c-card"><div class="c-icon">📍</div><div><h4>Visit Us</h4><p>1594 Dupont St, Toronto, ON M6P 3S7</p></div></div>
+<div class="c-card"><div class="c-icon">🕐</div><div><h4>Hours</h4><p>Open 7 Days — Emergency 24/7</p></div></div>
+<div class="c-card"><div class="c-icon">🌍</div><div><h4>Service Area</h4><p>Toronto & Greater Toronto Area</p></div></div>
+</div>
+<div class="map-wrap">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886!2d-79.45!3d43.66!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z1594+Dupont+St+Toronto!5e0!3m2!1sen!2sca!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2026 Priority Plumbing & Drains. All rights reserved.</p>
+<a href="https://homebaked.dev" class="hb-badge" target="_blank">🍞 Built by HomeBaked</a>
+</footer>
+
+</body>
+</html>

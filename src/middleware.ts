@@ -10,7 +10,20 @@ function getSecret() {
 }
 
 export async function middleware(request: NextRequest) {
+  const host = request.headers.get('host') || '';
   const { pathname } = request.nextUrl;
+
+  // Handle subdomain routing for preview sites: *.sites.homebaked.dev
+  const subdomainMatch = host.match(/^([a-z0-9-]+)\.sites\.homebaked\.dev$/);
+  if (subdomainMatch) {
+    const slug = subdomainMatch[1];
+    // Skip reserved subdomains
+    if (!['www', 'mail', 'sites'].includes(slug)) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/preview/${slug}/index.html`;
+      return NextResponse.rewrite(url);
+    }
+  }
 
   // Skip login page and API-key-authenticated endpoints
   if (pathname === '/dashboard/login' || pathname === '/api/dashboard/sessions/sync') {
@@ -35,5 +48,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/api/dashboard/:path*'],
+  matcher: ['/dashboard/:path*', '/api/dashboard/:path*', '/autopilot/:path*', '/api/autopilot/:path*'],
 };
