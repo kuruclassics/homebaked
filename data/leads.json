@@ -1835,5 +1835,517 @@
       "reason": "Outreach target"
     },
     "preview_slug": "john-the-plumber-orleans"
+  },
+  {
+    "place_id": "ChIJjcBz-FSq0kwRQPLE3zzx66Q",
+    "name": "John The Plumber",
+    "address": "308 Wellington St, Kingston, ON K7K 6T7, Canada",
+    "phone": "(613) 519-3155",
+    "website": "https://www.johntheplumber.ca/kingston",
+    "rating": 4.7,
+    "review_count": 517,
+    "reviews": [
+      {
+        "author": "Sooyeon Kim",
+        "rating": 5,
+        "text": "I needed a plumber for my clogged kitchen sink for my 20 + years old house.\nMy associate refers me to contact this company.\nThe plumber I had ,Michael Kang did amazing job for me.\nHe explained in detail, go up and downstairs to find the best route to figure it out. The finishing after his work was clean and neat. Not allowed even a dropplet.\nThe drain works very well.\nHe is the best of the best experienced plumber ever.\nThank you Mr. Kang",
+        "time": "a month ago"
+      },
+      {
+        "author": "Eva Lee",
+        "rating": 5,
+        "text": "The plumber had an excellent attitude. My English isn\u2019t very good, but he patiently explained everything to me. After clearing the pipe, he checked it several times to make sure everything was working properly. I\u2019m very grateful for his service and highly recommend him!",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "Rina Galati",
+        "rating": 5,
+        "text": "Thomas was very professional, courteous and friendly. Gave me estimate beforehand, completed the work within the hour and sent me picture. Very satisfied with work. Price was more than I was expecting but it was done on a Sunday and included a new Moen faucet. It is what it is.",
+        "time": "2 weeks ago"
+      },
+      {
+        "author": "Jp&vd Dufort",
+        "rating": 5,
+        "text": "I had a great experience with this Tristan. He arrived quickly, worked efficiently, and did an excellent job!! He was very informative and took the time to explain everything clearly. On top of that, he was very friendly and professional. I would definitely recommend his services to anyone needing plumbing work done!",
+        "time": "a week ago"
+      },
+      {
+        "author": "RB gg",
+        "rating": 5,
+        "text": "The team did a great job! They were here on time when they said they would be, and were friendly and courteous throughout the process.  They spent a good 4.5 hours fixing my situation and they did not leave until the job was done.  The fee quoted at the beginning was the same at the completion, despite it taking so long to fix, and at the end of the day, it was well worth the money for the professionalism and good work they provided. Keep it up folks!",
+        "time": "3 weeks ago"
+      }
+    ],
+    "emails": [
+      "agenda@johntheplumber.ca",
+      "john@johntheplumber.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "john-the-plumber"
+  },
+  {
+    "place_id": "ChIJLWKuCRdXtIQR4nfpxUsk4FY",
+    "name": "Leak Free Plumbing",
+    "address": "1508 Clover St, Kingston, ON K7P 0M9, Canada",
+    "phone": "(613) 876-6688",
+    "website": "https://www.leakfreeplumbing.com/",
+    "rating": 4.9,
+    "review_count": 103,
+    "reviews": [
+      {
+        "author": "Mary Cross",
+        "rating": 5,
+        "text": "We were very happy with our service today. We called yesterday. Had a kitchen tap that was seized on. Our plumber I think his name was Ricardo was very knowledgeable. Give us lots of advice. And promptly solved the problem and installed our new tabs. Definitely would recommend.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Brian",
+        "rating": 5,
+        "text": "Big shout out to Ricardo At leak free plumbing. He is very responsive, arrives on time, does excellent work, tidies up and provides great recommendations. All around an outstanding experience and we will repeat. Thanks Ricardo!",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Rick Hudson",
+        "rating": 5,
+        "text": "Contacted Leak Free Plumbing at 7am about a leaking valve on the main water line into my home. Ricardo advised me to contact Kingston Utilities and have them come to the house and shut the main water line into the house off.\n\nKingston Utilities attended as requested and after several issues, locating the line, repairing the missing main shut off, the water supply was shut off.\n\nContacted Ricardo and he attended my home within an hour. He quickly sized up the job and retrieved the needed supplies from his truck. He cut out the leaking valve and replaced it with a new one. As he was cleaning up he pointed out a couple of other issues that we will have done in the spring. We will be calling Ricardo / Leak Free Plumbing to have these issues addressed.\n\nWould definitely recommend Leak Free Plumbing/Ricardo to anyone who needs a friendly, professional plumber.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "jj victor",
+        "rating": 5,
+        "text": "We would like to thank Ricardo for his exceptional plumbing services. He demonstrated a high level of professionalism and expertise during his visit. He arrived punctually and provided clear explanations of the necessary work. His response time was quick, and the pricing for the completed work was fair. We are grateful for his assistance and will use Ricardo's services again in the future when needed. Thank you.\n\nJohn + Maria V",
+        "time": "5 months ago"
+      },
+      {
+        "author": "Kelsey",
+        "rating": 5,
+        "text": "Easy to book service online, good communication, on time, friendly and fair prices. Thank you so much for the service you provided us. Will definitely be looking forward to your business in the future and highly recommended to others!",
+        "time": "2 months ago"
+      }
+    ],
+    "emails": [
+      "leakfreeplumbing2022@gmail.com"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "leak-free-plumbing"
+  },
+  {
+    "place_id": "ChIJF1ejzMqt0kwRcDL5zim9Uy4",
+    "name": "The Super Plumber - Kingston",
+    "address": "812 Development Dr Unit B, Kingston, ON K7M 5V7, Canada",
+    "phone": "(753) 506-0015",
+    "website": "https://www.thesuperplumber.com/kingston/?utm_source=google&utm_medium=gmb&utm_campaign=tsp-kingston-gmb",
+    "rating": 4.9,
+    "review_count": 77,
+    "reviews": [
+      {
+        "author": "Pete K",
+        "rating": 5,
+        "text": "We have developed a drain blockage problem at our home  about a in early 2024 at the west end of our bungalow.  The laundry  room sink and the  kitchen sink became plugged one day, yet at the east end of the house our 3 bathrooms  with tubs with showers  all drained  well.having a finished basement  was a concern obviously. We had a plumber come and auger out the pipe from a clean out in  furnace room under the laundry room. He solved the problem. We never put grease down the drain  and are the second owners of the home. The same clog condition happened again  on Feb 5th 2 years later and we called super plumber this time. Their tech named Todd was their promptly and suggested  we have a camera put through  to see what the issue was. He didnt have it with him but returned the following  day znd discovered  a buildup of grease and calcium . He used the auger then a high pressure jet water cleaning and the results were  amazing. The camera showed the pipe was 95% cleaned. He was very professional and explained  pricing clearly. We'll  be using this company again, hopefully not though.lol!",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "Joanne S",
+        "rating": 5,
+        "text": "I was very pleased with the professionalism of the work. The two boys were on time, courteous, left no mess, came with all required parts and explained exactly what was wrong and what they did to repair it.\nI had water accumulating in my basement at 8pm last night and Mike was kind enough on his way home to enable the frozen sump pump to work by drilling into the pipe going out and to shut off the water\nI am very appreciative and would recommend them any time!!!\nThank you",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Jim Lauzon",
+        "rating": 5,
+        "text": "Casey arrived as scheduled. He is very courteous and knowledgeable. He was able to fix my plumbing issue quickly and professionally. I would recommend this company for all your plumbing needs.",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Daryl Anderson",
+        "rating": 5,
+        "text": "Haven Home/Super Plumber and Casey E. did excellent work on a big job for us: re-piping an entire home. Considering the need to access inside many walls and ceilings for this sort of work, they were minimally invasive and when some small unfinished items were brought to their attention they were resolved quickly. Highly recommended.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Patty Smith",
+        "rating": 5,
+        "text": "Todd was friendly, did a thorough job and took the time to go and pick up some cartridges that were needed, plus he had a look at my other sink that needs a new tap, answered my questions and gave advice.",
+        "time": "3 weeks ago"
+      }
+    ],
+    "emails": [
+      "inquiry@thesuperplumber.com"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "the-super-plumber-kingston"
+  },
+  {
+    "place_id": "ChIJe5Dt8jt5piIRHVCZ7HkTF3U",
+    "name": "Universal Plumbing & Sewer Services Inc.",
+    "address": "60 Rigney St Unit #8, Kingston, ON K7K 6Z2, Canada",
+    "phone": "(613) 539-3445",
+    "website": "http://www.universalplumbing.ca/",
+    "rating": 4.9,
+    "review_count": 168,
+    "reviews": [
+      {
+        "author": "Lemoy Whilby",
+        "rating": 5,
+        "text": "I had a great experience utilizing the services of Universal Plumbing. I  think the owner understands that quality customer service is at the core of any successful business.  I will definitely use them again in the future.",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Linda Pearson",
+        "rating": 5,
+        "text": "The men who came to fix my issue which was extensive and in very cold  weather were amazing. They worked on the issue till they knew everything was working completely\nWould recommend anytime.  Thankyou",
+        "time": "a week ago"
+      },
+      {
+        "author": "John Perreault",
+        "rating": 5,
+        "text": "Adam ensured my needs were met as soon as a plumber was available with their busy work schedule.  Replacement of a key failed check valve was completed quickly and in a timely fashion.",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "brent herbison",
+        "rating": 5,
+        "text": "Remarkable service! Called late on Thursday to see if they would be available to scope a sewer line so my wife and I could decide to purchase a home. Adam answered immediately and assured us he would make a spot available the following day! Job completed. Thank you, thank you!!!!!! Home was purchased. Brent and Linda",
+        "time": "5 months ago"
+      },
+      {
+        "author": "yujia Wang",
+        "rating": 5,
+        "text": "I cannot recommend Adam and his team highly enough! They are incredibly professional, and I feel completely at ease choosing his company for our plumbing needs. They helped us solve a huge problem with two of our properties located in Kingston downtown.\n\nBoth homes are over 60 years old, with extremely old and poorly maintained pipes that caused frequent clogs and issues for the upstairs residents. Adam is not only highly skilled and dedicated but also excellent with time management. He and his team completed all the work perfectly and on schedule, and they always cleaned up the work area thoroughly so we had no extra worries.\n\nThey are punctual, professional, and truly trustworthy. We are very much looking forward to working with Adam on our next two projects: completing the renovations for both of our bathrooms!",
+        "time": "3 weeks ago"
+      }
+    ],
+    "emails": [
+      "service@universalplumbing.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "universal-plumbing-sewer-services-inc"
+  },
+  {
+    "place_id": "ChIJb0kM-9Sp0kwRoV3DcmAqw0c",
+    "name": "Superior Plumbing & Heating of Kingston",
+    "address": "461 Princess St Unit 102, Kingston, ON K7L 1C3, Canada",
+    "phone": "(613) 706-5033",
+    "website": "https://superiorplumbing.ca/kingston/?utm_source=gmb&utm_medium=organic&utm_campaign=gmb",
+    "rating": 4.8,
+    "review_count": 149,
+    "reviews": [
+      {
+        "author": "Mughees Zahid",
+        "rating": 5,
+        "text": "I recently hired Superior Plumbing Kingston for a complete toilet replacement, and I couldn\u2019t be happier with the entire experience from start to finish.\nBooking the appointment was quick and easy. They were professional on the phone, clearly explained the process, and were able to schedule me in sooner than I expected. The plumber arrived right on time, was courteous, and took the time to walk me through the replacement process before starting any work.\nThe installation itself was handled flawlessly. They carefully removed the old toilet without making a mess and made sure the surrounding area was protected throughout the job. The new toilet was installed securely, perfectly leveled, and sealed properly. I really appreciated the attention to detail \u2014 they checked for leaks, tested the flush multiple times, and ensured everything was working efficiently before wrapping up.\nWhat stood out most was their professionalism and cleanliness. They cleaned up thoroughly after the installation, leaving the bathroom spotless \u2014 you wouldn\u2019t even know major plumbing work had just been done. It\u2019s clear they take pride in their craftsmanship.\nThe pricing was transparent and fair, with no surprise charges. The quality of service I received was absolutely worth every penny.\nIf you\u2019re looking for reliable, skilled, and professional plumbers for a toilet replacement (or any plumbing work), I highly recommend Superior Plumbing Kingston. I will definitely be using them again for future plumbing needs!",
+        "time": "a week ago"
+      },
+      {
+        "author": "Muhammad Shahzaib",
+        "rating": 5,
+        "text": "I contacted Superior Plumbing Kingston after a burst pipe caused serious water leakage in my home. Scheduling was quick, and the plumber arrived on time and explained everything clearly. They repaired the pipe efficiently and made sure there were no leaks before finishing. What impressed me most was their professionalism and how clean they left the area. Pricing was fair and transparent. I highly recommend them for fast and reliable plumbing service.",
+        "time": "a week ago"
+      },
+      {
+        "author": "Muhammad Asif",
+        "rating": 5,
+        "text": "I had a completely blocked shower drain and called Superior Plumbing Kingston for help. The appointment process was smooth, and the plumber arrived right on schedule. They removed the clog thoroughly and tested everything to make sure it was draining properly. Their attention to detail and cleanliness really stood out. Great service, fair pricing, and excellent results. Highly recommended.",
+        "time": "a week ago"
+      },
+      {
+        "author": "Muhammad Junaid",
+        "rating": 5,
+        "text": "I was experiencing very low water pressure throughout my house and hired Superior Plumbing Kingston to fix it. The plumber arrived on time, inspected the system carefully, and resolved the issue professionally. The water pressure improved immediately. They were polite, efficient, and left everything clean. Pricing was reasonable, and the overall experience was excellent. I would gladly use their services again.",
+        "time": "a week ago"
+      },
+      {
+        "author": "Rehan Yaqoob",
+        "rating": 5,
+        "text": "My toilet wouldn\u2019t stop running and was wasting a lot of water, so I called Superior Plumbing Kingston. The plumber was punctual, professional, and explained the issue clearly. They replaced the faulty components and made sure everything was functioning properly before leaving. I appreciated their attention to detail and cleanliness. Pricing was honest, and the service quality was excellent. I would definitely use them again.",
+        "time": "a week ago"
+      }
+    ],
+    "emails": [
+      "info@superiorplumbing.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "superior-plumbing-heating-of-kingston"
+  },
+  {
+    "place_id": "ChIJeWwj1bqv0kwRTRq6tjE-HHw",
+    "name": "TAP TECH Plumbing and Drain",
+    "address": "694 Fortune Crescent Unit 2, Kingston, ON K7P 2T3, Canada",
+    "phone": "(613) 328-6600",
+    "website": "https://taptech.ca/water-treatment-kingston/",
+    "rating": 4.8,
+    "review_count": 249,
+    "reviews": [
+      {
+        "author": "Roxann Sadowski",
+        "rating": 5,
+        "text": "Amazing service. Contacted them on WhatsApp at about 930PM Friday night, got a reply in less than a minute. Told them my situation and since it wasn't a true emergency, they scheduled an appointment for the next morning at 7AM. I got a text and email confirmation and in the morning when the tech was on his way I got another text. Super friendly service. Very knowledgeable. Great with my large breed dog. Very fast and efficient. Well priced for a weekend morning call. 10/10 recommend and I'm having them come back for some routine maintenance so I don't have another issue elsewhere in the future.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Michael Graves",
+        "rating": 5,
+        "text": "Dan responded immediately to our request. He was at our door first thing in the morning and corrected the issue within hours. Super friendly, great communication and a reasonable cost. Thanks all!",
+        "time": "a month ago"
+      },
+      {
+        "author": "Roger Raju",
+        "rating": 5,
+        "text": "Dan has explained to me the reverse osmosis system and tested the city water at the sink. An estimate was sent to me and I have accepted the cost. He came two days later and installed the system along with his assistant Dean. Job was done and cleaned up after. Dan is easy to talk to and does a good job.",
+        "time": "a month ago"
+      },
+      {
+        "author": "Steve Heron",
+        "rating": 5,
+        "text": "Dan and Bean were great. They came at 7pm on a Saturday night for water backing up in our basement from a clogged main drain line. They cleared it, installed a new toilet and fixed everything we asked. They were professional, explained everything, answered all questions and are super friendly guys. Will call with all plumbing problems from now on and highly recommend to everyone. Thank you Dan and Bean we are more than pleased.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Sarah",
+        "rating": 5,
+        "text": "Dan and Bean showed up on time and were super friendly and kind. They made super quick work of fixing my toilet that had been clogged for 3 weeks and made my life so much easier with 3 teenagers in the house now that we have more than 1 bathroom again! Thank you so much!!!",
+        "time": "3 months ago"
+      }
+    ],
+    "emails": [
+      "info@taptech.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "tap-tech-plumbing-and-drain"
+  },
+  {
+    "place_id": "ChIJm1AvlgSr0kwRSS8ZuOKA5wM",
+    "name": "Ogden Plumbing",
+    "address": "73 Grenadier Dr, Kingston, ON K7K 6G4, Canada",
+    "phone": "(613) 888-8578",
+    "website": "https://www.ogdenplumbing.ca/",
+    "rating": 5,
+    "review_count": 27,
+    "reviews": [
+      {
+        "author": "Kevin Essebier",
+        "rating": 5,
+        "text": "Derek was extremely responsive and communicative, making it easy to arrange a convenient time for the visit. He did an outstanding job, took the time to explain what he was doing, and left the workspace spotless. Highly recommend his services!",
+        "time": "6 months ago"
+      },
+      {
+        "author": "Kevin Theriault",
+        "rating": 5,
+        "text": "Great company to deal with!  Good work, honest, fair pricing.  Would definitely call them again, for big or small jobs.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Steve S.",
+        "rating": 5,
+        "text": "Very happy with Derrick at Ogden Plumbing. Courteous, prompt and fair pricing. Keep up the great work! Our team here at Mr. Handyman of Toronto North appreciates you.",
+        "time": "a year ago"
+      },
+      {
+        "author": "Pratik Konnur",
+        "rating": 5,
+        "text": "Fantastic service, true professional. Also very timely. Had a clogged kitchen sink that another plumber already took a look at the previous day without any luck. Derrick fixed the issue within the hour and made sure everything checked out ok, cleaned up after he was done, and was professional the entire time. Highly recommend his services",
+        "time": "a year ago"
+      },
+      {
+        "author": "Goboo jan",
+        "rating": 5,
+        "text": "I recently had the pleasure of using Superior Pumping Service for a project, and I couldn't be happier with the experience. From start to finish, they exemplified professionalism, efficiency, and expertise in their field.\n\nFirst and foremost, their customer service was exceptional. From my initial inquiry to the completion of the job, they were responsive, courteous, and attentive to my needs. They took the time to understand the specifics of my project and provided me with a tailored solution that met all of my requirements.\n\nThe quality of their work was truly top-notch. The team arrived on time, well-equipped, and ready to tackle the job. Their equipment was state-of-the-art, and their technicians demonstrated a mastery of their craft. They worked diligently to complete the task efficiently without sacrificing attention to detail.\n\nOne aspect that particularly impressed me was their commitment to safety and environmental responsibility. They adhered to all safety protocols throughout the project, ensuring a secure work environment for everyone involved. Additionally, they took measures to minimize any potential impact on the surrounding environment, which I greatly appreciated.\n\nOverall, my experience with Superior Pumping Service exceeded my expectations in every way. If you're in need of pumping services, I wholeheartedly recommend them. Their professionalism, expertise, and dedication to customer satisfaction make them the clear choice for any pumping needs.",
+        "time": "2 years ago"
+      }
+    ],
+    "emails": [
+      "ogdenplumbing@gmail.com"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "ogden-plumbing"
+  },
+  {
+    "place_id": "ChIJYTeoTXKr0kwR_ShO22PW5Ik",
+    "name": "Super Drain Kingston",
+    "address": "541 Montreal St Unit 22, Kingston, ON K7K 3J1, Canada",
+    "phone": "(613) 699-8134",
+    "website": "https://superdrainkingston.ca/?utm_source=gmb&utm_medium=organic&utm_campaign=gmb",
+    "rating": 5,
+    "review_count": 11,
+    "reviews": [
+      {
+        "author": "leahonna blackley",
+        "rating": 5,
+        "text": "I\u2019m a college student and have zero idea what I was doing, I think the guy who helped me was named Ryan but I could be wrong. He did an amazing job snaking my drain. He was very efficient, explained the issue, worked quickly, and made sure everything was flowing perfectly before he left. Super friendly and respectful too. I\u2019d 100% recommend Ryan to anyone dealing with drain issues.",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Terra Cobb",
+        "rating": 5,
+        "text": "The bathtub was clogged in my student house and even after using draino and a bunch of other products would not unclog. Finally bit the bullet and decided to have someone come help. Ryan came out to take a look and unclogged our drain efficiently and hassle free. I would definitely recommend Super Drain, and will not hesitate to call for help again if needed in the future!",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Amy Ciprovski",
+        "rating": 5,
+        "text": "My sink has been clogged in my student house for the last week. I finally called Super Drain Kingston and they unclogged my kitchen sink in no time. Arrived same day and had everything running perfectly. Great service and made me wish I called earlier.",
+        "time": "3 months ago"
+      },
+      {
+        "author": "Paige Rabeau",
+        "rating": 5,
+        "text": "Ryan from Superior Drain Kingston was amazing! They came out quickly and unclogged my sink in no time. Super friendly, honest, and professional. They explained everything and made sure it was all working perfectly before they left. I\u2019d definitely call them again!",
+        "time": "4 months ago"
+      },
+      {
+        "author": "Elizabeth Cooper",
+        "rating": 5,
+        "text": "Had persistent drainage issues that two other companies couldn't solve. These guys actually found the problem - roots in the line. Did proper hydro jetting and it's been perfect for six months now. Cost more than expected but finally fixed for good.",
+        "time": "2 months ago"
+      }
+    ],
+    "emails": [
+      "info@superdrainkingston.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "super-drain-kingston"
+  },
+  {
+    "place_id": "ChIJG3XITP0LdkgRhuLI8R90GG0",
+    "name": "Plumbing For Good Ltd",
+    "address": "Hawks Rd, Kingston upon Thames KT1 3EG, UK",
+    "phone": "07852 343686",
+    "website": "http://www.plumbingforgood.co/",
+    "rating": 4.8,
+    "review_count": 75,
+    "reviews": [
+      {
+        "author": "Patricia Hayes",
+        "rating": 5,
+        "text": "Ben from PFG helped me out with a tricky leak today - he was prompt, efficient, considerate and generally just nice to work with.  Definitely recommended.",
+        "time": "4 weeks ago"
+      },
+      {
+        "author": "Sergi G",
+        "rating": 5,
+        "text": "Really good service from Ben. I had some tricky tap to be replaced: difficult to reach and you need some contortionist skills on top of the plumber ones. No issues for Ben. He offers a, efficient and friendly service. Would definitely recommend.",
+        "time": "a year ago"
+      },
+      {
+        "author": "Will",
+        "rating": 1,
+        "text": "I found Ben online as he had good reviews. However following my experience with him it has been very disappointing. I called Ben for a drain issue and he failed to identify the main issues of the drain. He instead did some changes to other pipes which he said was incorrect even though these were not the main issue. He probably made up some fault because the leak is still there even though I was charged \u00a3640. He tells me that the tenants were the ones who caused a new leak, but how can they cause a new leak if the original leak wasn't fixed in the first place? It has been a constant back and forth with Ben however I have lost out because he got paid \u00a3640 and I'm still left with a drainage problem that I'll have to pay even more money to fix. I would recommend going with a reputable company and not replying on Google reviews. **UPDATE: due to the negative review he has offered me 20% partial refund. I then gave him my bank details. He then made up some excuse saying he wants to pay me back by end of the week.then he asked me remove this negative review. I am leaving it on here so others can see. I will just have to not get a partial refund. The refund is only \u00a3129. Its not even worth the amount of stress and waste of time he has given me.",
+        "time": "a year ago"
+      },
+      {
+        "author": "James Clarkson",
+        "rating": 5,
+        "text": "Great job, boiler had issues with heating radiators but they soon solved it \ud83d\ude0a\ud83d\udc4d",
+        "time": "a month ago"
+      },
+      {
+        "author": "Caroline",
+        "rating": 1,
+        "text": "I paid Ben more than 2 weeks ago for a part that was supposed to be fitted last Friday-payment was for 50% of what I was quoted for the whole job. Supposedly it was damaged when being picked up Friday morning and I was due to get a call later that day to rearrange once re-ordered. So far I have had no call, no response to emails and anytime I try to call it goes straight to voicemail. I don\u2019t believe the part was ordered and am now \u00a3750 out of pocket with no contact from Ben. Do not take any of the good reviews as fact and definitely do not pay them any money upfront-so far my experience with them has been pretty terrible and not only do I not have the work done I have lost out significantly financially.",
+        "time": "11 months ago"
+      }
+    ],
+    "emails": [
+      "plumbingforgood@outlook.com",
+      "plumbingforgood@gmail.com"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "plumbing-for-good-ltd"
+  },
+  {
+    "place_id": "ChIJF8n-cPqr0kwRnLif6Qp_HaM",
+    "name": "Ubdegrove Plumbing And Heating Ltd",
+    "address": "626 Cataraqui Woods Dr Unit 7, Kingston, ON K7P 1T8, Canada",
+    "phone": "(613) 542-0774",
+    "website": "http://www.ubdegroveplumbing.ca/",
+    "rating": 3.8,
+    "review_count": 56,
+    "reviews": [
+      {
+        "author": "Anna Jarvis",
+        "rating": 5,
+        "text": "We have used this company before to replace our hot water tank and kitchen sinks. Very professional and on time, with great work. Recently we had a leak in the ptrap under the sink. A plumber came the next morning and was there just over an hour to replace the pipe under the sink.  Great job very friendly. We will definitely use their services again. :)",
+        "time": "2 months ago"
+      },
+      {
+        "author": "Joanne Pirstl",
+        "rating": 5,
+        "text": "Huge thanks to Graham for getting me outta a jam with frozen pipes.  Very professional and courteous. Would use this company again!! Top notch.",
+        "time": "3 weeks ago"
+      },
+      {
+        "author": "Cheryl Dillon",
+        "rating": 5,
+        "text": "Can\u2019t say enough good things about the wonderful service we received today.  Roots removed from sewer line, camera video to show us what was happening and where the issue was, good options explained if more problems occurred in future.  Avery and Josh were polite, personable and professional.  Thanks!",
+        "time": "5 months ago"
+      },
+      {
+        "author": "Jennifer Francis",
+        "rating": 5,
+        "text": "Issues that require companies like this seem to never be easy to deal with. The gentlemen that came from this company were professional, on time, and the right amount of humour to make the day seem brighter. I would highly recommend them.",
+        "time": "4 months ago"
+      },
+      {
+        "author": "Scott Lee",
+        "rating": 5,
+        "text": "Very happy with our recent service. I booked the appointment online and picked a date and they were here on that date and right on time. The plumber worked very quickly and fixed our broken toilet. I had been putting this off for a long time because I thought a plumber\u2019s house call would be extremely expensive, but I found Ubdegrove to be very reasonable. Would not hesitate to contact them again and would strongly recommend them.",
+        "time": "a year ago"
+      }
+    ],
+    "emails": [
+      "contact@ubdegroveplumbing.ca"
+    ],
+    "city": "Kingston, Ontario",
+    "trade": "plumber",
+    "grade": "C",
+    "audit": {
+      "reason": "Outreach target"
+    },
+    "preview_slug": "ubdegrove-plumbing-and-heating-ltd"
   }
 ]

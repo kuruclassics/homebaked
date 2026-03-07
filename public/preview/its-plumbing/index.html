@@ -1,171 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Its Plumbing — Professional Plumbing Services in Ottawa, Ontario</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1F2937; line-height: 1.6; }
-        
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #1E293B 0%, #334155 50%, #0077B6 100%);
-            color: white; padding: 80px 20px 60px; text-align: center;
-        }
-        .hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 12px; font-weight: 800; }
-        .hero .subtitle { font-size: 1.2rem; opacity: 0.9; margin-bottom: 8px; }
-        .hero .rating { font-size: 1.1rem; color: #F59E0B; margin-bottom: 24px; }
-        .hero .cta-btn {
-            display: inline-block; background: #0077B6; color: white;
-            padding: 16px 36px; border-radius: 50px; text-decoration: none;
-            font-size: 1.1rem; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .hero .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-        
-        /* Sections */
-        section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 40px; color: #1E293B; }
-        
-        /* Services */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        .service-card {
-            background: #F8FAFC; border-radius: 12px; padding: 24px; text-align: center;
-            border: 1px solid #E2E8F0; transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .service-icon { font-size: 2rem; margin-bottom: 12px; }
-        .service-card h3 { font-size: 0.95rem; color: #334155; }
-        
-        /* Reviews */
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
-        .review-card {
-            background: white; border-radius: 12px; padding: 28px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #F1F5F9;
-        }
-        .review-stars { font-size: 1.2rem; margin-bottom: 12px; }
-        .review-text { font-style: italic; color: #4B5563; margin-bottom: 12px; }
-        .review-author { font-weight: 600; color: #1E293B; }
-        
-        /* Contact */
-        .contact-section { background: #F8FAFC; }
-        .contact-inner { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .contact-info h3 { font-size: 1.3rem; margin-bottom: 20px; color: #1E293B; }
-        .contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 1.05rem; }
-        .contact-item a { color: #0077B6; text-decoration: none; font-weight: 600; }
-        .contact-item a:hover { text-decoration: underline; }
-        
-        /* Footer */
-        footer {
-            background: #1E293B; color: #94A3B8; text-align: center; padding: 24px;
-            font-size: 0.85rem;
-        }
-        footer a { color: #CBD5E1; text-decoration: none; }
-        
-        @media (max-width: 768px) {
-            .contact-grid { grid-template-columns: 1fr; }
-            .hero { padding: 60px 16px 40px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Its Plumbing — Professional Plumber Services in Ottawa</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--steel:#2C3E50;--rust:#E67E22;--offwhite:#ECEFF1;--dark:#1a2634;--text:#333;--muted:#78909c}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--offwhite);color:var(--text);overflow-x:hidden}
+h1,h2,h3,.stencil{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--steel);padding:.7rem 4%;display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:2px}
+.nav-logo span{color:var(--rust)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:1px;font-weight:500}
+.nav-links a:hover{color:var(--rust)}
+.nav-cta{background:var(--rust);color:#fff;padding:.5rem 1.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:.85rem}
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative}
+.hero-dark{background:var(--steel);padding:8rem 6% 4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-dark::before{content:'';position:absolute;top:0;right:0;bottom:0;width:80px;background:var(--offwhite);clip-path:polygon(100% 0,100% 100%,0 100%)}
+.hero-dark::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+.hero-motifs{position:absolute;top:2rem;left:2rem;display:flex;gap:1rem}
+.motif{font-size:.65rem;color:var(--rust);text-transform:uppercase;letter-spacing:2px;font-family:'Barlow Condensed',sans-serif;font-weight:600;border:1px solid rgba(230,126,34,.3);padding:.3rem .8rem}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;color:#fff;line-height:1;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1.5rem;position:relative;z-index:2}
+.hero h1 span{color:var(--rust)}
+.hero p{color:rgba(255,255,255,.6);font-size:1rem;max-width:450px;line-height:1.7;margin-bottom:2rem;position:relative;z-index:2}
+.hero-ctas{display:flex;gap:1rem;position:relative;z-index:2;flex-wrap:wrap}
+.btn-rust{background:var(--rust);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.9rem;transition:all .3s}
+.btn-rust:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(230,126,34,.4)}
+.btn-outline-w{border:2px solid rgba(255,255,255,.3);color:#fff;padding:1rem 2.5rem;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.9rem;transition:all .3s}
+.btn-outline-w:hover{border-color:#fff}
+.hero-img{background:var(--offwhite);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-img::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(44,62,80,.03) 30px,rgba(44,62,80,.03) 31px)}
+.hero-img .big-num{font-family:'Barlow Condensed',sans-serif;font-size:20rem;font-weight:800;color:rgba(44,62,80,.06);position:absolute;line-height:1}
+.hero-img svg{width:200px;height:200px;opacity:.12}
+.section-head{padding:5rem 4% 1rem}
+.section-head h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:2px;color:var(--steel)}
+.section-head h2 span{color:var(--rust)}
+.section-sub{padding:.5rem 4% 3rem;color:var(--muted);max-width:600px;font-size:.95rem;line-height:1.7}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:0 4% 5rem}
+.svc-card{background:#fff;border-left:4px solid var(--rust);padding:2rem;transition:all .3s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,.1)}
+.svc-num{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:800;color:var(--offwhite);line-height:1}
+.svc-card:hover .svc-num{color:rgba(230,126,34,.15)}
+.svc-card h3{font-size:1.1rem;font-weight:700;margin:.5rem 0;letter-spacing:1px}
+.svc-card p{color:var(--muted);font-size:.85rem;line-height:1.6;text-transform:none;font-family:'Inter',sans-serif}
+.testimonials-section{background:var(--steel);padding:5rem 4%}
+.testimonials-section h2{color:#fff;text-align:center;font-size:2.5rem;margin-bottom:3rem;letter-spacing:2px}
+.t-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;max-width:1000px;margin:0 auto}
+.testimonial-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:2rem}
+.t-stars{color:var(--rust);font-size:1.1rem;margin-bottom:.8rem}
+.testimonial-card p{color:rgba(255,255,255,.7);font-style:italic;line-height:1.7;font-size:.9rem;margin-bottom:1rem;font-family:'Inter',sans-serif;text-transform:none}
+.t-author{color:var(--rust);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:1px}
+.contact-section{padding:5rem 4%;display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto}
+.contact-info h2{font-size:2rem;letter-spacing:2px;margin-bottom:1.5rem;color:var(--steel)}
+.contact-info .c-item{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;font-size:1rem}
+.contact-info .c-item a{color:var(--rust);text-decoration:none;font-weight:600}
+.contact-info .c-item a:hover{text-decoration:underline}
+.contact-map{min-height:350px;border:2px solid var(--steel)}
+.contact-map iframe{width:100%;height:100%;border:0}
+footer{background:var(--dark);padding:2rem 4%;text-align:center}
+footer p{color:rgba(255,255,255,.3);font-size:.75rem}
+footer a{color:var(--rust);text-decoration:none;opacity:.6}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}.hero-img{min-height:200px}
+  .nav-links{display:none}.svc-grid{grid-template-columns:1fr}
+  .contact-section{grid-template-columns:1fr}.t-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Its Plumbing</h1>
-        <p class="subtitle">Professional Plumbing Services in Ottawa, Ontario</p>
-        <p class='rating'>★★★★★ 4.9/5 (72 reviews)</p>
-        <a href='tel:3435001109' class='cta-btn'>📞 Call Now: (343) 500-1109</a>
+<nav>
+  <a href="#" class="nav-logo">Its Plumbing</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href='tel:3435001109' class='nav-cta'>Call (343) 500-1109</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-dark">
+    <div class="hero-motifs">
+      <div class="motif">Licensed</div>
+      <div class="motif">Insured</div>
     </div>
-
-    <section>
-        <h2 class="section-title">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Drain Cleaning & Unclogging</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Pipe Repair & Replacement</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Water Heater Installation & Repair</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Bathroom & Kitchen Plumbing</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Sump Pump Installation</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Water Line Repair</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Sewer Line Services</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Fixture Installation</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Emergency Plumbing Services</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔧</div>
-                <h3>Backflow Prevention</h3>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">What Our Customers Say</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
-                <p class="review-text">"Hello plumbing service seekers!
-We recently had a kitchen renovation/gut job. Brian came and he did an excellent job, he's very friendly and you can tell that he loves his job. What I appreciated is t..."</p>
-                <p class="review-author">— Rollande Pilbrow</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
-                <p class="review-text">"We utilized their services for a Gas Hot water tank and our Furnace and AC. When we reached out, a reply came very quickly which was greatly appreciated. All installs went smooth and the service is pr..."</p>
-                <p class="review-author">— Phil J</p>
-            </div>
-            <div class="review-card">
-                <div class="review-stars" style="color: #F59E0B;">★★★★★</div>
-                <p class="review-text">"Ryan, Shane and the team at Its Plumbing handled all the plumbing for our new build in 2023. Shane was great to deal with from always being responsive and willing to help us with fixture suggestions. ..."</p>
-                <p class="review-author">— Kevin Goyette</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="contact-section" id="contact">
-        <div class="contact-inner">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Its Plumbing</h3>
-                    <div class='contact-item'>📞 <a href='tel:3435001109'>(343) 500-1109</a></div>
-                    <div class='contact-item'>📍 1680 Woodward Dr Unit 206, Ottawa, ON K2C 3R7, Canada</div>
-                </div>
-                <div class="contact-map"><iframe src="https://maps.google.com/maps?q=1680+Woodward+Dr+Unit+206,+Ottawa,+ON+K2C+3R7,+Canada&output=embed" width="100%" height="300" style="border:0;border-radius:12px;" allowfullscreen loading="lazy"></iframe></div>
-            </div>
-        </div>
+    <h1>ITS<br>PLUMBING</h1>
+    <p>Professional Plumber Services in Ottawa. Professional service across Ottawa — fast dispatch, honest pricing, quality workmanship you can count on.</p>
+    <div class="hero-ctas">
+      <a href='tel:3435001109' class='btn-rust'>Call Now</a>
+      <a href="#services" class="btn-outline-w">Our Work</a>
     </div>
+  </div>
+  <div class="hero-img">
+    <div class="big-num">★</div>
+    <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="45" stroke="var(--steel)" stroke-width="1"/><circle cx="50" cy="50" r="30" stroke="var(--rust)" stroke-width="1"/><circle cx="50" cy="50" r="15" stroke="var(--steel)" stroke-width="1"/></svg>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Its Plumbing. All rights reserved.</p>
-        <p style="margin-top:8px;font-size:0.75rem;opacity:0.6;">Website preview by <a href="https://homebaked.ca">HomeBaked</a></p>
-    </footer>
+<div id="services" class="section-head reveal"><h2>OUR <span>SERVICES</span></h2></div>
+<div class="section-sub">Expert solutions for residential and commercial clients across Ottawa.</div>
+<div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3>Drain Cleaning &amp; Unclogging</h3>
+      <p>Expert drain cleaning &amp; unclogging handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <h3>Pipe Repair &amp; Replacement</h3>
+      <p>Expert pipe repair &amp; replacement handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Water Heater Installation &amp; Repair</h3>
+      <p>Expert water heater installation &amp; repair handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">04</div>
+      <h3>Bathroom &amp; Kitchen Plumbing</h3>
+      <p>Expert bathroom &amp; kitchen plumbing handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">05</div>
+      <h3>Sump Pump Installation</h3>
+      <p>Expert sump pump installation handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">06</div>
+      <h3>Water Line Repair</h3>
+      <p>Expert water line repair handled by experienced professionals. Quality workmanship guaranteed.</p>
+    </div>
+</div>
+
+<section id="reviews" class="testimonials-section">
+  <h2>CLIENT <span style="color:var(--rust)">REVIEWS</span></h2>
+  <div class="t-grid">
+    <div class="testimonial-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p>"Hello plumbing service seekers!
+We recently had a kitchen renovation/gut job. Brian came and he did an excellent job, he&#x27;s very friendly and you can tell that he loves his job. What I appreciated is the cleaning of the area once he was all done! Grea"</p>
+      <div class="t-author">— Rollande Pilbrow</div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p>"We utilized their services for a Gas Hot water tank and our Furnace and AC. When we reached out, a reply came very quickly which was greatly appreciated. All installs went smooth and the service is professional and courtious. Furnace units wern&#x27;t in "</p>
+      <div class="t-author">— Phil J</div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p>"Ryan, Shane and the team at Its Plumbing handled all the plumbing for our new build in 2023. Shane was great to deal with from always being responsive and willing to help us with fixture suggestions. They worked around our schedule and job was comple"</p>
+      <div class="t-author">— Kevin Goyette</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section reveal">
+  <div class="contact-info">
+    <h2>GET IN <span style="color:var(--rust)">TOUCH</span></h2>
+    <div class='c-item'>📞 <a href='tel:3435001109'>(343) 500-1109</a></div>
+    <div class='c-item'>📍 1680 Woodward Dr Unit 206, Ottawa, ON K2C 3R7, Canada</div>
+    <div class="c-item">🕐 Serving Ottawa & Surrounding Areas</div>
+  </div>
+  <div class="contact-map"><iframe src="https://maps.google.com/maps?q=1680+Woodward+Dr+Unit+206,+Ottawa,+ON+K2C+3R7,+Canada&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Its Plumbing. All rights reserved. &nbsp;|&nbsp; Built by <a href="https://homebaked.dev" target="_blank">HomeBaked</a></p>
+</footer>
+
+<script>
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});},{threshold:.15})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+</script>
 </body>
 </html>
