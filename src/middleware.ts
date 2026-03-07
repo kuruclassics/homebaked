@@ -25,8 +25,20 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Skip login page and API-key-authenticated endpoints
-  if (pathname === '/dashboard/login' || pathname === '/api/dashboard/sessions/sync') {
+  // Skip public pages: homepage, login, public API endpoints, preview files
+  if (
+    pathname === '/' ||
+    pathname === '/dashboard/login' ||
+    pathname === '/api/dashboard/sessions/sync' ||
+    pathname.startsWith('/preview/') ||
+    pathname.startsWith('/outreach/')
+  ) {
+    return NextResponse.next();
+  }
+
+  // Only protect dashboard and autopilot routes
+  if (!pathname.startsWith('/dashboard') && !pathname.startsWith('/api/dashboard') &&
+      !pathname.startsWith('/autopilot') && !pathname.startsWith('/api/autopilot')) {
     return NextResponse.next();
   }
 
@@ -48,5 +60,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/api/dashboard/:path*', '/autopilot/:path*', '/api/autopilot/:path*'],
+  matcher: ['/((?!_next|favicon\\.ico|mockup-|outreach/).*)'],
 };
