@@ -98,10 +98,7 @@
         "time": "a month ago"
       }
     ],
-    "emails": [
-      "shutterstock_1091175569@1x-1.webp",
-      "shutterstock_1091175569@1x-1-300x200.webp"
-    ],
+    "emails": [],
     "city": "Toronto",
     "trade": "plumber",
     "grade": "C",
@@ -178,7 +175,7 @@
     "preview_slug": "leaside-plumbing-and-heating-ltd",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   },
   {
@@ -237,7 +234,7 @@
     "preview_slug": "everest-drain-plumbing-toronto",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   },
   {
@@ -299,7 +296,7 @@
     "preview_slug": "premier-plumbing",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   },
   {
@@ -360,7 +357,7 @@
     "preview_slug": "drain-king-plumbers-toronto",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   },
   {
@@ -422,7 +419,7 @@
     "preview_slug": "plumber-to-your-door-of-toronto",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   },
   {
@@ -465,7 +462,9 @@
         "time": "4 months ago"
       }
     ],
-    "emails": [],
+    "emails": [
+      "info@brothersplumbing.ca"
+    ],
     "city": "Toronto",
     "trade": "plumber",
     "grade": "D",
@@ -473,9 +472,14 @@
       "reason": "Unreachable: HTTPSConnectionPool(host='www.brothersplumbing.ca'"
     },
     "preview_slug": "brothers-plumbing",
-    "activity_log": [],
+    "activity_log": [
+      {
+        "date": "2026-03-07T20:00:00Z",
+        "action": "Outreach email sent to info@brothersplumbing.ca"
+      }
+    ],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "sent",
     "last_contact_date": null
   },
   {
@@ -534,9 +538,14 @@
       "score": 45
     },
     "preview_slug": "new-canadian-drain-and-plumbing-ltd",
-    "activity_log": [],
+    "activity_log": [
+      {
+        "date": "2026-03-07T20:00:00Z",
+        "action": "Outreach email sent to info@newcanadiandrain.com"
+      }
+    ],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "sent",
     "last_contact_date": null
   },
   {
@@ -597,7 +606,7 @@
     "preview_slug": "true-service-plumbing",
     "activity_log": [],
     "notes": "",
-    "outreach_status": "not_sent",
+    "outreach_status": "not_interested",
     "last_contact_date": null
   }
 ]
