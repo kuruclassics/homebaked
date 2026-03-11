@@ -32,9 +32,9 @@ const cardVariants = {
 
 export default function Testimonials() {
   return (
-    <section className="py-32 px-6 relative">
+    <section className="py-20 md:py-28 px-6 relative">
       {/* Section number watermark */}
-      <div className="absolute top-16 left-8 section-number">05</div>
+      <div className="absolute top-12 left-8 section-number hidden md:block">05</div>
 
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -42,10 +42,10 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">Testimonials</p>
-          <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+          <h2 className="text-3xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
             Loved by <span className="gradient-text italic">business owners</span>
           </h2>
         </motion.div>

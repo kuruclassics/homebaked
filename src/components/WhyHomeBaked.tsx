@@ -56,9 +56,9 @@ const benefits = [
 
 export default function WhyHomeBaked() {
   return (
-    <section className="py-32 px-6 relative" style={{ background: "linear-gradient(180deg, #F7F5F2 0%, #EDE9E3 50%, #F7F5F2 100%)" }}>
+    <section className="py-20 md:py-28 px-6 relative" style={{ background: "linear-gradient(180deg, #F7F5F2 0%, #EDE9E3 50%, #F7F5F2 100%)" }}>
       {/* Section number watermark */}
-      <div className="absolute top-16 right-8 section-number">04</div>
+      <div className="absolute top-12 right-8 section-number hidden md:block">04</div>
 
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -66,10 +66,10 @@ export default function WhyHomeBaked() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">Why HomeBaked</p>
-          <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+          <h2 className="text-3xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
             Software that&apos;s <span className="gradient-text italic">actually built for you</span>
           </h2>
         </motion.div>
@@ -80,24 +80,24 @@ export default function WhyHomeBaked() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16 md:mb-24"
         >
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -4, transition: { type: "spring", stiffness: 300 } }}
-              className="text-center p-8 rounded-2xl bg-white border border-charcoal/5 shadow-sm hover:shadow-md transition-shadow"
+              className="text-center p-5 md:p-8 rounded-2xl bg-white border border-charcoal/5 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="text-4xl md:text-5xl font-bold gradient-text mb-2" style={{ fontFamily: "var(--font-serif)" }}>
+              <div className="text-3xl md:text-5xl font-bold gradient-text mb-2" style={{ fontFamily: "var(--font-serif)" }}>
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="text-warm-gray text-sm">{stat.label}</p>
+              <p className="text-warm-gray text-xs md:text-sm">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Benefits — 2x2 with custom SVGs */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
           {benefits.map((benefit, i) => (
             <motion.div
               key={i}
@@ -106,14 +106,14 @@ export default function WhyHomeBaked() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               whileHover={{ y: -4 }}
-              className="p-8 rounded-2xl bg-white border border-charcoal/5 flex gap-5 shadow-sm hover:shadow-md transition-all duration-300"
+              className="p-6 md:p-8 rounded-2xl bg-white border border-charcoal/5 flex gap-4 md:gap-5 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="shrink-0 w-14 h-14 rounded-2xl bg-honey/5 border border-honey/10 flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-honey/5 border border-honey/10 flex items-center justify-center">
                 {benefit.svg}
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-charcoal mb-1" style={{ fontFamily: "var(--font-serif)" }}>{benefit.title}</h3>
-                <p className="text-warm-gray text-sm leading-relaxed">{benefit.description}</p>
+                <h3 className="text-base md:text-lg font-semibold text-charcoal mb-1" style={{ fontFamily: "var(--font-serif)" }}>{benefit.title}</h3>
+                <p className="text-warm-gray text-xs md:text-sm leading-relaxed">{benefit.description}</p>
               </div>
             </motion.div>
           ))}

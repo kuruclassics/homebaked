@@ -19,6 +19,11 @@ import { basename, join, resolve } from 'path';
 const API_URL = process.env.SYNC_API_URL || 'https://homebaked.dev';
 const API_KEY = process.env.SYNC_API_KEY;
 
+// Gap detection constants for active-time calculation
+const IDLE_GAP_MS = 30 * 60 * 1000;    // 30 minutes — gaps longer than this split segments
+const SEGMENT_BUFFER_MS = 5 * 60 * 1000; // 5 min buffer per segment (reading/thinking time)
+const MIN_SEGMENT_MS = 5 * 60 * 1000;    // minimum 5 min per segment
+
 interface JsonlEvent {
   type: string;
   sessionId?: string;
@@ -38,6 +43,43 @@ interface SessionData {
   messageCount: number;
 }
 
+/**
+ * Compute active hours from event timestamps using gap detection.
+ * Consecutive events with gaps > IDLE_GAP_MS are split into separate segments.
+ * Each segment duration = (last - first) + buffer, clamped to a minimum.
+ */
+function computeActiveHours(timestamps: string[]): number {
+  if (timestamps.length === 0) return 0;
+
+  const sorted = timestamps
+    .map((t) => new Date(t).getTime())
+    .sort((a, b) => a - b);
+
+  let totalMs = 0;
+  let segStart = sorted[0];
+  let segEnd = sorted[0];
+
+  for (let i = 1; i < sorted.length; i++) {
+    const gap = sorted[i] - sorted[i - 1];
+    if (gap > IDLE_GAP_MS) {
+      // Close current segment
+      const segDuration = segEnd - segStart + SEGMENT_BUFFER_MS;
+      totalMs += Math.max(segDuration, MIN_SEGMENT_MS);
+      // Start new segment
+      segStart = sorted[i];
+      segEnd = sorted[i];
+    } else {
+      segEnd = sorted[i];
+    }
+  }
+
+  // Close final segment
+  const segDuration = segEnd - segStart + SEGMENT_BUFFER_MS;
+  totalMs += Math.max(segDuration, MIN_SEGMENT_MS);
+
+  return totalMs / (1000 * 60 * 60);
+}
+
 function parseSessionFile(filePath: string): SessionData | null {
   const content = readFileSync(filePath, 'utf-8');
   const lines = content.trim().split('\n');
@@ -47,6 +89,7 @@ function parseSessionFile(filePath: string): SessionData | null {
   let firstTimestamp: string | null = null;
   let lastTimestamp: string | null = null;
   let userMessageCount = 0;
+  const allTimestamps: string[] = [];
 
   for (const line of lines) {
     if (!line.trim()) continue;
@@ -68,6 +111,7 @@ function parseSessionFile(filePath: string): SessionData | null {
 
     // Track timestamps
     if (event.timestamp) {
+      allTimestamps.push(event.timestamp);
       if (!firstTimestamp) firstTimestamp = event.timestamp;
       lastTimestamp = event.timestamp;
     }
@@ -85,13 +129,10 @@ function parseSessionFile(filePath: string): SessionData | null {
   // Derive project name from the working directory folder name
   const projectName = basename(cwd);
 
-  // Calculate duration in hours
-  const start = new Date(firstTimestamp);
-  const end = new Date(lastTimestamp);
-  const durationMs = end.getTime() - start.getTime();
-  const hours = durationMs / (1000 * 60 * 60);
+  // Calculate active duration using gap detection
+  const hours = computeActiveHours(allTimestamps);
 
-  // Skip very short sessions (< 1 minute)
+  // Skip very short sessions (< 1 minute of active time)
   if (hours < 1 / 60) {
     return null;
   }
@@ -130,6 +171,8 @@ async function syncSession(session: SessionData): Promise<void> {
     console.log(`[SKIP] ${session.sessionId}: already synced`);
   } else if (result?.status === 'created') {
     console.log(`[OK]   ${session.sessionId}: ${session.hours}h → project #${result.projectId}`);
+  } else if (result?.status === 'updated') {
+    console.log(`[UPD]  ${session.sessionId}: ${session.hours}h → project #${result.projectId}`);
   } else if (result?.error) {
     console.error(`[FAIL] ${session.sessionId}: ${result.error}`);
   }
@@ -187,6 +230,8 @@ async function main() {
           console.log(`[SKIP] ${result.sessionId}: already synced`);
         } else if (result.status === 'created') {
           console.log(`[OK]   ${result.sessionId}: → project #${result.projectId}`);
+        } else if (result.status === 'updated') {
+          console.log(`[UPD]  ${result.sessionId}: → project #${result.projectId}`);
         } else if (result.error) {
           console.error(`[FAIL] ${result.sessionId}: ${result.error}`);
         }

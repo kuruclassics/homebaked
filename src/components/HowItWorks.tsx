@@ -42,9 +42,9 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 px-6 relative">
+    <section id="how-it-works" className="py-20 md:py-28 px-6 relative">
       {/* Section number watermark */}
-      <div className="absolute top-16 left-8 section-number">01</div>
+      <div className="absolute top-12 left-8 section-number hidden md:block">01</div>
 
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -52,10 +52,10 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-24"
+          className="text-center mb-16 md:mb-20"
         >
           <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">How It Works</p>
-          <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+          <h2 className="text-3xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
             From idea to launch in <span className="gradient-text italic">three steps</span>
           </h2>
         </motion.div>
@@ -79,18 +79,18 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: i * 0.2 }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-24 last:mb-0 ${
+              className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-16 mb-16 md:mb-20 last:mb-0 ${
                 i % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
               {/* Content side */}
-              <div className={`flex-1 ${i % 2 === 1 ? "md:text-right" : "md:text-left"}`}>
-                <div className={`flex items-center gap-4 mb-4 ${i % 2 === 1 ? "md:justify-end" : ""}`}>
+              <div className={`flex-1 ${i % 2 === 1 ? "md:text-right" : "md:text-left"} text-center md:text-inherit`}>
+                <div className={`flex items-center gap-4 mb-4 justify-center ${i % 2 === 1 ? "md:justify-end" : "md:justify-start"}`}>
                   {step.svg}
-                  <span className="text-6xl font-bold text-honey/10" style={{ fontFamily: "var(--font-serif)" }}>{step.num}</span>
+                  <span className="text-5xl md:text-6xl font-bold text-honey/10" style={{ fontFamily: "var(--font-serif)" }}>{step.num}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-charcoal mb-3" style={{ fontFamily: "var(--font-serif)" }}>{step.title}</h3>
-                <p className="text-warm-gray leading-relaxed max-w-md">{step.description}</p>
+                <h3 className="text-xl md:text-2xl font-bold text-charcoal mb-3" style={{ fontFamily: "var(--font-serif)" }}>{step.title}</h3>
+                <p className="text-warm-gray leading-relaxed max-w-md mx-auto md:mx-0">{step.description}</p>
               </div>
 
               {/* Center node */}
