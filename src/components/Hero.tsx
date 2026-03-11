@@ -150,12 +150,12 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <MagneticButton>
-            <span className="relative z-10 flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-honey to-honey-dark text-white font-semibold text-lg shadow-lg shadow-honey/25 hover:shadow-honey/40 transition-shadow duration-300">
+            <a href="#contact" className="relative z-10 flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-honey to-honey-dark text-white font-semibold text-lg shadow-lg shadow-honey/25 hover:shadow-honey/40 transition-shadow duration-300">
               Start Your Project
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </span>
+            </a>
           </MagneticButton>
 
           <motion.a

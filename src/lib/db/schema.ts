@@ -51,6 +51,16 @@ export const financialEntries = sqliteTable('financial_entries', {
   createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
 });
 
+export const leads = sqliteTable('leads', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  message: text('message').notNull(),
+  status: text('status', { enum: ['new', 'contacted', 'qualified', 'converted', 'closed'] }).default('new').notNull(),
+  notes: text('notes'),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
 // Relations
 export const clientsRelations = relations(clients, ({ many }) => ({
   projects: many(projects),

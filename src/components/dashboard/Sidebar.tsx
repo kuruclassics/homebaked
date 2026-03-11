@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Users, FolderKanban, DollarSign, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Users, FolderKanban, DollarSign, Inbox, LogOut, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const navItems = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
   { href: '/dashboard/clients', label: 'Clients', icon: Users },
   { href: '/dashboard/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/dashboard/leads', label: 'Leads', icon: Inbox },
   { href: '/dashboard/financials', label: 'Financials', icon: DollarSign },
 ];
 
