@@ -16,6 +16,7 @@ interface LeadContext {
 interface FileContext {
   filename: string;
   textContent: string | null;
+  blobUrl?: string;
 }
 
 export function buildSystemPrompt(
@@ -36,12 +37,16 @@ Your role is to help scope client projects by analyzing requirements, asking cla
 
 ## Current Proposal: "${proposal.title}" (Status: ${proposal.status})`);
 
-  // Add uploaded document contents
-  const textFiles = files.filter(f => f.textContent);
-  if (textFiles.length > 0) {
+  // Add uploaded documents
+  if (files.length > 0) {
     parts.push('\n## Uploaded Reference Documents');
-    for (const file of textFiles) {
-      parts.push(`\n### ${file.filename}\n\`\`\`\n${file.textContent}\n\`\`\``);
+    parts.push(`The admin has uploaded ${files.length} file(s). Review and reference them in your analysis.`);
+    for (const file of files) {
+      if (file.textContent) {
+        parts.push(`\n### ${file.filename}\n\`\`\`\n${file.textContent}\n\`\`\``);
+      } else {
+        parts.push(`\n### ${file.filename}\n*(File uploaded but text could not be extracted. The admin may need to re-upload or share key details from this file in chat.)*`);
+      }
     }
   }
 
