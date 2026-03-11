@@ -31,9 +31,9 @@ export default function Pricing() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
 
   return (
-    <section id="pricing" className="py-32 px-6 relative" style={{ background: "#EDE9E3" }}>
+    <section id="pricing" className="py-20 md:py-28 px-6 relative" style={{ background: "#EDE9E3" }}>
       {/* Section number watermark */}
-      <div className="absolute top-16 right-8 section-number">06</div>
+      <div className="absolute top-12 right-8 section-number hidden md:block">06</div>
 
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -41,10 +41,10 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">Pricing</p>
-          <h2 className="text-4xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
+          <h2 className="text-3xl md:text-5xl text-charcoal" style={{ fontFamily: "var(--font-serif)" }}>
             Simple, <span className="gradient-text italic">transparent</span> pricing
           </h2>
           <p className="mt-4 text-warm-gray max-w-lg mx-auto">
@@ -53,7 +53,7 @@ export default function Pricing() {
         </motion.div>
 
         {/* Horizontal cards */}
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
           {plans.map((plan, i) => {
             const isActive = hoveredIndex === i;
             return (
@@ -64,7 +64,7 @@ export default function Pricing() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
                 onMouseEnter={() => setHoveredIndex(i)}
-                className={`relative p-8 rounded-2xl transition-all duration-500 cursor-pointer ${
+                className={`relative p-6 md:p-8 rounded-2xl transition-all duration-500 cursor-pointer ${
                   isActive
                     ? "bg-charcoal text-white shadow-2xl shadow-charcoal/20 scale-[1.02]"
                     : "bg-white text-charcoal shadow-sm"
@@ -82,7 +82,7 @@ export default function Pricing() {
                 </div>
 
                 <div className="mb-8">
-                  <span className="text-5xl font-bold" style={{ fontFamily: "var(--font-serif)" }}>${plan.price}</span>
+                  <span className="text-4xl md:text-5xl font-bold" style={{ fontFamily: "var(--font-serif)" }}>${plan.price}</span>
                   <span className={`text-sm ml-2 ${isActive ? "text-white/40" : "text-warm-gray-light"}`}>starting</span>
                 </div>
 
@@ -123,17 +123,18 @@ export default function Pricing() {
                   })}
                 </ul>
 
-                <motion.button
+                <motion.a
+                  href="#contact"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className={`w-full py-3.5 rounded-xl font-medium text-sm transition-all duration-300 ${
+                  className={`block w-full py-3.5 rounded-xl font-medium text-sm text-center transition-all duration-300 ${
                     isActive
                       ? "bg-gradient-to-r from-honey to-honey-dark text-white shadow-lg shadow-honey/20"
                       : "border border-charcoal/10 text-charcoal hover:border-charcoal/20"
                   }`}
                 >
                   Get Started
-                </motion.button>
+                </motion.a>
               </motion.div>
             );
           })}
