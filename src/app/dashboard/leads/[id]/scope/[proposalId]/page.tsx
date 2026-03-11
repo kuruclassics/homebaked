@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
@@ -87,18 +87,24 @@ export default function ScopingPage() {
 
   useEffect(() => { fetchProposal(); fetchFiles(); }, [fetchProposal, fetchFiles]);
 
-  const { messages, sendMessage, status } = useChat({
-    transport: new DefaultChatTransport({
-      api: `/api/dashboard/proposals/${proposalId}/chat`,
-    }),
-    messages: initialMessages
-      ? initialMessages.map((m: SavedMessage) => ({
-          id: String(m.id),
-          role: m.role as 'user' | 'assistant',
-          parts: [{ type: 'text' as const, text: m.content }],
-          createdAt: new Date(),
-        }))
-      : undefined,
+  const transport = useMemo(
+    () => new DefaultChatTransport({ api: `/api/dashboard/proposals/${proposalId}/chat` }),
+    [proposalId],
+  );
+
+  const mappedInitialMessages = useMemo(
+    () => initialMessages?.map((m: SavedMessage) => ({
+      id: String(m.id),
+      role: m.role as 'user' | 'assistant',
+      parts: [{ type: 'text' as const, text: m.content }],
+      createdAt: new Date(),
+    })),
+    [initialMessages],
+  );
+
+  const { messages, sendMessage, status, error } = useChat({
+    transport,
+    messages: mappedInitialMessages,
     onFinish: () => {
       fetchProposal();
     },
@@ -354,6 +360,13 @@ export default function ScopingPage() {
             )}
             <div ref={messagesEndRef} />
           </div>
+
+          {/* Error */}
+          {error && (
+            <div className="px-4 py-2 bg-red-50 border-t border-red-200 text-sm text-red-700">
+              Error: {error.message}
+            </div>
+          )}
 
           {/* Input */}
           <form onSubmit={handleSend} className="p-4 border-t border-cream-dark bg-white">
