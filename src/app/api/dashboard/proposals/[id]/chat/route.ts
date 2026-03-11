@@ -35,7 +35,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     .where(eq(leads.id, proposal.leadId));
 
   const files = await db
-    .select({ filename: proposalFiles.filename, textContent: proposalFiles.textContent })
+    .select({ filename: proposalFiles.filename, textContent: proposalFiles.textContent, blobUrl: proposalFiles.blobUrl })
     .from(proposalFiles)
     .where(eq(proposalFiles.proposalId, proposalId));
 
