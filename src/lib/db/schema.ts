@@ -61,6 +61,42 @@ export const leads = sqliteTable('leads', {
   createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
 });
 
+export const proposals = sqliteTable('proposals', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  leadId: integer('lead_id').references(() => leads.id, { onDelete: 'cascade' }).notNull(),
+  slug: text('slug').notNull().unique(),
+  title: text('title').notNull(),
+  status: text('status', { enum: ['draft', 'ready', 'sent', 'archived'] }).default('draft').notNull(),
+  internalPrd: text('internal_prd'),
+  clientPrd: text('client_prd'),
+  timeline: text('timeline'),
+  quote: text('quote'),
+  clientTimelineOverride: text('client_timeline_override'),
+  clientQuoteOverride: text('client_quote_override'),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+  updatedAt: text('updated_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
+export const scopeMessages = sqliteTable('scope_messages', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  proposalId: integer('proposal_id').references(() => proposals.id, { onDelete: 'cascade' }).notNull(),
+  role: text('role', { enum: ['user', 'assistant'] }).notNull(),
+  content: text('content').notNull(),
+  metadata: text('metadata'),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
+export const proposalFiles = sqliteTable('proposal_files', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  proposalId: integer('proposal_id').references(() => proposals.id, { onDelete: 'cascade' }).notNull(),
+  filename: text('filename').notNull(),
+  blobUrl: text('blob_url').notNull(),
+  contentType: text('content_type').notNull(),
+  sizeBytes: integer('size_bytes').notNull(),
+  textContent: text('text_content'),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
 // Relations
 export const clientsRelations = relations(clients, ({ many }) => ({
   projects: many(projects),
@@ -78,4 +114,22 @@ export const timeEntriesRelations = relations(timeEntries, ({ one }) => ({
 
 export const financialEntriesRelations = relations(financialEntries, ({ one }) => ({
   project: one(projects, { fields: [financialEntries.projectId], references: [projects.id] }),
+}));
+
+export const leadsRelations = relations(leads, ({ many }) => ({
+  proposals: many(proposals),
+}));
+
+export const proposalsRelations = relations(proposals, ({ one, many }) => ({
+  lead: one(leads, { fields: [proposals.leadId], references: [leads.id] }),
+  messages: many(scopeMessages),
+  files: many(proposalFiles),
+}));
+
+export const scopeMessagesRelations = relations(scopeMessages, ({ one }) => ({
+  proposal: one(proposals, { fields: [scopeMessages.proposalId], references: [proposals.id] }),
+}));
+
+export const proposalFilesRelations = relations(proposalFiles, ({ one }) => ({
+  proposal: one(proposals, { fields: [proposalFiles.proposalId], references: [proposals.id] }),
 }));

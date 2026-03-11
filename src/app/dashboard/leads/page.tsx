@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { Search, Trash2, ChevronDown } from 'lucide-react';
 import DataTable, { Column } from '@/components/dashboard/DataTable';
 import StatusBadge from '@/components/dashboard/StatusBadge';
-import Modal from '@/components/dashboard/Modal';
 
 interface Lead {
   id: number;
@@ -63,9 +63,9 @@ function StatusDropdown({ lead, onUpdate }: { lead: Lead; onUpdate: () => void }
 }
 
 export default function LeadsPage() {
+  const router = useRouter();
   const [leads, setLeads] = useState<Lead[]>([]);
   const [search, setSearch] = useState('');
-  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
   const fetchLeads = useCallback(async () => {
     const res = await fetch('/api/dashboard/leads');
@@ -82,15 +82,6 @@ export default function LeadsPage() {
   async function handleDelete(id: number) {
     if (!confirm('Delete this lead?')) return;
     await fetch(`/api/dashboard/leads/${id}`, { method: 'DELETE' });
-    fetchLeads();
-  }
-
-  async function handleNotesUpdate(lead: Lead, notes: string) {
-    await fetch(`/api/dashboard/leads/${lead.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...lead, notes }),
-    });
     fetchLeads();
   }
 
@@ -154,57 +145,8 @@ export default function LeadsPage() {
       <DataTable
         columns={columns}
         data={filtered}
-        onRowClick={(row) => setSelectedLead(row)}
+        onRowClick={(row) => router.push(`/dashboard/leads/${row.id}`)}
       />
-
-      <Modal
-        open={!!selectedLead}
-        onClose={() => setSelectedLead(null)}
-        title="Lead Details"
-      >
-        {selectedLead && (
-          <div className="space-y-4">
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Name</label>
-              <p className="text-charcoal mt-1">{selectedLead.name}</p>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Email</label>
-              <p className="text-charcoal mt-1">
-                <a href={`mailto:${selectedLead.email}`} className="text-honey hover:underline">{selectedLead.email}</a>
-              </p>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">What they want to build</label>
-              <p className="text-charcoal mt-1 whitespace-pre-wrap">{selectedLead.message}</p>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Status</label>
-              <div className="mt-1">
-                <StatusBadge status={selectedLead.status} />
-              </div>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Date</label>
-              <p className="text-charcoal mt-1">{new Date(selectedLead.createdAt).toLocaleString()}</p>
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Internal Notes</label>
-              <textarea
-                defaultValue={selectedLead.notes ?? ''}
-                onBlur={(e) => {
-                  if (e.target.value !== (selectedLead.notes ?? '')) {
-                    handleNotesUpdate(selectedLead, e.target.value);
-                  }
-                }}
-                rows={3}
-                placeholder="Add notes..."
-                className="w-full mt-1 px-3 py-2 rounded-xl border border-cream-dark bg-white text-sm text-charcoal placeholder:text-warm-gray-light focus:outline-none focus:ring-2 focus:ring-honey/30 focus:border-honey transition-all resize-none"
-              />
-            </div>
-          </div>
-        )}
-      </Modal>
     </div>
   );
 }
