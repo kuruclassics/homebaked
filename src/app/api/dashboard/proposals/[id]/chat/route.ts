@@ -41,7 +41,13 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const systemPrompt = buildSystemPrompt(proposal, lead, files);
 
-  const { messages }: { messages: UIMessage[] } = await request.json();
+  let messages: UIMessage[];
+  try {
+    const body = await request.json();
+    messages = body.messages;
+  } catch {
+    return new Response(JSON.stringify({ error: 'Invalid request body' }), { status: 400 });
+  }
 
   const result = streamText({
     model: anthropic('claude-sonnet-4-20250514'),
