@@ -177,11 +177,13 @@ export default function ScopingPage() {
   }
 
   async function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const selectedFiles = e.target.files;
+    if (!selectedFiles || selectedFiles.length === 0) return;
     setUploading(true);
     const formData = new FormData();
-    formData.append('file', file);
+    for (let i = 0; i < selectedFiles.length; i++) {
+      formData.append('file', selectedFiles[i]);
+    }
     await fetch(`/api/dashboard/proposals/${proposalId}/files`, {
       method: 'POST',
       body: formData,
@@ -371,7 +373,7 @@ export default function ScopingPage() {
           {/* Input */}
           <form onSubmit={handleSend} className="p-4 border-t border-cream-dark bg-white">
             <div className="flex items-end gap-2">
-              <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" />
+              <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.md,.json,.rtf,text/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
