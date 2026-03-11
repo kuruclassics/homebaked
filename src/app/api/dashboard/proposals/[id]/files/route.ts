@@ -13,37 +13,110 @@ export async function GET(_request: NextRequest, { params }: { params: Promise<{
   return NextResponse.json(rows);
 }
 
-const TEXT_TYPES = ['text/', 'application/json', 'application/csv', 'text/csv', 'text/markdown'];
+async function extractText(file: File): Promise<string | null> {
+  const name = file.name.toLowerCase();
+  const type = file.type;
+
+  // Plain text / markdown / csv / json
+  if (
+    type.startsWith('text/') ||
+    type === 'application/json' ||
+    type === 'application/csv' ||
+    name.endsWith('.md') || name.endsWith('.txt') || name.endsWith('.csv')
+  ) {
+    return await file.text();
+  }
+
+  // PDF
+  if (type === 'application/pdf' || name.endsWith('.pdf')) {
+    try {
+      const { PDFParse } = await import('pdf-parse');
+      const buffer = Buffer.from(await file.arrayBuffer());
+      const pdf = new PDFParse({ data: buffer });
+      const result = await pdf.getText();
+      return result.text;
+    } catch (e) {
+      console.error('PDF extraction failed:', e);
+      return null;
+    }
+  }
+
+  // DOCX
+  if (
+    type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+    name.endsWith('.docx')
+  ) {
+    try {
+      const mammoth = await import('mammoth');
+      const buffer = Buffer.from(await file.arrayBuffer());
+      const result = await mammoth.extractRawText({ buffer });
+      return result.value;
+    } catch (e) {
+      console.error('DOCX extraction failed:', e);
+      return null;
+    }
+  }
+
+  // DOC (old format) — limited support
+  if (type === 'application/msword' || name.endsWith('.doc')) {
+    // mammoth doesn't support .doc, just note it
+    return '[Binary .doc file — please convert to .docx for text extraction]';
+  }
+
+  // XLSX / XLS
+  if (
+    type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+    type === 'application/vnd.ms-excel' ||
+    name.endsWith('.xlsx') || name.endsWith('.xls')
+  ) {
+    try {
+      const XLSX = await import('xlsx');
+      const buffer = Buffer.from(await file.arrayBuffer());
+      const workbook = XLSX.read(buffer, { type: 'buffer' });
+      const sheets: string[] = [];
+      for (const sheetName of workbook.SheetNames) {
+        const sheet = workbook.Sheets[sheetName];
+        const csv = XLSX.utils.sheet_to_csv(sheet);
+        sheets.push(`## Sheet: ${sheetName}\n${csv}`);
+      }
+      return sheets.join('\n\n');
+    } catch (e) {
+      console.error('XLSX extraction failed:', e);
+      return null;
+    }
+  }
+
+  return null;
+}
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const formData = await request.formData();
-  const file = formData.get('file') as File | null;
+  const files = formData.getAll('file') as File[];
 
-  if (!file) {
-    return NextResponse.json({ error: 'No file provided' }, { status: 400 });
+  if (files.length === 0) {
+    return NextResponse.json({ error: 'No files provided' }, { status: 400 });
   }
 
-  const blob = await put(`proposals/${id}/${file.name}`, file, {
-    access: 'public',
-  });
+  const results = [];
+  for (const file of files) {
+    const blob = await put(`proposals/${id}/${file.name}`, file, {
+      access: 'public',
+    });
 
-  let textContent: string | null = null;
-  const isTextFile = TEXT_TYPES.some(t => file.type.startsWith(t)) ||
-    file.name.endsWith('.md') || file.name.endsWith('.txt') || file.name.endsWith('.csv');
+    const textContent = await extractText(file);
 
-  if (isTextFile) {
-    textContent = await file.text();
+    const result = await db.insert(proposalFiles).values({
+      proposalId: Number(id),
+      filename: file.name,
+      blobUrl: blob.url,
+      contentType: file.type || 'application/octet-stream',
+      sizeBytes: file.size,
+      textContent,
+    }).returning();
+
+    results.push(result[0]);
   }
 
-  const result = await db.insert(proposalFiles).values({
-    proposalId: Number(id),
-    filename: file.name,
-    blobUrl: blob.url,
-    contentType: file.type || 'application/octet-stream',
-    sizeBytes: file.size,
-    textContent,
-  }).returning();
-
-  return NextResponse.json(result[0], { status: 201 });
+  return NextResponse.json(results.length === 1 ? results[0] : results, { status: 201 });
 }
