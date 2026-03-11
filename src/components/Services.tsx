@@ -84,9 +84,9 @@ export default function Services() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="services" className="py-32 px-6 relative" style={{ background: "#EDE9E3" }}>
+    <section id="services" className="py-20 md:py-28 px-6 relative" style={{ background: "#EDE9E3" }}>
       {/* Section number watermark */}
-      <div className="absolute top-16 right-8 section-number">02</div>
+      <div className="absolute top-12 right-8 section-number hidden md:block">02</div>
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
@@ -94,10 +94,10 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
-          className="mb-20"
+          className="mb-12 md:mb-20"
         >
           <p className="text-honey text-sm font-medium tracking-widest uppercase mb-4">What We Build</p>
-          <h2 className="text-4xl md:text-5xl text-charcoal mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+          <h2 className="text-3xl md:text-5xl text-charcoal mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Tools that fit <span className="gradient-text italic">your business</span>
           </h2>
           <p className="text-warm-gray max-w-xl">
@@ -151,7 +151,7 @@ export default function Services() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-2 ml-[60px]">
+                      <div className="px-6 pb-6 pt-2 ml-0 md:ml-[60px]">
                         <p className="text-warm-gray leading-relaxed">{service.description}</p>
                       </div>
                     </motion.div>

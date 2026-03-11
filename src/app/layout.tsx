@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "HomeBaked — Custom Software for Your Business",
   description: "We build custom internal tools for small and medium businesses using AI. You think it. We build it.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
