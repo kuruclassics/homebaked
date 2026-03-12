@@ -91,7 +91,11 @@ export default function ProposalEditPage() {
   }
 
   function resetQuote() {
-    if (aiQuote) setQuote({ lineItems: aiQuote.lineItems.map(i => ({ ...i })), notes: aiQuote.notes });
+    if (aiQuote) setQuote({
+      lineItems: aiQuote.lineItems.map(i => ({ ...i })),
+      notes: aiQuote.notes,
+      ongoingSupport: aiQuote.ongoingSupport ? { ...aiQuote.ongoingSupport } : undefined,
+    });
   }
 
   // Timeline helpers
