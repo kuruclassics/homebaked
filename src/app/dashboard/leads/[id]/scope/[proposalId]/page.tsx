@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import { ArrowLeft, Send, Paperclip, Copy, ExternalLink, Check, Pencil, X, FileText, Upload, Loader2, AlertCircle, Trash2 } from 'lucide-react';
+import { upload } from '@vercel/blob/client';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -183,17 +184,29 @@ export default function ScopingPage() {
     setUploading(true);
     setUploadError(null);
     try {
-      const formData = new FormData();
+      const uploaded: { blobUrl: string; filename: string; contentType: string; sizeBytes: number }[] = [];
       for (let i = 0; i < selectedFiles.length; i++) {
-        formData.append('file', selectedFiles[i]);
+        const file = selectedFiles[i];
+        const blob = await upload(`proposals/${proposalId}/${file.name}`, file, {
+          access: 'public',
+          handleUploadUrl: `/api/dashboard/proposals/${proposalId}/files/upload`,
+        });
+        uploaded.push({
+          blobUrl: blob.url,
+          filename: file.name,
+          contentType: file.type || 'application/octet-stream',
+          sizeBytes: file.size,
+        });
       }
+      // Save metadata to DB
       const res = await fetch(`/api/dashboard/proposals/${proposalId}/files`, {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(uploaded),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => null);
-        throw new Error(body?.error || `Upload failed (${res.status})`);
+        throw new Error(body?.error || `Save failed (${res.status})`);
       }
       await fetchFiles();
     } catch (err) {
