@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { proposalFiles } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
-import { put } from '@vercel/blob';
 
 export async function GET(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -13,25 +12,26 @@ export async function GET(_request: NextRequest, { params }: { params: Promise<{
   return NextResponse.json(rows);
 }
 
-async function extractText(file: File): Promise<string | null> {
-  const name = file.name.toLowerCase();
-  const type = file.type;
+async function extractTextFromUrl(blobUrl: string, filename: string, contentType: string): Promise<string | null> {
+  const name = filename.toLowerCase();
 
   // Plain text / markdown / csv / json
   if (
-    type.startsWith('text/') ||
-    type === 'application/json' ||
-    type === 'application/csv' ||
+    contentType.startsWith('text/') ||
+    contentType === 'application/json' ||
+    contentType === 'application/csv' ||
     name.endsWith('.md') || name.endsWith('.txt') || name.endsWith('.csv')
   ) {
-    return await file.text();
+    const res = await fetch(blobUrl);
+    return await res.text();
   }
 
   // PDF
-  if (type === 'application/pdf' || name.endsWith('.pdf')) {
+  if (contentType === 'application/pdf' || name.endsWith('.pdf')) {
     try {
+      const res = await fetch(blobUrl);
+      const buffer = Buffer.from(await res.arrayBuffer());
       const { PDFParse } = await import('pdf-parse');
-      const buffer = Buffer.from(await file.arrayBuffer());
       const pdf = new PDFParse({ data: buffer });
       const result = await pdf.getText();
       return result.text;
@@ -43,12 +43,13 @@ async function extractText(file: File): Promise<string | null> {
 
   // DOCX
   if (
-    type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+    contentType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
     name.endsWith('.docx')
   ) {
     try {
       const mammoth = await import('mammoth');
-      const buffer = Buffer.from(await file.arrayBuffer());
+      const res = await fetch(blobUrl);
+      const buffer = Buffer.from(await res.arrayBuffer());
       const result = await mammoth.extractRawText({ buffer });
       return result.value;
     } catch (e) {
@@ -57,21 +58,21 @@ async function extractText(file: File): Promise<string | null> {
     }
   }
 
-  // DOC (old format) — limited support
-  if (type === 'application/msword' || name.endsWith('.doc')) {
-    // mammoth doesn't support .doc, just note it
+  // DOC (old format)
+  if (contentType === 'application/msword' || name.endsWith('.doc')) {
     return '[Binary .doc file — please convert to .docx for text extraction]';
   }
 
   // XLSX / XLS
   if (
-    type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
-    type === 'application/vnd.ms-excel' ||
+    contentType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||
+    contentType === 'application/vnd.ms-excel' ||
     name.endsWith('.xlsx') || name.endsWith('.xls')
   ) {
     try {
       const XLSX = await import('xlsx');
-      const buffer = Buffer.from(await file.arrayBuffer());
+      const res = await fetch(blobUrl);
+      const buffer = Buffer.from(await res.arrayBuffer());
       const workbook = XLSX.read(buffer, { type: 'buffer' });
       const sheets: string[] = [];
       for (const sheetName of workbook.SheetNames) {
@@ -89,10 +90,12 @@ async function extractText(file: File): Promise<string | null> {
   return null;
 }
 
+// POST accepts JSON metadata after client-side blob upload
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const formData = await request.formData();
-  const files = formData.getAll('file') as File[];
+  const body = await request.json();
+  const files: { blobUrl: string; filename: string; contentType: string; sizeBytes: number }[] =
+    Array.isArray(body) ? body : [body];
 
   if (files.length === 0) {
     return NextResponse.json({ error: 'No files provided' }, { status: 400 });
@@ -102,35 +105,31 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const errors = [];
   for (const file of files) {
     try {
-      const blob = await put(`proposals/${id}/${file.name}`, file, {
-        access: 'public',
-      });
-
       let textContent: string | null = null;
       try {
-        textContent = await extractText(file);
+        textContent = await extractTextFromUrl(file.blobUrl, file.filename, file.contentType);
       } catch (e) {
-        console.error(`Text extraction failed for ${file.name}:`, e);
+        console.error(`Text extraction failed for ${file.filename}:`, e);
       }
 
       const result = await db.insert(proposalFiles).values({
         proposalId: Number(id),
-        filename: file.name,
-        blobUrl: blob.url,
-        contentType: file.type || 'application/octet-stream',
-        sizeBytes: file.size,
+        filename: file.filename,
+        blobUrl: file.blobUrl,
+        contentType: file.contentType || 'application/octet-stream',
+        sizeBytes: file.sizeBytes,
         textContent,
       }).returning();
 
       results.push(result[0]);
     } catch (e) {
-      console.error(`Upload failed for ${file.name}:`, e);
-      errors.push(file.name);
+      console.error(`Save failed for ${file.filename}:`, e);
+      errors.push(file.filename);
     }
   }
 
   if (results.length === 0) {
-    return NextResponse.json({ error: `Upload failed for: ${errors.join(', ')}` }, { status: 500 });
+    return NextResponse.json({ error: `Failed for: ${errors.join(', ')}` }, { status: 500 });
   }
 
   return NextResponse.json(results.length === 1 ? results[0] : results, { status: 201 });
