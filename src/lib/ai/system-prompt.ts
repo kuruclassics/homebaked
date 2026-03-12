@@ -19,6 +19,15 @@ interface FileContext {
   blobUrl?: string;
 }
 
+// ~4 chars per token on average; cap file content to stay well within context limits
+const MAX_CHARS_PER_FILE = 60_000; // ~15k tokens per file
+const MAX_CHARS_ALL_FILES = 200_000; // ~50k tokens total for all files
+
+function truncateText(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  return text.slice(0, maxChars) + `\n\n... [Truncated — showing first ${Math.round(maxChars / 1000)}k of ${Math.round(text.length / 1000)}k characters]`;
+}
+
 export function buildSystemPrompt(
   proposal: ProposalContext,
   lead: LeadContext,
@@ -37,13 +46,22 @@ Your role is to help scope client projects by analyzing requirements, asking cla
 
 ## Current Proposal: "${proposal.title}" (Status: ${proposal.status})`);
 
-  // Add uploaded documents
+  // Add uploaded documents with truncation to avoid exceeding context limits
   if (files.length > 0) {
     parts.push('\n## Uploaded Reference Documents');
     parts.push(`The admin has uploaded ${files.length} file(s). Review and reference them in your analysis.`);
+    let totalCharsUsed = 0;
     for (const file of files) {
       if (file.textContent) {
-        parts.push(`\n### ${file.filename}\n\`\`\`\n${file.textContent}\n\`\`\``);
+        const remaining = MAX_CHARS_ALL_FILES - totalCharsUsed;
+        if (remaining <= 0) {
+          parts.push(`\n### ${file.filename}\n*(Content omitted — total file context limit reached. Ask the admin about this file if needed.)*`);
+          continue;
+        }
+        const maxForThis = Math.min(MAX_CHARS_PER_FILE, remaining);
+        const content = truncateText(file.textContent, maxForThis);
+        totalCharsUsed += content.length;
+        parts.push(`\n### ${file.filename}\n\`\`\`\n${content}\n\`\`\``);
       } else {
         parts.push(`\n### ${file.filename}\n*(File uploaded but text could not be extracted. The admin may need to re-upload or share key details from this file in chat.)*`);
       }
