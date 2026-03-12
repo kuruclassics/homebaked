@@ -32,7 +32,7 @@ export default function PrintPage() {
   useEffect(() => {
     if (!proposal) return;
     document.fonts.ready.then(() => {
-      setTimeout(() => window.print(), 300);
+      setTimeout(() => window.print(), 500);
     });
   }, [proposal]);
 
@@ -64,7 +64,7 @@ export default function PrintPage() {
         </button>
       </div>
 
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
+      <div style={{ margin: '0 auto', padding: '2rem' }}>
         <ProposalPrintView
           title={proposal.title}
           clientName={proposal.leadName}
