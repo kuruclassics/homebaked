@@ -111,6 +111,10 @@ body {
 @media print {
   @page {
     size: letter;
+    margin: 0.75in 0.75in;
+  }
+
+  @page :first {
     margin: 0.5in 0.75in;
   }
 

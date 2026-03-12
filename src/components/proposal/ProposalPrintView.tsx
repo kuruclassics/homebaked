@@ -52,13 +52,13 @@ function formatCurrency(amount: number) {
 
 const markdownComponents: Components = {
   h1: ({ children }) => (
-    <h1 style={{ fontFamily: FONTS.serif, fontSize: '0.95rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.6rem', marginBottom: '0.3rem' }}>{children}</h1>
+    <h1 style={{ fontFamily: FONTS.serif, fontSize: '0.95rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.6rem', marginBottom: '0.3rem', breakAfter: 'avoid', breakBefore: 'auto' }}>{children}</h1>
   ),
   h2: ({ children }) => (
-    <h2 style={{ fontFamily: FONTS.serif, fontSize: '0.85rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.5rem', marginBottom: '0.25rem' }}>{children}</h2>
+    <h2 style={{ fontFamily: FONTS.serif, fontSize: '0.85rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.5rem', marginBottom: '0.25rem', breakAfter: 'avoid' }}>{children}</h2>
   ),
   h3: ({ children }) => (
-    <h3 style={{ fontFamily: FONTS.serif, fontSize: '0.8rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.4rem', marginBottom: '0.2rem' }}>{children}</h3>
+    <h3 style={{ fontFamily: FONTS.serif, fontSize: '0.8rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.4rem', marginBottom: '0.2rem', breakAfter: 'avoid' }}>{children}</h3>
   ),
   p: ({ children }) => (
     <p style={{ fontSize: '0.75rem', lineHeight: 1.5, color: COLORS.muted, marginBottom: '0.35rem' }}>{children}</p>
