@@ -107,10 +107,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
             amount: z.number(),
           })).describe('Line items for the quote'),
           notes: z.string().describe('Additional notes, assumptions, or caveats'),
+          ongoingSupport: z.object({
+            monthlyRetainerAmount: z.number(),
+            hourlyRate: z.number(),
+          }).optional().describe('Ongoing support pricing: monthly retainer and hourly rate for self-hosted clients'),
         }),
-        execute: async ({ lineItems, notes }) => {
+        execute: async ({ lineItems, notes, ongoingSupport }) => {
           await db.update(proposals).set({
-            quote: JSON.stringify({ lineItems, notes }),
+            quote: JSON.stringify({ lineItems, notes, ongoingSupport }),
             updatedAt: new Date().toISOString(),
           }).where(eq(proposals.id, proposalId));
           return { success: true, artifact: 'quote' };

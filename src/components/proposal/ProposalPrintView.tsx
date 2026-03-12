@@ -20,6 +20,10 @@ interface Phase {
 interface QuoteData {
   lineItems: { name: string; description: string; amount: number }[];
   notes: string;
+  ongoingSupport?: {
+    monthlyRetainerAmount: number;
+    hourlyRate: number;
+  };
 }
 
 const COLORS = {
@@ -145,6 +149,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
   if (quoteData) sectionNumbers.deliverables = String(++sectionCounter).padStart(2, '0');
   if (phases.length > 0) sectionNumbers.timeline = String(++sectionCounter).padStart(2, '0');
   if (quoteData) sectionNumbers.investment = String(++sectionCounter).padStart(2, '0');
+  if (quoteData?.ongoingSupport) sectionNumbers.ongoingSupport = String(++sectionCounter).padStart(2, '0');
 
   // Cumulative week ranges
   let cumulativeWeeks = 0;
@@ -401,6 +406,73 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                     </tr>
                   </tfoot>
                 </table>
+              </div>
+            </section>
+          )}
+
+          {/* ── Ongoing Support ── */}
+          {quoteData?.ongoingSupport && (
+            <section className="print-section" style={{ marginBottom: '4rem' }}>
+              <SectionDivider number={sectionNumbers.ongoingSupport} label="Ongoing Support" />
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                {/* Option 1 — Monthly Retainer */}
+                <div style={{
+                  background: COLORS.cream,
+                  borderRadius: '0.5rem',
+                  borderTop: `4px solid ${COLORS.honey}4D`,
+                  padding: '1.5rem',
+                }}>
+                  <p style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.15em',
+                    color: COLORS.muted,
+                    textTransform: 'uppercase',
+                    marginBottom: '1rem',
+                    margin: '0 0 1rem 0',
+                  }}>
+                    &#9790; Option 1
+                  </p>
+                  <p style={{ fontSize: '1.875rem', fontWeight: 700, color: COLORS.honey, margin: '0 0 0.25rem 0' }}>
+                    {formatCurrency(quoteData.ongoingSupport.monthlyRetainerAmount)}
+                    <span style={{ fontSize: '1rem', fontWeight: 400, color: COLORS.muted }}>/mo</span>
+                  </p>
+                  <p style={{ fontSize: '0.875rem', fontWeight: 600, color: COLORS.charcoal, margin: '0.75rem 0 0.25rem 0' }}>
+                    Monthly Retainer
+                  </p>
+                  <p style={{ fontSize: '0.875rem', color: COLORS.muted, margin: 0 }}>
+                    Full technical support, hosting &amp; database storage
+                  </p>
+                </div>
+                {/* Option 2 — Self-Hosted */}
+                <div style={{
+                  background: COLORS.cream,
+                  borderRadius: '0.5rem',
+                  borderTop: `4px solid ${COLORS.charcoal}4D`,
+                  padding: '1.5rem',
+                }}>
+                  <p style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.15em',
+                    color: COLORS.muted,
+                    textTransform: 'uppercase',
+                    marginBottom: '1rem',
+                    margin: '0 0 1rem 0',
+                  }}>
+                    &#9790; Option 2
+                  </p>
+                  <p style={{ fontSize: '1.875rem', fontWeight: 700, color: COLORS.charcoal, margin: '0 0 0.25rem 0' }}>
+                    {formatCurrency(quoteData.ongoingSupport.hourlyRate)}
+                    <span style={{ fontSize: '1rem', fontWeight: 400, color: COLORS.muted }}>/hr</span>
+                  </p>
+                  <p style={{ fontSize: '0.875rem', fontWeight: 600, color: COLORS.charcoal, margin: '0.75rem 0 0.25rem 0' }}>
+                    Self-Hosted
+                  </p>
+                  <p style={{ fontSize: '0.875rem', color: COLORS.muted, margin: 0 }}>
+                    Client-owned hosting, support billed hourly
+                  </p>
+                </div>
               </div>
             </section>
           )}

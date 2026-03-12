@@ -610,7 +610,11 @@ function TimelineView({ data }: { data: string }) {
 
 function QuoteView({ data }: { data: string }) {
   try {
-    const quote = JSON.parse(data) as { lineItems: { name: string; description: string; amount: number }[]; notes: string };
+    const quote = JSON.parse(data) as {
+      lineItems: { name: string; description: string; amount: number }[];
+      notes: string;
+      ongoingSupport?: { monthlyRetainerAmount: number; hourlyRate: number };
+    };
     const total = quote.lineItems.reduce((sum, item) => sum + item.amount, 0);
     return (
       <div>
@@ -647,6 +651,21 @@ function QuoteView({ data }: { data: string }) {
         </div>
         {quote.notes && (
           <p className="text-xs text-warm-gray mt-3 italic">{quote.notes}</p>
+        )}
+        {quote.ongoingSupport && (
+          <div className="mt-4">
+            <h4 className="text-xs font-semibold text-warm-gray uppercase tracking-wider mb-2">Ongoing Support</h4>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-cream/50 rounded-lg border border-cream-dark p-3">
+                <p className="text-xs text-warm-gray mb-1">Monthly Retainer</p>
+                <p className="text-sm font-bold text-honey">${quote.ongoingSupport.monthlyRetainerAmount.toLocaleString()}/mo</p>
+              </div>
+              <div className="bg-cream/50 rounded-lg border border-cream-dark p-3">
+                <p className="text-xs text-warm-gray mb-1">Self-Hosted Rate</p>
+                <p className="text-sm font-bold text-charcoal">${quote.ongoingSupport.hourlyRate.toLocaleString()}/hr</p>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     );
