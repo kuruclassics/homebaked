@@ -207,9 +207,9 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
               </div>
             </div>
 
-            {/* PRD Content — single column for reliable print flow */}
+            {/* PRD Content — 2-column condensed */}
             {clientPrd && (
-              <div style={{ marginBottom: '1.25rem' }}>
+              <div style={{ columns: 2, columnGap: '1.5rem', marginBottom: '1.25rem' }}>
                 <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                   {clientPrd}
                 </ReactMarkdown>
