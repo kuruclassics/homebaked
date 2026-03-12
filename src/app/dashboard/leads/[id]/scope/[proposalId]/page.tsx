@@ -94,15 +94,27 @@ export default function ScopingPage() {
     [proposalId],
   );
 
-  const mappedInitialMessages = useMemo(
-    () => initialMessages?.map((m: SavedMessage) => ({
-      id: String(m.id),
-      role: m.role as 'user' | 'assistant',
-      parts: [{ type: 'text' as const, text: m.content }],
-      createdAt: new Date(),
-    })),
-    [initialMessages],
-  );
+  // Merge consecutive same-role messages (tool-call persistence strips tool parts,
+  // leaving consecutive assistant messages which breaks Anthropic's alternation rule)
+  const mappedInitialMessages = useMemo(() => {
+    if (!initialMessages) return undefined;
+    const merged: { id: string; role: 'user' | 'assistant'; parts: { type: 'text'; text: string }[]; createdAt: Date }[] = [];
+    for (const m of initialMessages) {
+      const prev = merged[merged.length - 1];
+      if (prev && prev.role === m.role) {
+        // Merge into previous message
+        prev.parts[0] = { type: 'text' as const, text: prev.parts[0].text + '\n\n' + m.content };
+      } else {
+        merged.push({
+          id: String(m.id),
+          role: m.role as 'user' | 'assistant',
+          parts: [{ type: 'text' as const, text: m.content }],
+          createdAt: new Date(),
+        });
+      }
+    }
+    return merged;
+  }, [initialMessages]);
 
   const { messages, sendMessage, status, error } = useChat({
     transport,
