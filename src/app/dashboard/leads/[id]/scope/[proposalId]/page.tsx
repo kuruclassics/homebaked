@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
-import { ArrowLeft, Send, Paperclip, Copy, ExternalLink, Check, Pencil, X, FileText } from 'lucide-react';
+import { ArrowLeft, Send, Paperclip, Copy, ExternalLink, Check, Pencil, X, FileText, Upload, Loader2, AlertCircle, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -60,6 +60,7 @@ export default function ScopingPage() {
   const [statusOpen, setStatusOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [input, setInput] = useState('');
   const [initialMessages, setInitialMessages] = useState<SavedMessage[] | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -180,17 +181,27 @@ export default function ScopingPage() {
     const selectedFiles = e.target.files;
     if (!selectedFiles || selectedFiles.length === 0) return;
     setUploading(true);
-    const formData = new FormData();
-    for (let i = 0; i < selectedFiles.length; i++) {
-      formData.append('file', selectedFiles[i]);
+    setUploadError(null);
+    try {
+      const formData = new FormData();
+      for (let i = 0; i < selectedFiles.length; i++) {
+        formData.append('file', selectedFiles[i]);
+      }
+      const res = await fetch(`/api/dashboard/proposals/${proposalId}/files`, {
+        method: 'POST',
+        body: formData,
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error || `Upload failed (${res.status})`);
+      }
+      await fetchFiles();
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : 'Upload failed');
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
     }
-    await fetch(`/api/dashboard/proposals/${proposalId}/files`, {
-      method: 'POST',
-      body: formData,
-    });
-    setUploading(false);
-    fetchFiles();
-    if (fileInputRef.current) fileInputRef.current.value = '';
   }
 
   async function deleteFile(fileId: number) {
@@ -302,20 +313,79 @@ export default function ScopingPage() {
       <div className="flex flex-1 overflow-hidden">
         {/* Left panel - Chat */}
         <div className="w-[60%] flex flex-col border-r border-cream-dark">
-          {/* Files bar */}
-          {files.length > 0 && (
-            <div className="px-4 py-2 border-b border-cream-dark bg-cream/30 flex items-center gap-2 flex-wrap">
-              {files.map(f => (
-                <span key={f.id} className="inline-flex items-center gap-1 px-2 py-1 bg-white rounded-lg border border-cream-dark text-xs text-warm-gray">
-                  <FileText className="w-3 h-3" />
-                  {f.filename}
-                  <button onClick={() => deleteFile(f.id)} className="ml-1 hover:text-red-500">
-                    <X className="w-3 h-3" />
-                  </button>
+          {/* Attached Files Section */}
+          <div className="border-b border-cream-dark bg-cream/20 shrink-0">
+            <div className="px-4 py-2 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Paperclip className="w-3.5 h-3.5 text-warm-gray-light" />
+                <span className="text-xs font-semibold text-warm-gray uppercase tracking-wide">
+                  Attached Files
                 </span>
-              ))}
+                {files.length > 0 && (
+                  <span className="px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-honey/10 text-honey">
+                    {files.length}
+                  </span>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploading}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg text-honey hover:bg-honey/5 transition-colors disabled:opacity-50"
+              >
+                {uploading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Upload className="w-3 h-3" />}
+                {uploading ? 'Uploading...' : 'Add Files'}
+              </button>
             </div>
-          )}
+
+            {uploadError && (
+              <div className="mx-4 mb-2 px-3 py-2 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-xs text-red-700">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                {uploadError}
+                <button onClick={() => setUploadError(null)} className="ml-auto hover:text-red-900">
+                  <X className="w-3 h-3" />
+                </button>
+              </div>
+            )}
+
+            {files.length > 0 ? (
+              <div className="px-4 pb-3 flex flex-col gap-1.5">
+                {files.map(f => (
+                  <div key={f.id} className="flex items-center gap-3 px-3 py-2 bg-white rounded-lg border border-cream-dark group">
+                    <div className="w-7 h-7 rounded-md bg-honey/10 flex items-center justify-center shrink-0">
+                      <FileText className="w-3.5 h-3.5 text-honey" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-charcoal truncate">{f.filename}</p>
+                      <p className="text-[11px] text-warm-gray-light">
+                        {f.sizeBytes < 1024
+                          ? `${f.sizeBytes} B`
+                          : f.sizeBytes < 1048576
+                            ? `${(f.sizeBytes / 1024).toFixed(1)} KB`
+                            : `${(f.sizeBytes / 1048576).toFixed(1)} MB`}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => deleteFile(f.id)}
+                      className="p-1.5 rounded-md text-warm-gray-light opacity-0 group-hover:opacity-100 hover:text-red-500 hover:bg-red-50 transition-all"
+                      title="Remove file"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="px-4 pb-3">
+                <div className="flex items-center gap-3 px-3 py-3 rounded-lg border border-dashed border-cream-dark text-center">
+                  <FileText className="w-4 h-4 text-warm-gray-light shrink-0" />
+                  <p className="text-xs text-warm-gray-light">
+                    No files attached. Upload reference docs so the AI can review them.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -383,15 +453,6 @@ export default function ScopingPage() {
           <form onSubmit={handleSend} className="p-4 border-t border-cream-dark bg-white">
             <div className="flex items-end gap-2">
               <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,.md,.json,.rtf,text/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploading}
-                className="p-2.5 rounded-xl border border-cream-dark text-warm-gray hover:text-honey hover:border-honey/30 transition-colors disabled:opacity-50"
-                title="Upload file"
-              >
-                <Paperclip className="w-4 h-4" />
-              </button>
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
