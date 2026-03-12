@@ -64,16 +64,14 @@ export default function PrintPage() {
         </button>
       </div>
 
-      <div style={{ margin: '0 auto', padding: '2rem' }}>
-        <ProposalPrintView
-          title={proposal.title}
-          clientName={proposal.leadName}
-          date={proposal.createdAt}
-          clientPrd={proposal.clientPrd}
-          timeline={proposal.clientTimelineOverride || proposal.timeline}
-          quote={proposal.clientQuoteOverride || proposal.quote}
-        />
-      </div>
+      <ProposalPrintView
+        title={proposal.title}
+        clientName={proposal.leadName}
+        date={proposal.createdAt}
+        clientPrd={proposal.clientPrd}
+        timeline={proposal.clientTimelineOverride || proposal.timeline}
+        quote={proposal.clientQuoteOverride || proposal.quote}
+      />
     </>
   );
 }
