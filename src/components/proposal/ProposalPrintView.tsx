@@ -207,9 +207,9 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
               </div>
             </div>
 
-            {/* PRD Content — 2-column condensed */}
+            {/* PRD Content — single column for reliable print flow */}
             {clientPrd && (
-              <div style={{ columns: 2, columnGap: '1.5rem', marginBottom: '1.25rem' }}>
+              <div style={{ marginBottom: '1.25rem' }}>
                 <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
                   {clientPrd}
                 </ReactMarkdown>
@@ -382,8 +382,21 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
               </table>
             </div>
 
-            {/* Ongoing Support — inline below table, no section divider */}
-            {quoteData.ongoingSupport && (
+            {/* Ongoing Support */}
+            {quoteData.ongoingSupport && (<>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                <span style={{ height: '1px', flex: 1, background: `${COLORS.honey}4D` }} />
+                <span style={{
+                  fontSize: '0.65rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.15em',
+                  color: COLORS.honey,
+                  textTransform: 'uppercase',
+                }}>
+                  Ongoing Support
+                </span>
+                <span style={{ height: '1px', flex: 1, background: `${COLORS.honey}4D` }} />
+              </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
                 <div style={{
                   background: COLORS.cream,
@@ -440,7 +453,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                   </p>
                 </div>
               </div>
-            )}
+            </>)}
 
             {/* Terms & Conditions + Signature */}
             <section style={{ paddingTop: '1rem', borderTop: `1px solid ${COLORS.border}` }}>

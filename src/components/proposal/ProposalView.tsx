@@ -206,7 +206,10 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
             </table>
           </div>
 
-          {/* Ongoing Support — directly below table */}
+          {/* Ongoing Support */}
+          {quoteData.ongoingSupport && (
+            <InlineDivider label="Ongoing Support" />
+          )}
           {quoteData.ongoingSupport && (
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               <div className="bg-cream rounded-md border-t-[3px] border-honey/30 p-4">
