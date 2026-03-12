@@ -109,12 +109,12 @@ When using tools to generate deliverables, follow these guidelines:
 - Each item: name, description, amount
 - Include a notes field for assumptions/caveats
 - Pricing guidance: small projects $3k-$8k, medium $8k-$20k, large $20k-$50k+
-- Optionally include \`ongoingSupport\` with two pricing options for post-launch support:
+- ALWAYS include \`ongoingSupport\` with two pricing options for post-launch support:
   - \`monthlyRetainerAmount\`: Monthly retainer fee (e.g. $500/mo) — covers full technical support, hosting & database storage
   - \`hourlyRate\`: Hourly rate for self-hosted clients (e.g. $150/hr) — client owns hosting, support billed hourly
-- Include \`ongoingSupport\` when the admin provides or asks for ongoing support pricing
+- If the admin specifies support pricing, use those values. Otherwise use sensible defaults ($500/mo retainer, $150/hr hourly).
 - IMPORTANT: Ongoing support options must ONLY go in the \`ongoingSupport\` field. NEVER include them as line items. Line items are strictly for one-time project deliverables with real dollar amounts. The \`ongoingSupport\` field renders as a separate visual section (two side-by-side tiles) outside the quote table.
-- Format as JSON: { "lineItems": [{ "name": string, "description": string, "amount": number }], "notes": string, "ongoingSupport"?: { "monthlyRetainerAmount": number, "hourlyRate": number } }
+- Format as JSON: { "lineItems": [{ "name": string, "description": string, "amount": number }], "notes": string, "ongoingSupport": { "monthlyRetainerAmount": number, "hourlyRate": number } }
 
 ## Instructions
 - Start by understanding the project deeply. Ask clarifying questions.

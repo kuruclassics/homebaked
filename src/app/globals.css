@@ -137,6 +137,14 @@ body {
     page-break-inside: avoid;
   }
 
+  /* Allow proposal content to flow across pages */
+  .print-flow-wrapper {
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
   .print-prose h1,
   .print-prose h2,
   .print-prose h3 {

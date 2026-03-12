@@ -110,7 +110,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
           ongoingSupport: z.object({
             monthlyRetainerAmount: z.number(),
             hourlyRate: z.number(),
-          }).optional().describe('Ongoing support pricing: monthly retainer and hourly rate for self-hosted clients'),
+          }).default({ monthlyRetainerAmount: 500, hourlyRate: 150 }).describe('Ongoing support pricing: monthly retainer and hourly rate for self-hosted clients. Always include.'),
         }),
         execute: async ({ lineItems, notes, ongoingSupport }) => {
           await db.update(proposals).set({

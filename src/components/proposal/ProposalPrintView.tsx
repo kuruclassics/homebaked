@@ -134,7 +134,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
 
   return (
     <div style={{ fontFamily: FONTS.sans, color: COLORS.charcoal, maxWidth: '64rem', margin: '0 auto' }}>
-      <div style={{
+      <div className="print-flow-wrapper" style={{
         background: COLORS.white,
         borderRadius: '0.75rem',
         overflow: 'hidden',
@@ -143,9 +143,9 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
       }}>
 
         {/* ═══════════════════════════════════════════════
-            PAGE 1 — Overview + Deliverables
+            PAGE 1 — Overview
         ═══════════════════════════════════════════════ */}
-        <div className="print-cover">
+        <div>
           {/* Header */}
           <header style={{
             padding: '1.5rem 2rem',
