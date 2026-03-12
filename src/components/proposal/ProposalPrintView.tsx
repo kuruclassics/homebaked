@@ -207,14 +207,24 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
               </div>
             </div>
 
-            {/* PRD Content — 2-column condensed */}
-            {clientPrd && (
-              <div className="prd-columns" style={{ columns: 2, columnGap: '1.5rem', marginBottom: '1.25rem' }}>
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-                  {clientPrd}
-                </ReactMarkdown>
-              </div>
-            )}
+            {/* PRD Content — split into sections for reliable page breaks */}
+            {clientPrd && (() => {
+              // Split markdown into sections at heading boundaries so each
+              // section lives in its own div with break-inside: avoid.
+              // This gives Chrome's print engine hard boundaries to break between.
+              const sections = clientPrd.split(/(?=^#{1,3}\s)/m);
+              return (
+                <div className="prd-columns" style={{ columns: 2, columnGap: '1.5rem', marginBottom: '1.25rem' }}>
+                  {sections.map((section, i) => (
+                    <div key={i} style={{ breakInside: 'avoid', pageBreakInside: 'avoid' }}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                        {section.trim()}
+                      </ReactMarkdown>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
 
           </div>
         </div>
