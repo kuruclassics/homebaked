@@ -136,4 +136,18 @@ body {
   .print-no-break {
     page-break-inside: avoid;
   }
+
+  .print-prose h1,
+  .print-prose h2,
+  .print-prose h3 {
+    page-break-after: avoid;
+  }
+
+  .print-prose table {
+    page-break-inside: avoid;
+  }
+
+  .print-table-together {
+    page-break-inside: avoid;
+  }
 }
