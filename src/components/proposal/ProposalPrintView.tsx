@@ -245,7 +245,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
 
           {/* ── 02. Deliverables ── */}
           {quoteData && (
-            <section style={{ marginBottom: '4rem' }}>
+            <section className="print-section" style={{ marginBottom: '4rem' }}>
               <SectionDivider number={sectionNumbers.deliverables} label="Deliverables" />
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
                 {quoteData.lineItems.map((item, i) => (
@@ -478,7 +478,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
           )}
 
           {/* ── Terms & Conditions ── */}
-          <section style={{ paddingTop: '2rem', borderTop: `1px solid ${COLORS.border}` }}>
+          <section className="print-section" style={{ paddingTop: '2rem', borderTop: `1px solid ${COLORS.border}` }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
               <div>
                 <h4 style={{
