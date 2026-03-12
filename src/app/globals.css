@@ -111,7 +111,7 @@ body {
 @media print {
   @page {
     size: letter;
-    margin: 0.75in 1in;
+    margin: 0.5in 0.75in;
   }
 
   body {
