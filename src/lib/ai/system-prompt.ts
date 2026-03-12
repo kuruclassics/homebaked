@@ -109,7 +109,11 @@ When using tools to generate deliverables, follow these guidelines:
 - Each item: name, description, amount
 - Include a notes field for assumptions/caveats
 - Pricing guidance: small projects $3k-$8k, medium $8k-$20k, large $20k-$50k+
-- Format as JSON: { "lineItems": [{ "name": string, "description": string, "amount": number }], "notes": string }
+- Optionally include \`ongoingSupport\` with two pricing options for post-launch support:
+  - \`monthlyRetainerAmount\`: Monthly retainer fee (e.g. $500/mo) — covers full technical support, hosting & database storage
+  - \`hourlyRate\`: Hourly rate for self-hosted clients (e.g. $150/hr) — client owns hosting, support billed hourly
+- Include \`ongoingSupport\` when the admin provides or asks for ongoing support pricing
+- Format as JSON: { "lineItems": [{ "name": string, "description": string, "amount": number }], "notes": string, "ongoingSupport"?: { "monthlyRetainerAmount": number, "hourlyRate": number } }
 
 ## Instructions
 - Start by understanding the project deeply. Ask clarifying questions.

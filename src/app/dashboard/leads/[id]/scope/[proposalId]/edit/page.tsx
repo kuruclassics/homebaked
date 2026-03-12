@@ -18,9 +18,15 @@ interface LineItem {
   amount: number;
 }
 
+interface OngoingSupport {
+  monthlyRetainerAmount: number;
+  hourlyRate: number;
+}
+
 interface Quote {
   lineItems: LineItem[];
   notes: string;
+  ongoingSupport?: OngoingSupport;
 }
 
 export default function ProposalEditPage() {
@@ -61,12 +67,19 @@ export default function ProposalEditPage() {
 
   async function handleSave() {
     setSaving(true);
+    // Omit ongoingSupport if both values are 0 or empty
+    const quoteToSave = { ...quote };
+    if (quoteToSave.ongoingSupport &&
+        !quoteToSave.ongoingSupport.monthlyRetainerAmount &&
+        !quoteToSave.ongoingSupport.hourlyRate) {
+      delete quoteToSave.ongoingSupport;
+    }
     await fetch(`/api/dashboard/proposals/${proposalId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         clientTimelineOverride: JSON.stringify(timeline),
-        clientQuoteOverride: JSON.stringify(quote),
+        clientQuoteOverride: JSON.stringify(quoteToSave),
       }),
     });
     setSaving(false);
@@ -305,6 +318,76 @@ export default function ProposalEditPage() {
             className="w-full mt-2 px-3 py-2 rounded-xl border border-cream-dark text-sm text-charcoal placeholder:text-warm-gray-light focus:outline-none focus:ring-2 focus:ring-honey/30 resize-none"
           />
         </div>
+      </div>
+
+      {/* Ongoing Support Editor */}
+      <div className="bg-white rounded-2xl border border-cream-dark p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold text-charcoal">Ongoing Support</h2>
+          {quote.ongoingSupport && (
+            <button
+              onClick={() => setQuote(prev => {
+                const { ongoingSupport: _, ...rest } = prev;
+                return rest as Quote;
+              })}
+              className="inline-flex items-center gap-1 text-xs text-warm-gray hover:text-red-500 transition-colors"
+            >
+              <Trash2 className="w-3 h-3" /> Remove
+            </button>
+          )}
+        </div>
+
+        {quote.ongoingSupport ? (
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Monthly Retainer ($)</label>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-sm text-warm-gray">$</span>
+                <input
+                  type="number"
+                  value={quote.ongoingSupport.monthlyRetainerAmount}
+                  onChange={(e) => setQuote(prev => ({
+                    ...prev,
+                    ongoingSupport: { ...prev.ongoingSupport!, monthlyRetainerAmount: Number(e.target.value) },
+                  }))}
+                  className="w-full px-3 py-1.5 rounded-lg border border-cream-dark text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-honey/30"
+                  min={0}
+                  placeholder="500"
+                />
+                <span className="text-xs text-warm-gray">/mo</span>
+              </div>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-warm-gray uppercase tracking-wider">Hourly Rate ($)</label>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-sm text-warm-gray">$</span>
+                <input
+                  type="number"
+                  value={quote.ongoingSupport.hourlyRate}
+                  onChange={(e) => setQuote(prev => ({
+                    ...prev,
+                    ongoingSupport: { ...prev.ongoingSupport!, hourlyRate: Number(e.target.value) },
+                  }))}
+                  className="w-full px-3 py-1.5 rounded-lg border border-cream-dark text-sm text-charcoal focus:outline-none focus:ring-2 focus:ring-honey/30"
+                  min={0}
+                  placeholder="150"
+                />
+                <span className="text-xs text-warm-gray">/hr</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => setQuote(prev => ({
+              ...prev,
+              ongoingSupport: { monthlyRetainerAmount: 0, hourlyRate: 0 },
+            }))}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-honey hover:text-honey-dark transition-colors"
+          >
+            <Plus className="w-4 h-4" />
+            Add Ongoing Support
+          </button>
+        )}
       </div>
     </div>
   );

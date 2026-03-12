@@ -20,6 +20,10 @@ interface Phase {
 interface QuoteData {
   lineItems: { name: string; description: string; amount: number }[];
   notes: string;
+  ongoingSupport?: {
+    monthlyRetainerAmount: number;
+    hourlyRate: number;
+  };
 }
 
 function formatCurrency(amount: number) {
@@ -73,6 +77,7 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
   if (quoteData) sectionNumbers.deliverables = String(++sectionCounter).padStart(2, '0');
   if (phases.length > 0) sectionNumbers.timeline = String(++sectionCounter).padStart(2, '0');
   if (quoteData) sectionNumbers.investment = String(++sectionCounter).padStart(2, '0');
+  if (quoteData?.ongoingSupport) sectionNumbers.ongoingSupport = String(++sectionCounter).padStart(2, '0');
 
   // Cumulative week ranges for timeline
   let cumulativeWeeks = 0;
@@ -217,6 +222,43 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
                   </tr>
                 </tfoot>
               </table>
+            </div>
+          </section>
+        )}
+
+        {/* ── Ongoing Support ── */}
+        {quoteData?.ongoingSupport && (
+          <section>
+            <SectionDivider number={sectionNumbers.ongoingSupport} label="Ongoing Support" />
+            <div className="grid sm:grid-cols-2 gap-6">
+              {/* Option 1 — Monthly Retainer */}
+              <div className="bg-cream rounded-lg border-t-4 border-honey/30 p-6">
+                <p className="text-xs font-bold tracking-[0.15em] text-warm-gray uppercase mb-4">
+                  &#9790; Option 1
+                </p>
+                <p className="text-3xl font-bold text-honey mb-1">
+                  {formatCurrency(quoteData.ongoingSupport.monthlyRetainerAmount)}
+                  <span className="text-base font-normal text-warm-gray">/mo</span>
+                </p>
+                <p className="text-sm font-semibold text-charcoal mt-3 mb-1">Monthly Retainer</p>
+                <p className="text-sm text-warm-gray">
+                  Full technical support, hosting &amp; database storage
+                </p>
+              </div>
+              {/* Option 2 — Self-Hosted */}
+              <div className="bg-cream rounded-lg border-t-4 border-charcoal/30 p-6">
+                <p className="text-xs font-bold tracking-[0.15em] text-warm-gray uppercase mb-4">
+                  &#9790; Option 2
+                </p>
+                <p className="text-3xl font-bold text-charcoal mb-1">
+                  {formatCurrency(quoteData.ongoingSupport.hourlyRate)}
+                  <span className="text-base font-normal text-warm-gray">/hr</span>
+                </p>
+                <p className="text-sm font-semibold text-charcoal mt-3 mb-1">Self-Hosted</p>
+                <p className="text-sm text-warm-gray">
+                  Client-owned hosting, support billed hourly
+                </p>
+              </div>
             </div>
           </section>
         )}
