@@ -99,23 +99,38 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   }
 
   const results = [];
+  const errors = [];
   for (const file of files) {
-    const blob = await put(`proposals/${id}/${file.name}`, file, {
-      access: 'public',
-    });
+    try {
+      const blob = await put(`proposals/${id}/${file.name}`, file, {
+        access: 'public',
+      });
 
-    const textContent = await extractText(file);
+      let textContent: string | null = null;
+      try {
+        textContent = await extractText(file);
+      } catch (e) {
+        console.error(`Text extraction failed for ${file.name}:`, e);
+      }
 
-    const result = await db.insert(proposalFiles).values({
-      proposalId: Number(id),
-      filename: file.name,
-      blobUrl: blob.url,
-      contentType: file.type || 'application/octet-stream',
-      sizeBytes: file.size,
-      textContent,
-    }).returning();
+      const result = await db.insert(proposalFiles).values({
+        proposalId: Number(id),
+        filename: file.name,
+        blobUrl: blob.url,
+        contentType: file.type || 'application/octet-stream',
+        sizeBytes: file.size,
+        textContent,
+      }).returning();
 
-    results.push(result[0]);
+      results.push(result[0]);
+    } catch (e) {
+      console.error(`Upload failed for ${file.name}:`, e);
+      errors.push(file.name);
+    }
+  }
+
+  if (results.length === 0) {
+    return NextResponse.json({ error: `Upload failed for: ${errors.join(', ')}` }, { status: 500 });
   }
 
   return NextResponse.json(results.length === 1 ? results[0] : results, { status: 201 });
