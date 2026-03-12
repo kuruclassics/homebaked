@@ -61,13 +61,13 @@ const markdownComponents: Components = {
     <h3 style={{ fontFamily: FONTS.serif, fontSize: '0.8rem', fontWeight: 700, color: COLORS.charcoal, marginTop: '0.4rem', marginBottom: '0.2rem', breakAfter: 'avoid' }}>{children}</h3>
   ),
   p: ({ children }) => (
-    <p style={{ fontSize: '0.75rem', lineHeight: 1.5, color: COLORS.muted, marginBottom: '0.35rem' }}>{children}</p>
+    <p style={{ fontSize: '0.75rem', lineHeight: 1.5, color: COLORS.muted, marginBottom: '0.35rem', breakInside: 'avoid' }}>{children}</p>
   ),
   ul: ({ children }) => (
-    <ul style={{ paddingLeft: '1rem', marginBottom: '0.35rem' }}>{children}</ul>
+    <ul style={{ paddingLeft: '1rem', marginBottom: '0.35rem', breakInside: 'avoid' }}>{children}</ul>
   ),
   ol: ({ children }) => (
-    <ol style={{ paddingLeft: '1rem', marginBottom: '0.35rem' }}>{children}</ol>
+    <ol style={{ paddingLeft: '1rem', marginBottom: '0.35rem', breakInside: 'avoid' }}>{children}</ol>
   ),
   li: ({ children }) => (
     <li style={{ fontSize: '0.75rem', lineHeight: 1.5, color: COLORS.muted, marginBottom: '0.1rem' }}>{children}</li>
