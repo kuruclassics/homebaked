@@ -276,6 +276,15 @@ export default function ScopingPage() {
             {copied ? 'Copied!' : 'Copy Link'}
           </button>
 
+          <button
+            onClick={() => window.open(`/dashboard/leads/${leadId}/scope/${proposalId}/print`, '_blank')}
+            disabled={!proposal.clientPrd && !proposal.timeline && !proposal.quote}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-honey text-white hover:bg-honey-dark transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            Generate PDF
+          </button>
+
           {(proposal.status === 'ready' || proposal.status === 'sent') && (
             <Link
               href={`/proposal/${proposal.slug}`}

@@ -106,3 +106,34 @@ body {
   width: 100%;
   height: auto;
 }
+
+/* Print styles */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.75in 1in;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .noise-overlay,
+  .print-hide {
+    display: none !important;
+  }
+
+  .print-cover {
+    page-break-after: always;
+  }
+
+  .print-section {
+    page-break-before: always;
+  }
+
+  .print-no-break {
+    page-break-inside: avoid;
+  }
+}
