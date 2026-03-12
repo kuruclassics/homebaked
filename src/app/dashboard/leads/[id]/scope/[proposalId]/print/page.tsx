@@ -70,7 +70,21 @@ export default function PrintPage() {
         date={proposal.createdAt}
         clientPrd={proposal.clientPrd}
         timeline={proposal.clientTimelineOverride || proposal.timeline}
-        quote={proposal.clientQuoteOverride || proposal.quote}
+        quote={(() => {
+          const base = proposal.clientQuoteOverride || proposal.quote;
+          if (!base || !proposal.quote) return base;
+          try {
+            const parsed = JSON.parse(base);
+            if (!parsed.ongoingSupport) {
+              const original = JSON.parse(proposal.quote);
+              if (original.ongoingSupport) {
+                parsed.ongoingSupport = original.ongoingSupport;
+                return JSON.stringify(parsed);
+              }
+            }
+          } catch { /* */ }
+          return base;
+        })()}
       />
     </>
   );

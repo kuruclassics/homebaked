@@ -104,7 +104,7 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
 
       <div className="p-6 md:p-8">
         {/* Title + Prepared For — side by side */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
           <h3 className="text-2xl font-semibold text-charcoal">{title}</h3>
           <div className="bg-cream px-4 py-3 rounded-md border border-honey/10 shrink-0">
             <span className="text-[0.6rem] font-bold uppercase tracking-wider text-warm-gray">Prepared For</span>
@@ -119,23 +119,6 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
           </div>
         )}
 
-        {/* Deliverables Grid */}
-        {quoteData && (
-          <>
-            <InlineDivider label="Deliverables" />
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {quoteData.lineItems.map((item, i) => (
-                <div key={i} className="border border-gray-100 p-4 rounded-md hover:border-honey/50 transition-colors">
-                  <div className="w-7 h-7 bg-cream rounded flex items-center justify-center mb-2">
-                    <span className="text-xs font-bold text-honey">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  <h4 className="font-bold text-charcoal text-sm mb-1">{item.name}</h4>
-                  <p className="text-xs text-warm-gray leading-relaxed">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
       </div>
 
       {/* ═══════════════════════════════════════════════
@@ -146,7 +129,7 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
           <InlineDivider label="Project Timeline" />
           <div className="relative">
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-100 md:left-1/2" />
-            <div className="space-y-8">
+            <div className="space-y-6">
               {phases.map((phase, i) => {
                 const isEven = i % 2 === 0;
                 const dotColor = isEven ? 'bg-honey' : 'bg-charcoal';
@@ -157,15 +140,6 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
                         <div className="flex-1 w-full md:text-right md:pr-10">
                           <h4 className="font-bold text-charcoal text-sm">{phase.phase}</h4>
                           <p className="text-xs text-warm-gray">{phase.description}</p>
-                          {phase.milestones && phase.milestones.length > 0 && (
-                            <div className="mt-1.5 flex flex-wrap md:justify-end gap-1">
-                              {phase.milestones.map((m, mi) => (
-                                <span key={mi} className="text-[0.6rem] text-warm-gray bg-cream px-1.5 py-0.5 rounded">
-                                  {m}
-                                </span>
-                              ))}
-                            </div>
-                          )}
                         </div>
                         <div className={`absolute left-4 md:left-1/2 w-3.5 h-3.5 ${dotColor} rounded-full -translate-x-1.5 md:-translate-x-2 border-[3px] border-white`} />
                         <div className="flex-1 w-full pl-10 md:pl-10 mt-1.5 md:mt-0">
@@ -185,15 +159,6 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
                         <div className="flex-1 w-full order-1 md:order-2 pl-10 md:pl-10">
                           <h4 className="font-bold text-charcoal text-sm">{phase.phase}</h4>
                           <p className="text-xs text-warm-gray">{phase.description}</p>
-                          {phase.milestones && phase.milestones.length > 0 && (
-                            <div className="mt-1.5 flex flex-wrap gap-1">
-                              {phase.milestones.map((m, mi) => (
-                                <span key={mi} className="text-[0.6rem] text-warm-gray bg-cream px-1.5 py-0.5 rounded">
-                                  {m}
-                                </span>
-                              ))}
-                            </div>
-                          )}
                         </div>
                       </>
                     )}

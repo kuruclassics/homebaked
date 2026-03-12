@@ -30,6 +30,23 @@ export default async function PublicProposalPage({ params }: { params: Promise<{
 
   const proposal = rows[0];
 
+  // Merge ongoingSupport from original quote if override is missing it
+  const mergedQuote = (() => {
+    const base = proposal.clientQuoteOverride || proposal.quote;
+    if (!base || !proposal.quote) return base;
+    try {
+      const parsed = JSON.parse(base);
+      if (!parsed.ongoingSupport) {
+        const original = JSON.parse(proposal.quote);
+        if (original.ongoingSupport) {
+          parsed.ongoingSupport = original.ongoingSupport;
+          return JSON.stringify(parsed);
+        }
+      }
+    } catch { /* */ }
+    return base;
+  })();
+
   return (
     <ProposalView
       title={proposal.title}
@@ -37,7 +54,7 @@ export default async function PublicProposalPage({ params }: { params: Promise<{
       date={proposal.createdAt}
       clientPrd={proposal.clientPrd}
       timeline={proposal.clientTimelineOverride || proposal.timeline}
-      quote={proposal.clientQuoteOverride || proposal.quote}
+      quote={mergedQuote}
     />
   );
 }

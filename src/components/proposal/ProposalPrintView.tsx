@@ -188,7 +188,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
 
           <div style={{ padding: '1.5rem 2rem' }}>
             {/* Title + Prepared For — side by side compact */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
               <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: COLORS.charcoal, margin: 0, flex: 1 }}>
                 {title}
               </h3>
@@ -216,50 +216,6 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
               </div>
             )}
 
-            {/* Deliverables Grid */}
-            {quoteData && (
-              <>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                  <span style={{ height: '1px', flex: 1, background: `${COLORS.honey}4D` }} />
-                  <span style={{
-                    fontSize: '0.6rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.15em',
-                    color: COLORS.honey,
-                    textTransform: 'uppercase',
-                  }}>
-                    Deliverables
-                  </span>
-                  <span style={{ height: '1px', flex: 1, background: `${COLORS.honey}4D` }} />
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
-                  {quoteData.lineItems.map((item, i) => (
-                    <div key={i} style={{
-                      border: `1px solid ${COLORS.border}`,
-                      padding: '0.75rem',
-                      borderRadius: '0.375rem',
-                    }}>
-                      <div style={{
-                        width: '1.5rem',
-                        height: '1.5rem',
-                        background: COLORS.cream,
-                        borderRadius: '0.2rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginBottom: '0.4rem',
-                      }}>
-                        <span style={{ fontSize: '0.65rem', fontWeight: 700, color: COLORS.honey }}>
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                      </div>
-                      <h4 style={{ fontWeight: 700, color: COLORS.charcoal, fontSize: '0.8rem', margin: '0 0 0.2rem 0' }}>{item.name}</h4>
-                      <p style={{ fontSize: '0.7rem', color: COLORS.muted, margin: 0, lineHeight: 1.4 }}>{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
           </div>
         </div>
 
@@ -291,7 +247,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                 width: '2px',
                 background: COLORS.border,
               }} />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {phases.map((phase, i) => {
                   const isEven = i % 2 === 0;
                   const dotColor = isEven ? COLORS.honey : COLORS.charcoal;
@@ -300,26 +256,8 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                       {isEven ? (
                         <>
                           <div style={{ flex: 1, textAlign: 'right', paddingRight: '2.5rem' }}>
-                            <h4 style={{ fontWeight: 700, color: COLORS.charcoal, margin: '0 0 0.2rem 0', fontSize: '0.9rem' }}>{phase.phase}</h4>
-                            <p style={{ fontSize: '0.8rem', color: COLORS.muted, margin: 0 }}>{phase.description}</p>
-                            {phase.milestones && phase.milestones.length > 0 && (
-                              <div style={{ marginTop: '0.4rem' }}>
-                                {phase.milestones.map((m, mi) => (
-                                  <span key={mi} style={{
-                                    display: 'inline-block',
-                                    fontSize: '0.6rem',
-                                    color: COLORS.muted,
-                                    background: COLORS.cream,
-                                    padding: '0.1rem 0.35rem',
-                                    borderRadius: '0.2rem',
-                                    marginRight: '0.25rem',
-                                    marginBottom: '0.15rem',
-                                  }}>
-                                    {m}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
+                            <h4 style={{ fontWeight: 700, color: COLORS.charcoal, margin: '0 0 0.2rem 0', fontSize: '0.85rem' }}>{phase.phase}</h4>
+                            <p style={{ fontSize: '0.75rem', color: COLORS.muted, margin: 0 }}>{phase.description}</p>
                           </div>
                           <div style={{
                             position: 'absolute',
@@ -375,26 +313,8 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                             boxSizing: 'content-box',
                           }} />
                           <div style={{ flex: 1, paddingLeft: '2.5rem' }}>
-                            <h4 style={{ fontWeight: 700, color: COLORS.charcoal, margin: '0 0 0.2rem 0', fontSize: '0.9rem' }}>{phase.phase}</h4>
-                            <p style={{ fontSize: '0.8rem', color: COLORS.muted, margin: 0 }}>{phase.description}</p>
-                            {phase.milestones && phase.milestones.length > 0 && (
-                              <div style={{ marginTop: '0.4rem' }}>
-                                {phase.milestones.map((m, mi) => (
-                                  <span key={mi} style={{
-                                    display: 'inline-block',
-                                    fontSize: '0.6rem',
-                                    color: COLORS.muted,
-                                    background: COLORS.cream,
-                                    padding: '0.1rem 0.35rem',
-                                    borderRadius: '0.2rem',
-                                    marginRight: '0.25rem',
-                                    marginBottom: '0.15rem',
-                                  }}>
-                                    {m}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
+                            <h4 style={{ fontWeight: 700, color: COLORS.charcoal, margin: '0 0 0.2rem 0', fontSize: '0.85rem' }}>{phase.phase}</h4>
+                            <p style={{ fontSize: '0.75rem', color: COLORS.muted, margin: 0 }}>{phase.description}</p>
                           </div>
                         </>
                       )}
