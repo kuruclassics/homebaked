@@ -130,6 +130,8 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
   try {
     if (quote) {
       quoteData = JSON.parse(quote);
+      // Filter out $0 items (e.g. ongoing support options mistakenly added as line items)
+      quoteData!.lineItems = quoteData!.lineItems.filter(item => item.amount > 0);
       totalAmount = quoteData!.lineItems.reduce((sum, item) => sum + item.amount, 0);
     }
   } catch { /* */ }
