@@ -18,6 +18,13 @@ interface LineItem {
   amount: number;
 }
 
+// Edit state uses string for amount so the input can hold intermediate values like "-"
+interface LineItemEdit {
+  name: string;
+  description: string;
+  amount: string;
+}
+
 interface OngoingSupport {
   monthlyRetainerAmount: number;
   hourlyRate: number;
@@ -25,6 +32,12 @@ interface OngoingSupport {
 
 interface Quote {
   lineItems: LineItem[];
+  notes: string;
+  ongoingSupport?: OngoingSupport;
+}
+
+interface QuoteEdit {
+  lineItems: LineItemEdit[];
   notes: string;
   ongoingSupport?: OngoingSupport;
 }
@@ -41,7 +54,7 @@ export default function ProposalEditPage() {
 
   // Editable versions
   const [timeline, setTimeline] = useState<Phase[]>([]);
-  const [quote, setQuote] = useState<Quote>({ lineItems: [], notes: '' });
+  const [quote, setQuote] = useState<QuoteEdit>({ lineItems: [], notes: '' });
 
   const fetchProposal = useCallback(async () => {
     const res = await fetch(`/api/dashboard/proposals/${proposalId}`);
@@ -59,7 +72,11 @@ export default function ProposalEditPage() {
     const overrideQuote = data.clientQuoteOverride ? JSON.parse(data.clientQuoteOverride) : null;
 
     setTimeline(overrideTimeline || parsedTimeline || []);
-    setQuote(overrideQuote || parsedQuote || { lineItems: [], notes: '' });
+    const rawQuote: Quote = overrideQuote || parsedQuote || { lineItems: [], notes: '' };
+    setQuote({
+      ...rawQuote,
+      lineItems: rawQuote.lineItems.map((item: LineItem) => ({ ...item, amount: String(item.amount) })),
+    });
     setLoading(false);
   }, [proposalId]);
 
@@ -67,8 +84,11 @@ export default function ProposalEditPage() {
 
   async function handleSave() {
     setSaving(true);
-    // Omit ongoingSupport if both values are 0 or empty
-    const quoteToSave = { ...quote };
+    // Convert string amounts back to numbers for storage
+    const quoteToSave: Quote = {
+      ...quote,
+      lineItems: quote.lineItems.map(item => ({ ...item, amount: parseFloat(item.amount) || 0 })),
+    };
     if (quoteToSave.ongoingSupport &&
         !quoteToSave.ongoingSupport.monthlyRetainerAmount &&
         !quoteToSave.ongoingSupport.hourlyRate) {
@@ -97,7 +117,7 @@ export default function ProposalEditPage() {
 
   function resetQuote() {
     if (aiQuote) setQuote({
-      lineItems: aiQuote.lineItems.map(i => ({ ...i })),
+      lineItems: aiQuote.lineItems.map(i => ({ ...i, amount: String(i.amount) })),
       notes: aiQuote.notes,
       ongoingSupport: aiQuote.ongoingSupport ? { ...aiQuote.ongoingSupport } : undefined,
     });
@@ -135,7 +155,7 @@ export default function ProposalEditPage() {
   }
 
   // Quote helpers
-  function updateLineItem(index: number, updates: Partial<LineItem>) {
+  function updateLineItem(index: number, updates: Partial<LineItemEdit>) {
     setQuote(prev => ({
       ...prev,
       lineItems: prev.lineItems.map((item, i) => i === index ? { ...item, ...updates } : item),
@@ -143,14 +163,14 @@ export default function ProposalEditPage() {
   }
 
   function addLineItem() {
-    setQuote(prev => ({ ...prev, lineItems: [...prev.lineItems, { name: '', description: '', amount: 0 }] }));
+    setQuote(prev => ({ ...prev, lineItems: [...prev.lineItems, { name: '', description: '', amount: '' }] }));
   }
 
   function removeLineItem(index: number) {
     setQuote(prev => ({ ...prev, lineItems: prev.lineItems.filter((_, i) => i !== index) }));
   }
 
-  const total = quote.lineItems.reduce((sum, item) => sum + item.amount, 0);
+  const total = quote.lineItems.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
   const totalWeeks = timeline.reduce((sum, p) => sum + p.weeks, 0);
 
   if (loading) return <div className="animate-pulse text-warm-gray p-8">Loading...</div>;
@@ -306,10 +326,11 @@ export default function ProposalEditPage() {
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-sm text-warm-gray">$</span>
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="decimal"
                   value={item.amount}
-                  onChange={(e) => { if (e.target.value !== '') updateLineItem(i, { amount: Number(e.target.value) }); }}
-                  className={`w-24 px-2 py-1.5 rounded-lg border border-cream-dark text-sm text-right focus:outline-none focus:ring-2 focus:ring-honey/30 ${item.amount < 0 ? 'text-red-500' : 'text-charcoal'}`}
+                  onChange={(e) => updateLineItem(i, { amount: e.target.value })}
+                  className={`w-24 px-2 py-1.5 rounded-lg border border-cream-dark text-sm text-right focus:outline-none focus:ring-2 focus:ring-honey/30 ${parseFloat(item.amount) < 0 ? 'text-red-500' : 'text-charcoal'}`}
                 />
                 <button onClick={() => removeLineItem(i)} className="p-1.5 text-warm-gray hover:text-red-500 transition-colors">
                   <Trash2 className="w-4 h-4" />
