@@ -375,7 +375,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
                         <div style={{ fontWeight: 500, color: COLORS.charcoal, fontSize: '0.85rem' }}>{item.name}</div>
                         <div style={{ fontSize: '0.7rem', color: COLORS.muted }}>{item.description}</div>
                       </td>
-                      <td style={{ padding: '0.5rem 1rem', textAlign: 'right', fontWeight: 500, fontSize: '0.85rem' }}>
+                      <td style={{ padding: '0.5rem 1rem', textAlign: 'right', fontWeight: 500, fontSize: '0.85rem', color: item.amount < 0 ? '#16a34a' : COLORS.charcoal }}>
                         {formatCurrency(item.amount)}
                       </td>
                     </tr>

@@ -608,6 +608,10 @@ function TimelineView({ data }: { data: string }) {
   }
 }
 
+function formatCurrency(n: number) {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n);
+}
+
 function QuoteView({ data }: { data: string }) {
   try {
     const quote = JSON.parse(data) as {
@@ -635,8 +639,8 @@ function QuoteView({ data }: { data: string }) {
                     <div className="font-medium text-charcoal">{item.name}</div>
                     <div className="text-xs text-warm-gray mt-0.5">{item.description}</div>
                   </td>
-                  <td className="px-4 py-3 text-right text-charcoal font-medium">
-                    ${item.amount.toLocaleString()}
+                  <td className={`px-4 py-3 text-right font-medium ${item.amount < 0 ? 'text-green-600' : 'text-charcoal'}`}>
+                    {formatCurrency(item.amount)}
                   </td>
                 </tr>
               ))}
@@ -645,7 +649,7 @@ function QuoteView({ data }: { data: string }) {
               <tr className="bg-cream/30">
                 <td className="px-4 py-3 font-semibold text-charcoal">Total</td>
                 <td className="px-4 py-3 text-right font-bold text-honey text-lg">
-                  ${total.toLocaleString()}
+                  {formatCurrency(total)}
                 </td>
               </tr>
             </tfoot>
