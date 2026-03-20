@@ -87,9 +87,8 @@ export default function ProposalEditPage() {
       alert('Failed to save changes. Please try again.');
       return;
     }
-    // Bust the Next.js router cache so the scope page re-fetches fresh data
-    router.refresh();
-    router.push(`/dashboard/leads/${leadId}/scope/${proposalId}`);
+    // Hard navigate so the scope page fully remounts and re-fetches fresh data
+    window.location.href = `/dashboard/leads/${leadId}/scope/${proposalId}`;
   }
 
   function resetTimeline() {
@@ -278,8 +277,7 @@ export default function ProposalEditPage() {
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ clientQuoteOverride: null }),
                 });
-                router.refresh();
-                router.push(`/dashboard/leads/${leadId}/scope/${proposalId}`);
+                window.location.href = `/dashboard/leads/${leadId}/scope/${proposalId}`;
               }}
               className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-600 transition-colors"
             >
