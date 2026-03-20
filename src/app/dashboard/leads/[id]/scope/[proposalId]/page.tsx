@@ -553,7 +553,7 @@ export default function ScopingPage() {
             )}
             {activeTab === 'quote' && (
               (proposal.clientQuoteOverride || proposal.quote) ? (
-                <QuoteView data={proposal.clientQuoteOverride || proposal.quote} />
+                <QuoteView data={(proposal.clientQuoteOverride || proposal.quote)!} />
               ) : (
                 <EmptyArtifact label="Quote" />
               )
