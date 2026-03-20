@@ -68,7 +68,7 @@ export default function ScopingPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchProposal = useCallback(async () => {
-    const res = await fetch(`/api/dashboard/proposals/${proposalId}`);
+    const res = await fetch(`/api/dashboard/proposals/${proposalId}`, { cache: 'no-store' });
     if (res.ok) setProposal(await res.json());
   }, [proposalId]);
 
@@ -552,7 +552,7 @@ export default function ScopingPage() {
               )
             )}
             {activeTab === 'quote' && (
-              proposal.quote ? (
+              (proposal.clientQuoteOverride || proposal.quote) ? (
                 <QuoteView data={proposal.clientQuoteOverride || proposal.quote} />
               ) : (
                 <EmptyArtifact label="Quote" />
