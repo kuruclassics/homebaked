@@ -310,7 +310,7 @@ export default function ProposalEditPage() {
                 <input
                   type="number"
                   value={item.amount}
-                  onChange={(e) => updateLineItem(i, { amount: Number(e.target.value) })}
+                  onChange={(e) => { if (e.target.value !== '') updateLineItem(i, { amount: Number(e.target.value) }); }}
                   className={`w-24 px-2 py-1.5 rounded-lg border border-cream-dark text-sm text-right focus:outline-none focus:ring-2 focus:ring-honey/30 ${item.amount < 0 ? 'text-red-500' : 'text-charcoal'}`}
                 />
                 <button onClick={() => removeLineItem(i)} className="p-1.5 text-warm-gray hover:text-red-500 transition-colors">

@@ -110,7 +110,7 @@ export default function ProposalPrintView({ title, clientName, date, clientPrd, 
   try {
     if (quote) {
       quoteData = JSON.parse(quote);
-      quoteData!.lineItems = quoteData!.lineItems.filter(item => item.amount !== 0);
+      quoteData!.lineItems = quoteData!.lineItems.filter(item => item.name?.trim() || item.amount !== 0);
       totalAmount = quoteData!.lineItems.reduce((sum, item) => sum + item.amount, 0);
     }
   } catch { /* */ }
