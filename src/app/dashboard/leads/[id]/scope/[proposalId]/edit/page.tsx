@@ -264,11 +264,28 @@ export default function ProposalEditPage() {
       <div className="bg-white rounded-2xl border border-cream-dark p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-charcoal">Quote</h2>
-          {aiQuote && (
-            <button onClick={resetQuote} className="inline-flex items-center gap-1 text-xs text-warm-gray hover:text-honey transition-colors">
-              <RotateCcw className="w-3 h-3" /> Reset
+          <div className="flex items-center gap-3">
+            {aiQuote && (
+              <button onClick={resetQuote} className="inline-flex items-center gap-1 text-xs text-warm-gray hover:text-honey transition-colors">
+                <RotateCcw className="w-3 h-3" /> Reset
+              </button>
+            )}
+            <button
+              onClick={async () => {
+                if (!confirm('This will remove your manual edits and allow AI to regenerate the quote. Continue?')) return;
+                await fetch(`/api/dashboard/proposals/${proposalId}`, {
+                  method: 'PUT',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ clientQuoteOverride: null }),
+                });
+                router.refresh();
+                router.push(`/dashboard/leads/${leadId}/scope/${proposalId}`);
+              }}
+              className="inline-flex items-center gap-1 text-xs text-red-400 hover:text-red-600 transition-colors"
+            >
+              <RotateCcw className="w-3 h-3" /> Discard manual edits
             </button>
-          )}
+          </div>
         </div>
 
         <div className="space-y-3">

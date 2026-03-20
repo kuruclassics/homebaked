@@ -553,7 +553,15 @@ export default function ScopingPage() {
             )}
             {activeTab === 'quote' && (
               (proposal.clientQuoteOverride || proposal.quote) ? (
-                <QuoteView data={(proposal.clientQuoteOverride || proposal.quote)!} />
+                <>
+                  {proposal.clientQuoteOverride && (
+                    <div className="mb-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-honey/10 border border-honey/20 text-xs text-honey">
+                      <Pencil className="w-3 h-3 shrink-0" />
+                      Showing manually edited version · AI regeneration locked
+                    </div>
+                  )}
+                  <QuoteView data={(proposal.clientQuoteOverride || proposal.quote)!} />
+                </>
               ) : (
                 <EmptyArtifact label="Quote" />
               )

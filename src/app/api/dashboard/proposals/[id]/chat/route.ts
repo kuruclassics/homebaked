@@ -113,6 +113,18 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
           }).default({ monthlyRetainerAmount: 500, hourlyRate: 150 }).describe('Ongoing support pricing: monthly retainer and hourly rate for self-hosted clients. Always include.'),
         }),
         execute: async ({ lineItems, notes, ongoingSupport }) => {
+          const [row] = await db
+            .select({ clientQuoteOverride: proposals.clientQuoteOverride })
+            .from(proposals)
+            .where(eq(proposals.id, proposalId));
+
+          if (row?.clientQuoteOverride) {
+            return {
+              locked: true,
+              message: 'This quote has manual edits — AI regeneration is disabled to protect them. Use the Edit button to make changes, or click "Discard manual edits" in the editor to allow AI to regenerate.',
+            };
+          }
+
           await db.update(proposals).set({
             quote: JSON.stringify({ lineItems, notes, ongoingSupport }),
             updatedAt: new Date().toISOString(),
