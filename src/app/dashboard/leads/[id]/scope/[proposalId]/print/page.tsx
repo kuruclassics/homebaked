@@ -24,7 +24,7 @@ export default function PrintPage() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch(`/api/dashboard/proposals/${proposalId}`);
+      const res = await fetch(`/api/dashboard/proposals/${proposalId}`, { cache: 'no-store' });
       if (res.ok) setProposal(await res.json());
     })();
   }, [proposalId]);

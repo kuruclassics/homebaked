@@ -74,7 +74,7 @@ export default function ProposalEditPage() {
         !quoteToSave.ongoingSupport.hourlyRate) {
       delete quoteToSave.ongoingSupport;
     }
-    await fetch(`/api/dashboard/proposals/${proposalId}`, {
+    const res = await fetch(`/api/dashboard/proposals/${proposalId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -83,6 +83,12 @@ export default function ProposalEditPage() {
       }),
     });
     setSaving(false);
+    if (!res.ok) {
+      alert('Failed to save changes. Please try again.');
+      return;
+    }
+    // Bust the Next.js router cache so the scope page re-fetches fresh data
+    router.refresh();
     router.push(`/dashboard/leads/${leadId}/scope/${proposalId}`);
   }
 

@@ -3,6 +3,8 @@ import { db } from '@/lib/db';
 import { proposals, leads, scopeMessages, proposalFiles } from '@/lib/db/schema';
 import { eq, count } from 'drizzle-orm';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const rows = await db
