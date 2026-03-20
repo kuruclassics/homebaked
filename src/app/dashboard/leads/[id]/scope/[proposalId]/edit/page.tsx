@@ -373,7 +373,7 @@ export default function ProposalEditPage() {
             <button
               onClick={() => setQuote(prev => {
                 const { ongoingSupport: _, ...rest } = prev;
-                return rest as Quote;
+                return rest as QuoteEdit;
               })}
               className="inline-flex items-center gap-1 text-xs text-warm-gray hover:text-red-500 transition-colors"
             >
