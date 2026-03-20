@@ -616,7 +616,7 @@ function QuoteView({ data }: { data: string }) {
       ongoingSupport?: { monthlyRetainerAmount: number; hourlyRate: number };
     };
     // Filter out $0 items (e.g. ongoing support options mistakenly added as line items)
-    quote.lineItems = quote.lineItems.filter(item => item.amount > 0);
+    quote.lineItems = quote.lineItems.filter(item => item.amount !== 0);
     const total = quote.lineItems.reduce((sum, item) => sum + item.amount, 0);
     return (
       <div>

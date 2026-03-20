@@ -59,7 +59,7 @@ export default function ProposalView({ title, clientName, date, clientPrd, timel
   try {
     if (quote) {
       quoteData = JSON.parse(quote);
-      quoteData!.lineItems = quoteData!.lineItems.filter(item => item.amount > 0);
+      quoteData!.lineItems = quoteData!.lineItems.filter(item => item.amount !== 0);
       totalAmount = quoteData!.lineItems.reduce((sum, item) => sum + item.amount, 0);
     }
   } catch { /* */ }
