@@ -3,6 +3,14 @@ import { jwtVerify } from 'jose';
 
 const SESSION_COOKIE = 'dashboard_session';
 
+// PLACEHOLDER MODE: the real app is temporarily dark to the public.
+// Only the placeholder homepage and the assets it needs are servable;
+// every other path (dashboard, autopilot, proposals, previews, outreach,
+// APIs, client preview subdomains) 404s. Flip to false to bring the
+// full site back online.
+const PLACEHOLDER_MODE = true;
+const PLACEHOLDER_ALLOWED_PATHS = new Set(['/', '/favicon.svg', '/favicon.ico', '/logo.svg']);
+
 function getSecret() {
   const secret = process.env.JWT_SECRET;
   if (!secret) throw new Error('JWT_SECRET is not set');
@@ -10,8 +18,16 @@ function getSecret() {
 }
 
 export async function middleware(request: NextRequest) {
-  const host = request.headers.get('host') || '';
   const { pathname } = request.nextUrl;
+
+  if (PLACEHOLDER_MODE) {
+    if (PLACEHOLDER_ALLOWED_PATHS.has(pathname) || pathname.startsWith('/_next')) {
+      return NextResponse.next();
+    }
+    return new NextResponse(null, { status: 404 });
+  }
+
+  const host = request.headers.get('host') || '';
 
   // Handle subdomain routing for preview sites: *.sites.homebaked.dev
   const subdomainMatch = host.match(/^([a-z0-9-]+)\.sites\.homebaked\.dev$/);
@@ -60,5 +76,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon\\.ico|mockup-|outreach/).*)'],
+  matcher: ['/((?!_next).*)'],
 };

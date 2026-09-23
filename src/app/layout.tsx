@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HomeBaked — Custom Software for Your Business",
-  description: "We build custom internal tools for small and medium businesses using AI. You think it. We build it.",
+  title: "HomeBaked AI Ideas",
+  description: "Baking, baking... something new is on the way.",
   icons: {
     icon: "/favicon.svg",
   },

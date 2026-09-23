@@ -1,27 +1,22 @@
-import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Services from "@/components/Services";
-import Showcase from "@/components/Showcase";
-import WhyHomeBaked from "@/components/WhyHomeBaked";
-import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative">
-      <Navbar />
-      <Hero />
-      <HowItWorks />
-      <Services />
-      <Showcase />
-      <WhyHomeBaked />
-      <Testimonials />
-      <Pricing />
-      <FinalCTA />
-      <Footer />
+    <main className="relative flex min-h-screen flex-col items-center justify-center bg-cream px-6 text-center">
+      <Image
+        src="/logo.svg"
+        alt="HomeBaked AI Ideas"
+        width={96}
+        height={96}
+        className="mb-8 h-24 w-24 rounded-2xl shadow-lg"
+        priority
+      />
+      <h1 className="font-serif text-3xl font-semibold text-charcoal sm:text-4xl">
+        HomeBaked AI Ideas
+      </h1>
+      <p className="mt-4 animated-gradient-text text-lg font-medium sm:text-xl">
+        Baking, Baking&hellip;
+      </p>
     </main>
   );
 }
